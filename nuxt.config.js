@@ -54,7 +54,7 @@ export default {
   },
 
   publicRuntimeConfig: { // for client
-    baseURL: process.env.NODE_ENV === 'development' ? 'http://localhost/' : 'http://localhost/',
+    baseURL: process.env.NODE_ENV === 'development' ? 'http://localhost/' : 'https://cms.gdtnbvu.club/',
   },
   privateRuntimeConfig: { // for server
 
