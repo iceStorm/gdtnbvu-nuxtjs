@@ -21,7 +21,7 @@
     <div id="posts-grids">
       <div class="posts-grid left">
         <a v-for="post in leftPosts" :key="post.id"
-          :href="'/news/' + post.slug" class="posts-grid-item" target="_blank"
+          :href="'/news/' + post.slug" class="posts-grid-item"
           >
 
           <img :src="post.meta.wide_thumbnail || post.meta.thumbnail"
@@ -32,7 +32,7 @@
 
       <div class="posts-grid right">
         <a v-for="post in rightPosts" :key="post.id"
-          :href="'/news/' + post.slug" class="posts-grid-item" target="_blank"
+          :href="'/news/' + post.slug" class="posts-grid-item"
           >
           <img :src="post.meta.wide_thumbnail || post.meta.thumbnail"
           class="posts-grid-item-thumbnail">
