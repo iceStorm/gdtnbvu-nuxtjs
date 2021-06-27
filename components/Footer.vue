@@ -1,0 +1,328 @@
+<i18n>
+{
+  "vi": {
+    "footer": {
+      "mailRegister": {
+        "caption": "Nhận bài đăng mới qua email.",
+        "inputPlaceholder": "Nhập địa chỉ email",
+        "registerButtonTitle": "Đăng ký"
+      },
+      "memberRegister": {
+        "caption": "Chưa tham gia đội tình nguyện ?",
+        "registerButtonTitle": "Đăng ký gia nhập"
+      }
+    }
+  },
+  "en": {
+    "footer": {
+      "mailRegister": {
+        "caption": "Interested in our articles ?",
+        "inputPlaceholder": "Enter your email",
+        "registerButtonTitle": "Receive Newsletters"
+      },
+      "memberRegister": {
+        "caption": "Not joined the team yet ?",
+        "registerButtonTitle": "Register member"
+      }
+    }
+  }
+}
+</i18n>
+
+<template>
+  <footer id="footer">
+    <div id="footer-mail-register">
+      <div class="inner-page">
+        <div>
+          <h1>{{ $t('footer.mailRegister.caption') }}</h1>
+          <form>
+            <input
+              id="txt-mail-register"
+              type="email" required
+              :placeholder="$t('footer.mailRegister.inputPlaceholder')">
+
+            <input type="submit" class="btn"
+              @submit.prevent="registerNewsletter"
+              :value="$t('footer.mailRegister.registerButtonTitle')">
+          </form>
+        </div>
+
+        <div>
+          <h1>{{ $t('footer.memberRegister.caption') }}</h1>
+          <span>
+            <a class="btn" target="_blank"
+              :href="$store.state.meta.contact.register_form">
+              {{ $t('footer.memberRegister.registerButtonTitle') }}
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer-main">
+      <div class="inner-page">
+        <section class="footer-main-section contact">
+          <h4 class="footer-main-section-title">Đội tình nguyện BVU</h4>
+          <div class="footer-main-section-content">
+            <div class="contact-default">
+              <div class="contact-item">
+                <span class="text">Địa chỉ:</span>
+                <span class="text">{{ $store.state.meta.contact.address }}</span>
+              </div>
+
+              <div class="contact-item">
+                <span class="text">Số điện thoại:</span>
+                <span class="text">{{ $store.state.meta.contact.phone }}</span>
+              </div>
+
+              <div class="contact-item">
+                <span class="text">E-mail:</span>
+                <span class="text">{{ $store.state.meta.contact.email }}</span>
+              </div>
+            </div>
+
+            <div class="contact-social" style="padding-top: 35px;">
+              <h4 class="footer-main-section-title">Mạng xã hội</h4>
+              <div class="contact-social-content">
+                <a v-for="item in $store.state.meta.social_media_links"
+                  :key="item.social_link"
+                  :href="hrefExtract(item.social_link)">
+                  {{ item.social_name }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="footer-main-section links">
+          <h4 class="footer-main-section-title">Liên kết</h4>
+          <ul class="footer-main-section-content">
+            <li v-for="item in $store.state.menu.items" :key="item.href">
+              <nuxt-link :to="item.href">{{ item.title }}</nuxt-link>
+            </li>
+          </ul>
+        </section>
+
+        <section class="footer-main-section legals">
+          <h4 class="footer-main-section-title">Chính sách</h4>
+          <ul class="footer-main-section-content">
+            <li v-for="item in $store.state.menu.items" :key="item.href">
+              <nuxt-link :to="item.href">{{ item.title }}</nuxt-link>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <div id="footer-copyright">
+      <div class="inner-page">
+        <span>Copyright &copy; 2021 - {{ $t('title') }}</span>
+        <span></span>
+        <!-- <span>Made by WordPress & NuxtJS with 💚</span> -->
+        <div id="footer-config-buttons">
+          <color-mode-switcher></color-mode-switcher>
+          <language-switcher></language-switcher>
+        </div>
+      </div>
+    </div>
+  </footer>
+</template>
+
+<script lang="ts">
+import Vue from 'vue';
+import ColorModeSwitcher from './ColorModeSwitcher.vue';
+import LanguageSwitcher from './LanguageSwitcher.vue';
+
+export default Vue.extend({
+  components: {
+    LanguageSwitcher,
+    ColorModeSwitcher,
+  },
+  methods: {
+    registerNeletter() {
+      console.log('clicked');
+    },
+    openMemberRegisterForm() {
+
+    },
+  },
+});
+</script>
+
+<style lang="scss">
+  #footer {
+    border-top: 1px solid #eee;
+    position: relative;
+    z-index: 1;
+
+    &-mail-register {
+      position: relative;
+      overflow: hidden;
+
+      &:before {
+        content: "";
+
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        background: url('/lobby-images/2019.jpg') no-repeat;
+        background-size: cover;
+        // background-attachment: fixed;
+        // filter: blur(10px);
+
+        height: 100%;
+        width: 100%;
+      }
+
+      &::after {
+        // content: "";
+
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        background: rgba(0, 0, 0, 0.171);
+      }
+
+      .inner-page {
+        padding: 50px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        * {
+          outline: none;
+          border: none;
+        }
+
+        .btn {
+          border-radius: 0;
+          cursor: pointer;
+        }
+
+        form, .btn {
+          box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+        }
+
+        form {
+          display: flex;
+          justify-content: flex-start;
+          align-items: stretch;
+          width: fit-content;
+
+          input[type=email] {
+            padding: 10px 15px;
+            min-width: 250px;
+          }
+        }
+      }
+    }
+
+    &-main {
+      // background: url('/patterns/footer-bg.jpg') no-repeat center -135px;
+      // background-size: cover;
+
+      .inner-page {
+        padding: 40px 0;
+        // display: flex;
+        // justify-content: space-between;
+        // align-items: flex-start;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        justify-items: center;
+
+        gap: 35px;
+
+        .footer-main-section {
+          &-title {
+            text-transform: capitalize;
+            font-weight: 900;
+
+            margin-bottom: 0;
+            padding-bottom: 10px;
+          }
+
+          &-content {
+            font-weight: 500;
+
+            li {
+              list-style: none;
+
+              a {
+                display: block;
+                padding: 3px 0;
+              }
+            }
+          }
+
+          &.contact {
+            .contact-default {
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+
+              span:last-child {
+                text-decoration: underline;
+              }
+            }
+
+            .contact-social-content {
+              display: flex;
+              gap: 10px;
+            }
+          }
+        }
+      }
+    }
+
+    &-copyright {
+      // background: rgb(248, 248, 248);
+      background: var(--primary-color);
+      color: black;
+      // font-weight: bold;
+
+      .inner-page {
+        padding: 6px 0;
+
+        // display: flex;
+        // justify-content: space-between;
+        // align-items: center;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+
+        > * {
+          align-self: center;
+          &:not(:first-child) {
+            justify-self: center;
+
+            @media (max-width: 960px) {
+              display: none;
+            }
+          }
+        }
+
+        > *:first-child {
+          @media (max-width: 960px) {
+            grid-column: 1/ span 3;
+          }
+        }
+
+        #footer-config-buttons {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 20px;
+        }
+      }
+    }
+  }
+</style>
