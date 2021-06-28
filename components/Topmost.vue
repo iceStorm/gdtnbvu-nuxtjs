@@ -12,7 +12,7 @@
       <div id="topmost-right">
         <div id="topmost-right-socials">
           <a v-for="item in social" :key="item.social_link"
-            :href="hrefExtract(item.social_link)" target="_blank"
+            :href="hrefConvert(item.social_link)" target="_blank"
             :data-tippy-content="item.social_name">
             <img :src="item.social_icon">
           </a>

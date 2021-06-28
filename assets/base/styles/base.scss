@@ -95,6 +95,10 @@ p, h4 {
 
 a {
   color: var(--link-color);
+  
+  &:hover {
+  color: var(--link-hover-color);
+  }
 }
 
 a.more {

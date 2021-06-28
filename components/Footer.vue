@@ -86,7 +86,8 @@
               <div class="contact-social-content">
                 <a v-for="item in $store.state.meta.social_media_links"
                   :key="item.social_link"
-                  :href="hrefExtract(item.social_link)">
+                  :href="hrefConvert(item.social_link)"
+                  target="_blank">
                   {{ item.social_name }}
                 </a>
               </div>
@@ -117,7 +118,7 @@
     <div id="footer-copyright">
       <div class="inner-page">
         <span>Copyright &copy; 2021 - {{ $t('title') }}</span>
-        <span></span>
+        <!-- <span></span> -->
         <!-- <span>Made by WordPress & NuxtJS with 💚</span> -->
         <div id="footer-config-buttons">
           <color-mode-switcher></color-mode-switcher>
@@ -291,12 +292,12 @@ export default Vue.extend({
       .inner-page {
         padding: 6px 0;
 
-        // display: flex;
-        // justify-content: space-between;
-        // align-items: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        // display: grid;
+        // grid-template-columns: 1fr 1fr 1fr;
         gap: 20px;
 
         > * {

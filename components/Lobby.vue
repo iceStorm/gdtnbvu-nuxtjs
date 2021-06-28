@@ -89,10 +89,9 @@ export default {
           delay: 3000,
         },
 
-        effect: 'cube',
-        coverflowEffect: {
-          // rotate: 90,
-          slideShadows: false,
+        effect: 'fade',
+        fadeEffect: {
+          crossFade: true,
         },
 
         pagination: {

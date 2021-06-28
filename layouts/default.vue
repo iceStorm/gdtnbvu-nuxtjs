@@ -1,5 +1,5 @@
 <template>
-  <div id="root" :class="$store.state.colorMode.current">
+  <div id="root" :class="[{ mobile: classes.mobile }, classes.colorMode]">
     <Header />
 
     <main id="content">
@@ -20,6 +20,14 @@ import ScrollTopButton from '~/components/ScrollTopButton.vue';
 export default {
   components: {
     ScrollTopButton,
+  },
+  computed: {
+    classes() {
+      return {
+        colorMode: this.$store.state.colorMode.current,
+        mobile: this.$store.state.menu.mobile,
+      };
+    },
   },
   data() {
     return {
@@ -48,7 +56,7 @@ export default {
 }
 
 @media (max-width: 1167px) {
-  #content, #footer {
+  #content, #footer > :not(:last-child) {
     .inner-page {
       padding: 25px !important;
     }
@@ -64,6 +72,10 @@ export default {
   flex-direction: column;
   justify-content: stretch;
   align-items: stretch;
+
+  &.mobile {
+    overflow-y: hidden;
+  }
 
   #content {
     flex: auto;

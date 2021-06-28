@@ -20,24 +20,24 @@
     <h1 class="title"><strong>{{ $t('newsGrid.title') }}</strong></h1>
     <div id="posts-grids">
       <div class="posts-grid left">
-        <a v-for="post in leftPosts" :key="post.id"
-          :href="'/news/' + post.slug" class="posts-grid-item"
+        <nuxt-link v-for="post in leftPosts" :key="post.id"
+          :to="'/news/' + post.slug" class="posts-grid-item"
           >
 
           <img :src="post.meta.wide_thumbnail || post.meta.thumbnail"
           class="posts-grid-item-thumbnail">
           <span class="posts-grid-item-title">{{ post.meta.title }}</span>
-        </a>
+        </nuxt-link>
       </div>
 
       <div class="posts-grid right">
-        <a v-for="post in rightPosts" :key="post.id"
-          :href="'/news/' + post.slug" class="posts-grid-item"
+        <nuxt-link v-for="post in rightPosts" :key="post.id"
+          :to="'/news/' + post.slug" class="posts-grid-item"
           >
           <img :src="post.meta.wide_thumbnail || post.meta.thumbnail"
           class="posts-grid-item-thumbnail">
           <span class="posts-grid-item-title">{{ post.meta.title }}</span>
-        </a>
+        </nuxt-link>
       </div>
     </div>
 

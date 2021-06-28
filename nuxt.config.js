@@ -26,7 +26,7 @@ export default {
     '@/plugins/antd-ui',
     { src: '@/plugins/vue-awesome-swiper', mode: 'client' },
     { src: '@/plugins/wp-api/wp-api' },
-    { src: '@/plugins/hrefExtractor' },
+    { src: '@/plugins/hrefConverter' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
