@@ -54,13 +54,13 @@ export default {
   },
 
   publicRuntimeConfig: { // for client
-    baseURL: process.env.NODE_ENV === 'development' ? 'http://localhost/' : 'https://cms.gdtnbvu.club/',
+    baseURL: process.env.NODE_ENV === 'development' ? 'https://cms.gdtnbvu.club/' : 'https://cms.gdtnbvu.club/',
   },
   privateRuntimeConfig: { // for server
 
   },
 
-  loading: { color: '#00d10e', throttle: 0 },
+  loading: { color: '#ff7300', throttle: 0 },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
