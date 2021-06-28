@@ -86,4 +86,10 @@ export default {
   }
 }
 
+#root.dark {
+  img.ionicon {
+    filter: invert(1);
+  }
+}
+
 </style>

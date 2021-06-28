@@ -36,6 +36,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
+    '@nuxtjs/moment',
     // '@nuxtjs/color-mode',
   ],
 
@@ -45,6 +46,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxt/http',
     'nuxt-i18n',
+    // 'nuxt-moment',
   ],
 
   env: process.env.NODE_ENV === 'development' ? {

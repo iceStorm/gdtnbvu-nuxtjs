@@ -1,3 +1,20 @@
+<i18n>
+{
+  "vi": {
+    "sidebar": {
+      "newestTitle": "Mới nhất",
+      "relatedTitle": "Tin liên quan"
+    }
+  },
+  "en": {
+    "sidebar": {
+      "newestTitle": "Newest",
+      "relatedTitle": "Related"
+    }
+  }
+}
+</i18n>
+
 <template>
   <div id="news-detail-page">
     <div id="news-detail-page-content">
@@ -12,7 +29,15 @@
     </div>
 
     <div id="news-detail-page-sidebar">
-      <h3>Sidebar</h3>
+      <div id="news-detail-page-sidebar-newest">
+        <h2 class="title">{{ $t("sidebar.newestTitle") }}</h2>
+        <ul></ul>
+      </div>
+
+      <div id="news-detail-page-sidebar-related">
+        <h2 class="title">{{ $t("sidebar.relatedTitle") }}</h2>
+        <ul></ul>
+      </div>
     </div>
   </div>
 </template>
@@ -39,10 +64,10 @@ export default {
 #news-detail-page {
   display: grid;
   grid-template-columns: 1.618fr 1fr;
-  gap: 35px;
+  gap: 50px;
+
 
   &-content {
-
 
     &-title {
       padding-bottom: 50px;
@@ -63,7 +88,17 @@ export default {
   }
 
   &-sidebar {
+    > * {
+      h2 {
+        padding-bottom: 20px;
+      }
+    }
 
+    &-related {
+      h2 {
+        padding-top: 50px;
+      }
+    }
   }
 }
 </style>

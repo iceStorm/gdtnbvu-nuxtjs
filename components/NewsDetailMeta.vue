@@ -6,13 +6,13 @@
     </div>
 
     <div id="news-detail-content-title-meta-date">
-      <img src="/icons/ion/outline/calendar-clear-outline.svg">
-      <span>{{ post.date }}</span>
+      <img src="/icons/ion/outline/calendar-clear-outline.svg" class="ionicon">
+      <span>{{ getDateString(post.date) }}</span>
     </div>
 
     <div id="news-detail-content-title-meta-category">
-      <img src="/icons/ion/outline/folder-open-outline.svg">
-      <span>{{ post.category_meta[0].slug }}</span>
+      <img src="/icons/ion/outline/folder-open-outline.svg" class="ionicon">
+      <span>{{ post.category_meta[0].name }}</span>
     </div>
   </div>
 </template>
@@ -22,6 +22,13 @@ export default {
   props: [
     'post',
   ],
+  computed: {
+  },
+  methods: {
+    getDateString(date) {
+      return this.$moment(date).format('dddd, DD-MM-YYYY');
+    },
+  },
 };
 </script>
 
@@ -37,6 +44,11 @@ export default {
     justify-content: center;
     align-items: center;
     gap: 7px;
+
+    span {
+      line-height: 1;
+      color: var(--color);
+    }
 
     &:not(:first-child) {
       img {
