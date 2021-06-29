@@ -47,6 +47,7 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxt/http',
+    '@nuxtjs/pwa',
     'nuxt-i18n',
     // 'nuxt-moment',
   ],
@@ -91,6 +92,18 @@ export default {
     lazy: true,
     langDir: 'locales',
     defaultLocale: 'vi',
+  },
+
+  pwa: {
+    meta: {
+      title: 'BVU Volunteer',
+      author: 'gdtnbvu',
+    },
+    manifest: {
+      name: 'BVU Volunteer',
+      short_name: 'BVU Volunteer',
+      lang: 'vi',
+    },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
