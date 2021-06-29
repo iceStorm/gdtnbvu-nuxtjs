@@ -18,7 +18,7 @@
 
     <!-- navigation menu -->
     <nav id="main-menu-container" ref="main-menu-container"
-        :class="{ mobile: menu.mobile }" v-if="!menu.mobile">
+        :class="{ mobile: menu.mobile }">
 
       <div class="inner-page">
         <a id="main-menu-logo" href="/">
@@ -28,7 +28,7 @@
           </span>
         </a>
 
-        <ul id="main-menu-right">
+        <ul id="main-menu-right" v-if="!menu.mobile">
           <li v-for="(item) in menuItems" :key="item.href">
             <nuxt-link :to="item.href">
               {{ item.title }}
@@ -65,17 +65,6 @@ export default {
       const currentPos = window.pageYOffset;
       const mainMenuContainer = this.$refs['main-menu-container'];
 
-      // hiding the header nav when scroll down
-      /* if (currentPos > prevPos) {
-        if (!mainMenuContainer.classList.contains('hidden')) {
-          mainMenuContainer.classList.add('hidden');
-        }
-      } else if (mainMenuContainer.classList.contains('hidden')) {
-        mainMenuContainer.classList.remove('hidden');
-      } */
-
-      // changing the actual navbar when scroll over a position
-      // const actualNavClasses = this.$refs['actual-nav'].classList;
       if (currentPos > 37) {
         if (!mainMenuContainer.classList.contains('sticky')) {
           mainMenuContainer.classList.add('sticky');
@@ -88,16 +77,15 @@ export default {
     };
 
     // handling resize event
-    /* window.onload = () => this.toggleMainNav();
-    window.onresize = () => this.toggleMainNav(); */
+    window.onload = () => this.toggleMainNav();
+    window.onresize = () => this.toggleMainNav();
   },
   methods: {
     toggleMainNav() {
       // hide the horizontal nav menu
-      if (window.innerWidth >= 950) {
+      if (window.innerWidth >= 1024) {
         if (this.menu.mobile) {
           this.$store.commit('menu/toggleMobileMode', false);
-          this.$store.commit('menu/setMobileMenuVisible', false);
         }
       }
       else if (!this.menu.mobile) {
@@ -119,6 +107,10 @@ export default {
     padding: 10px 0;
     transition: all .45s ease-in-out;
 
+    @media (max-width: 425px) {
+      padding: 0;
+    }
+
     .inner-page {
       display: flex;
       justify-content: space-between;
@@ -126,6 +118,9 @@ export default {
 
       @media (max-width: 1191px) {
         padding: 0 25px;
+      }
+      @media (max-width: 425px) {
+        padding: 0 15px;
       }
 
       a {
@@ -176,6 +171,10 @@ export default {
           margin: 10px 0;
           margin-right: 5px;
           transition: all .45s ease-in-out;
+
+          @media (max-width: 425px) {
+            width: 40px;
+          }
         }
 
         > span {

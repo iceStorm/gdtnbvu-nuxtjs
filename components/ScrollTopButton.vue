@@ -1,5 +1,5 @@
 <template>
-  <a id="scrollTopBtn" href="#header">
+  <a id="scrollTopBtn" href="#header" :class="{ mobile: $store.state.menu.mobile }">
     <a-icon type="arrow-up" />
   </a>
 </template>
@@ -34,6 +34,10 @@ export default {
   @media (max-width: 360px) {
     right: 10px;
     bottom: 10px;
+  }
+
+  &.mobile {
+    bottom: 90px;
   }
 
   width: 35px;

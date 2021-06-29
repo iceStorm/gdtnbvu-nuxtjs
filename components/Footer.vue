@@ -30,7 +30,7 @@
 </i18n>
 
 <template>
-  <footer id="footer">
+  <footer id="footer" :class="{ mobile: $store.state.menu.mobile }">
     <div id="footer-mail-register">
       <div class="inner-page">
         <div>
@@ -159,6 +159,10 @@ export default Vue.extend({
     position: relative;
     z-index: 1;
 
+    &.mobile {
+      padding-bottom: 40px;
+    }
+
     &-mail-register {
       position: relative;
       overflow: hidden;
@@ -256,11 +260,8 @@ export default Vue.extend({
           justify-items: normal;
 
           grid-template-areas:
-          "first first";
-
-          .footer-main-section:not(:first-child) {
-            display: none;
-          }
+          "first first"
+          "second third";
         }
 
         .footer-main-section {

@@ -23,7 +23,7 @@
         <news-detail-meta :post="post" />
       </header>
       <p v-html="post.meta.content"></p>
-      <!-- <Disqus /> -->
+      <!-- <Disqus class="disqus" /> -->
     </article>
 
     <aside id="news-detail-page-sidebar">
@@ -78,9 +78,8 @@ export default {
     grid-template-columns: unset !important;
   }
 
-
   &-content {
-    &-title {
+    > header {
       padding-bottom: 50px;
 
       h2 {
@@ -89,13 +88,12 @@ export default {
       }
     }
 
-    &-body {
+    > p {
       text-align: justify;
       padding-bottom: 75px;
     }
 
-    &-comments {
-
+    > .disqus {
     }
   }
 

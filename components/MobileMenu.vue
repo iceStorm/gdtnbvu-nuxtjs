@@ -2,7 +2,8 @@
   <ul id="mobile-menu">
     <li v-for="(item) in menuItems" :key="item.href">
       <nuxt-link :to="item.href">
-        {{ item.title }}
+        <img :src="item.href == menu.activeHref ? item.icon.filled : item.icon.outline">
+        <span>{{ item.title }}</span>
       </nuxt-link>
     </li>
   </ul>
@@ -30,11 +31,67 @@ export default {
 <style lang="scss">
 #mobile-menu {
   position: fixed;
+  z-index: 99;
   bottom: 0;
   left: 0;
   right: 0;
 
+  margin: 0;
   background: #fff;
-  border-top: 1px solid #eee;
+  border-top: 2px solid #eee;
+  box-shadow: 0 -1px 24px 0 rgba(223, 223, 223, 0.521);
+
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+
+  overflow-x: auto;
+  white-space: nowrap;
+
+  &::after {
+    content: '';
+    position: fixed;
+
+    right: 0;
+    bottom: 0;
+
+    height: 78px;
+    width: 70px;
+
+    background: linear-gradient(to left, white, transparent);
+  }
+
+  > li {
+    flex: 1 1 0;
+    list-style: none;
+
+    a {
+      text-align: center;
+      display: block;
+      padding: 15px;
+
+      color: var(--text);
+      font-weight: 600;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      transition: all .45s ease-in-out;
+
+      &:active {
+        background: rgba(0, 0, 0, 0.137);
+      }
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        font-size: 14px;
+      }
+
+      img {
+        width: 20px;
+      }
+    }
+  }
 }
 </style>

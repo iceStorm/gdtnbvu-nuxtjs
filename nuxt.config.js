@@ -29,6 +29,7 @@ export default {
     { src: '@/plugins/wp-api/wp-api' },
     { src: '@/plugins/hrefConverter' },
     { src: '@/plugins/disqus' },
+    { src: '@/plugins/after-each' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
