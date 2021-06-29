@@ -28,7 +28,7 @@
           <div
             id="nav-mobile-overlay"
             @click="$store.commit('menu/setMobileMenuVisible', false)"
-            v-show="$store.state.menu.mobileMenuVisible" />
+            :class="{ show: $store.state.menu.mobileMenuVisible }" />
           <ul>
             <li v-for="(item) in menuItems" :key="item.href">
               <nuxt-link :to="item.href">
@@ -215,8 +215,14 @@ export default {
 
           transition: all .5s ease-in-out;
           background: rgba(0,0,0,0.5);
-
           animation: fadeIn .75s ease-in-out;
+          opacity: 0;
+          visibility: hidden;
+
+          &.show {
+            opacity: 1;
+            visibility: visible;
+          }
         }
 
         &.show {
