@@ -31,6 +31,11 @@ export default {
   right: 20px;
   bottom: 20px;
 
+  @media (max-width: 360px) {
+    right: 10px;
+    bottom: 10px;
+  }
+
   width: 35px;
   height: 35px;
 
@@ -40,15 +45,16 @@ export default {
 
   font-size: 18px;
   color: white;
-  // border-radius: 4px;
+  border-radius: 4px;
   background: var(--primary-color);
+  box-shadow: 0 0 20px 0 rgba(0, 187, 255, 0.178);
 
   opacity: 0;
   visibility: hidden;
   transition: all .35s ease-in-out;
 
   &.visible {
-    opacity: 1;
+    opacity: 0.85;
     visibility: visible;
   }
 }

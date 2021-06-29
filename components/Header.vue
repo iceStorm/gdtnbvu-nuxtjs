@@ -187,7 +187,6 @@ export default {
       transition: all 0.95s;
 
       &-mobile {
-        // border-right: 1px solid #eee;
         box-shadow: 2px 0px 20px 0 rgba(0,0,0,0.25);
         position: fixed;
         z-index: 98;
@@ -202,7 +201,7 @@ export default {
           width: 250px !important;
         }
 
-        transition: all .75s ease-in-out;
+        transition: all .45s ease-in-out;
 
         &-overlay {
           position: fixed;
@@ -276,6 +275,9 @@ export default {
           img {
             transition: all .35s ease-in-out;
             max-width: 70px;
+
+            position: relative;
+            z-index: 99;
           }
         }
 
