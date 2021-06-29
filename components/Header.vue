@@ -194,7 +194,7 @@ export default {
 
     &.sticky {
       padding: 0;
-      // border-bottom: 1px solid #eee;
+      border-bottom: 1px solid #eee;
       box-shadow: 0 1px 24px 0 rgba(223, 223, 223, 0.521);
       background: #fff;
       // background: url(/footer-bg.jpg);

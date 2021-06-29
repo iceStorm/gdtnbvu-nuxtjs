@@ -56,7 +56,7 @@ export default {
     bottom: 0;
 
     height: 78px;
-    width: 70px;
+    width: 50px;
 
     background: linear-gradient(to left, white, transparent);
   }
