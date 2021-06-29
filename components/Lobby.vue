@@ -123,6 +123,10 @@ export default {
   position: relative;
   z-index: 0;
 
+  @media (max-width: 1100px) {
+    height: unset;
+  }
+
   background-color: black;
 
   img#lobby-image {
@@ -212,6 +216,10 @@ export default {
 
     &:hover {
       gap: 30px;
+    }
+
+    @media (max-width: 875px) {
+      display: none;
     }
   }
 

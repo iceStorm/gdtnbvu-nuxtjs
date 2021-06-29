@@ -227,21 +227,24 @@ export default Vue.extend({
     }
 
     &-main {
-      // background: url('/patterns/footer-bg.jpg') no-repeat center -135px;
-      // background-size: cover;
-
       .inner-page {
         padding: 40px 0;
-        // display: flex;
-        // justify-content: space-between;
-        // align-items: flex-start;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(3, 1fr);
         justify-items: center;
-
         gap: 35px;
 
+        @media (max-width: 556px) {
+          justify-items: normal;
+        }
+
         .footer-main-section {
+          @media (max-width: 556px) {
+            &:nth-child(1) {
+              grid-column: 1 / span 3;
+            }
+          }
+
           &-title {
             text-transform: capitalize;
             font-weight: 900;
@@ -284,18 +287,19 @@ export default Vue.extend({
     }
 
     &-copyright {
-      // background: rgb(248, 248, 248);
       background: var(--primary-color);
       color: black;
-      // font-weight: bold;
 
       .inner-page {
         padding: 6px 0;
+        @media (max-width: 1192px) {
+          padding-left: 25px;
+          padding-right: 25px;
+        }
 
         display: flex;
         justify-content: space-between;
         align-items: center;
-
         // display: grid;
         // grid-template-columns: 1fr 1fr 1fr;
         gap: 20px;

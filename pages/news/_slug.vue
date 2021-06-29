@@ -78,8 +78,12 @@ export default {
   grid-template-columns: 1.618fr 1fr;
   gap: 50px;
 
-  &-content {
+  @media (max-width: 992px) {
+    grid-template-columns: unset !important;
+  }
 
+
+  &-content {
     &-title {
       padding-bottom: 50px;
 
@@ -100,6 +104,10 @@ export default {
   }
 
   &-sidebar {
+    @media (max-width: 992px) {
+      padding-top: 35px;
+    }
+
     > * {
       h2 {
         padding-bottom: 20px;

@@ -61,6 +61,11 @@ export default {
     position: relative;
     padding: 5px 0;
 
+    @media (max-width: 1192px) {
+      padding-left: 25px;
+      padding-right: 25px;
+    }
+
     #topmost-left {
       display: flex;
       justify-content: space-between;

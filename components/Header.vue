@@ -28,7 +28,7 @@
           <div
             id="nav-mobile-overlay"
             @click="$store.commit('menu/toggleMobileVisibility')"
-            :class="$store.state.menu.mobileVisibility ? 'show': ''" />
+            v-show="$store.state.menu.mobileVisibility" />
           <ul>
               <li v-for="(item) in menuItems" :key="item.href">
                 <nuxt-link :to="item.href">
@@ -159,13 +159,10 @@ export default {
     #nav {
       padding: 10px 0;
       transition: all 0.95s;
-      // background: rgba(0,0,0,0.25);
-      // backdrop-filter: blur(10px);
-      // height: 50px;
 
       &-mobile {
         position: fixed;
-        top: 42px;
+        top: 37px;
         left: -1000px;
         bottom: 0;
 
@@ -177,7 +174,7 @@ export default {
         &-overlay {
           position: fixed;
           z-index: -1;
-          top: 42px;
+          top: 37px;
           left: 0;
           bottom: 0;
           right: 0;
@@ -185,10 +182,7 @@ export default {
 
           transition: all .5s ease-in-out;
           background: rgba(0,0,0,0);
-
-          &.show {
-            background: rgba(0,0,0,0.5);
-          }
+          background: rgba(0,0,0,0.5);
         }
 
         &.show {
@@ -210,7 +204,7 @@ export default {
 
             a {
               display: block;
-              padding: 15px 15px 10px;
+              padding: 5px 15px 5px;
               font-weight: 500;
 
               &:nth-child(1) {
@@ -229,14 +223,6 @@ export default {
         position: relative;
 
         #logo {
-          // position: absolute;
-          // top: 10px;
-          // left: 50%;
-          // transform: translateX(-50%);
-
-          // animation-name: heartBeat;
-          // animation-duration: 1.35s;
-
           img {
             transition: all .35s ease-in-out;
             max-width: 70px;
@@ -261,6 +247,11 @@ export default {
                 display: flex;
                 padding: 5px 0;
 
+                @media (max-width: 1192px) {
+                  padding-left: 25px;
+                  padding-right: 25px;
+                }
+
                 font-weight: 500;
                 text-transform: uppercase;
                 font-size: 14px;
@@ -274,11 +265,14 @@ export default {
                 }
               }
 
-              &:not(:last-child) {
-                a {
-                  padding-right: 28px;
+              @media (min-width: 1193px) {
+                &:not(:last-child) {
+                  a {
+                    padding-right: 28px;
+                  }
                 }
               }
+
             }
           }
 
@@ -312,9 +306,12 @@ export default {
 
       // when the page is far away from the top
       &.away {
-        background: rgba(255, 255, 255, 1);
-        // backdrop-filter: blur(20px) saturate(180%);
+        &.mobile {
+          padding: 0;
+          border-bottom: none;
+        }
 
+        background: rgba(255, 255, 255, 1);
         border-bottom: 1px solid #eee;
         box-shadow: rgba(17, 12, 46, 0.05) 0px 48px 100px 0px;
 
