@@ -24,18 +24,26 @@
       <div id="nav" ref="actual-nav" :class="$store.state.menu.mobile ? 'mobile': ''">
         <div id="nav-mobile"
           v-show="$store.state.menu.mobile"
-          :class="$store.state.menu.mobileVisibility ? 'show': ''">
+          :class="$store.state.menu.mobileMenuVisible ? 'show': ''">
           <div
             id="nav-mobile-overlay"
-            @click="$store.commit('menu/toggleMobileVisibility')"
-            v-show="$store.state.menu.mobileVisibility" />
+            @click="$store.commit('menu/setMobileMenuVisible', false)"
+            v-show="$store.state.menu.mobileMenuVisible" />
           <ul>
-              <li v-for="(item) in menuItems" :key="item.href">
-                <nuxt-link :to="item.href">
-                  {{ item.title }}
-                </nuxt-link>
-              </li>
-            </ul>
+            <li v-for="(item) in menuItems" :key="item.href">
+              <nuxt-link :to="item.href">
+                {{ item.title }}
+              </nuxt-link>
+            </li>
+          </ul>
+
+          <div id="topmost-right-socials">
+            <a v-for="item in social" :key="item.social_link"
+              :href="hrefConvert(item.social_link)" target="_blank"
+              :data-tippy-content="item.social_name">
+              <img :src="item.social_icon">
+            </a>
+          </div>
         </div>
 
         <div class="inner-page" v-if="!menu.mobile">
@@ -64,7 +72,6 @@
           </div>
         </div>
 
-        <!-- <a id="btn-register-member" href="https://bit.ly/Dangky-ĐTNBVU" target="_blank" class="btn animate__animated animate__fadeInRight">Đăng ký thành viên</a> -->
       </div>
     </div>
 
@@ -89,8 +96,14 @@ export default {
     menu() {
       return this.$store.state.menu;
     },
+    mobileMenuVisibility() {
+      return this.$store.state.menu.mobileMenuVisible;
+    },
     menuItems() {
       return this.$store.state.menu.items;
+    },
+    social() {
+      return this.$store.state.meta.social_media_links;
     },
   },
   mounted() {
@@ -129,17 +142,30 @@ export default {
   },
   methods: {
     toggleMainNav() {
-      // console.log(this.menu);
-
       // hide the horizontal nav menu
-      if (window.innerWidth <= 960) {
-        if (!this.menu.mobile) {
-          this.$store.commit('menu/toggleMobileMode', true);
+      if (window.innerWidth >= 950) {
+        if (this.menu.mobile) {
+          this.$store.commit('menu/toggleMobileMode', false);
+          this.$store.commit('menu/setMobileMenuVisible', false);
         }
       }
-      else if (this.menu.mobile) {
-        this.$store.commit('menu/toggleMobileMode', false);
-        this.$store.commit('menu/setMobileVisibility', false);
+      else if (!this.menu.mobile) {
+        this.$store.commit('menu/toggleMobileMode', true);
+      }
+    },
+  },
+  watch: {
+    mobileMenuVisibility: function(val) {
+      if (val) {
+        const body = document.getElementsByTagName('body')[0];
+        if (!body.classList.contains('mobile')) {
+          body.classList.add('mobile');
+        }
+      } else {
+        const body = document.getElementsByTagName('body')[0];
+        if (body.classList.contains('mobile')) {
+          body.classList.remove('mobile');
+        }
       }
     },
   },
@@ -161,28 +187,36 @@ export default {
       transition: all 0.95s;
 
       &-mobile {
+        // border-right: 1px solid #eee;
+        box-shadow: 2px 0px 20px 0 rgba(0,0,0,0.25);
         position: fixed;
-        top: 37px;
-        left: -1000px;
+        z-index: 98;
+        top: 50px;
+        left: -400px;
         bottom: 0;
 
-        width: 65%;
+        width: 300px;
         height: 100vh;
 
-        transition: all .75s cubic-bezier(0.820, 0.085, 0.395, 0.895);;
+        @media (max-width: 360px) {
+          width: 250px !important;
+        }
+
+        transition: all .75s ease-in-out;
 
         &-overlay {
           position: fixed;
           z-index: -1;
-          top: 37px;
+          top: 50px;
           left: 0;
           bottom: 0;
           right: 0;
           height: 100vh;
 
           transition: all .5s ease-in-out;
-          background: rgba(0,0,0,0);
           background: rgba(0,0,0,0.5);
+
+          animation: fadeIn .75s ease-in-out;
         }
 
         &.show {
@@ -201,15 +235,25 @@ export default {
 
           li {
             list-style: none;
+            @for $i from 1 through 10 {
+              &:nth-child(#{$i}) {
+                opacity: 0;
+
+                animation: fadeInLeft;
+                animation-duration: 1.725s;
+                animation-delay: #{750 + $i*100}ms;
+                animation-fill-mode: forwards;
+              }
+            }
 
             a {
               display: block;
-              padding: 5px 15px 5px;
+              padding: 10px 20px;
               font-weight: 500;
+            }
 
-              &:nth-child(1) {
-                padding-top: 20px;
-              }
+            &:nth-child(1) a {
+              padding-top: 20px;
             }
           }
         }
@@ -252,7 +296,7 @@ export default {
                   padding-right: 25px;
                 }
 
-                font-weight: 500;
+                font-weight: bold;
                 text-transform: uppercase;
                 font-size: 14px;
 

@@ -2,11 +2,13 @@
   <div id="topmost">
     <div class="inner-page">
       <div id="topmost-left">
-        <a-icon
-          v-if="$store.state.menu.mobile"
-          :type="$store.state.menu.mobileVisibility ? 'close': 'menu'"
-          @click="$store.commit('menu/toggleMobileVisibility')" />
-        <a-icon type="search" />
+        <a href="/" id="mobile-logo" v-if="$store.state.menu.mobile">
+          <img src="/logo.png" >
+        </a>
+
+        <span>
+          <span v-for="letter in 'Gia đình Tình nguyện BVU'.split('')">{{ letter }}</span>
+        </span>
       </div>
 
       <div id="topmost-right">
@@ -19,6 +21,11 @@
         </div>
 
         <language-switcher></language-switcher>
+
+        <a-icon
+          v-if="$store.state.menu.mobile"
+          :type="$store.state.menu.mobileMenuVisible ? 'close': 'menu'"
+          @click="$store.commit('menu/toggleMobileMenuVisible')" />
       </div>
     </div>
   </div>
@@ -52,11 +59,14 @@ export default {
   animation-name: fadeInDown;
   animation-duration: 1.75s;
 
+  position: relative;
+  z-index: 99;
+
   .inner-page {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 50px;
+    gap: 20px;
 
     position: relative;
     padding: 5px 0;
@@ -65,12 +75,39 @@ export default {
       padding-left: 25px;
       padding-right: 25px;
     }
+    @media (max-width: 430px) {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
 
     #topmost-left {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
+      gap: 10px;
+
+      span {
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 900;
+        color: #575757;
+
+        @for $i from 1 through 30 {
+          span:nth-child(#{$i}) {
+            opacity: 0;
+            animation: fadeInLeft;
+            animation-duration: .75s;
+            animation-delay: #{$i*50}ms;
+            animation-fill-mode: forwards;
+          }
+        }
+      }
+
+      #mobile-logo {
+        img {
+          width: 40px !important;
+        }
+      }
     }
 
     #topmost-right {
@@ -79,11 +116,19 @@ export default {
       align-items: center;
       gap: 50px;
 
+      @media (max-width: 670px) {
+        gap: 10px;
+      }
+
       &-socials {
         display: flex;
         justify-content: flex-end;
         align-items: center;
         gap: 20px;
+
+        @media (max-width: 670px) {
+          display: none;
+        }
 
         a {
           flex: 1 1 0;
@@ -101,6 +146,12 @@ export default {
               animation-fill-mode: forwards;
             }
           }
+        }
+      }
+
+      #language-switcher {
+        @media (max-width: 670px) {
+          display: none;
         }
       }
     }

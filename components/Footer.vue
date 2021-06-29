@@ -49,12 +49,10 @@
 
         <div>
           <h1>{{ $t('footer.memberRegister.caption') }}</h1>
-          <span>
-            <a class="btn" target="_blank"
-              :href="$store.state.meta.contact.register_form">
-              {{ $t('footer.memberRegister.registerButtonTitle') }}
-            </a>
-          </span>
+          <a class="btn" target="_blank"
+            :href="$store.state.meta.contact.register_form">
+            {{ $t('footer.memberRegister.registerButtonTitle') }}
+          </a>
         </div>
       </div>
     </div>
@@ -215,6 +213,7 @@ export default Vue.extend({
 
           h1 {
             line-height: 1;
+            margin-bottom: 10px;
           }
         }
 
@@ -235,7 +234,10 @@ export default Vue.extend({
 
           input[type=email] {
             padding: 10px 15px;
-            // min-width: 250px;
+
+            @media (max-width: 360px) {
+              width: 180px;
+            }
           }
         }
       }
@@ -254,8 +256,11 @@ export default Vue.extend({
           justify-items: normal;
 
           grid-template-areas:
-          "first first"
-          "second third";
+          "first first";
+
+          .footer-main-section:not(:first-child) {
+            display: none;
+          }
         }
 
         .footer-main-section {
@@ -275,7 +280,7 @@ export default Vue.extend({
             font-weight: 900;
 
             margin-bottom: 0;
-            padding-bottom: 10px;
+            padding-bottom: 5px;
           }
 
           &-content {
@@ -297,7 +302,7 @@ export default Vue.extend({
               flex-direction: column;
               gap: 10px;
 
-              span:last-child {
+              a:last-child {
                 text-decoration: underline;
               }
             }

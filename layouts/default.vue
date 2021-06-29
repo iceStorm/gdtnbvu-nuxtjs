@@ -45,6 +45,9 @@ export default {
 </script>
 
 <style lang="scss">
+body.mobile {
+  overflow-y: hidden;
+}
 
 .inner-page {
   width: 1168px;

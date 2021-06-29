@@ -1,6 +1,6 @@
 export const state = () => ({
   mobile: false,
-  mobileVisibility: false,
+  mobileMenuVisible: false,
   items: [
     {
       title: 'Trang chủ',
@@ -40,10 +40,10 @@ export const mutations = {
     state.mobile = value;
   },
 
-  toggleMobileVisibility(state) {
-    state.mobileVisibility = !state.mobileVisibility;
+  setMobileMenuVisible(state, value) {
+    state.mobileMenuVisible = value;
   },
-  setMobileVisibility(state, value) {
-    state.mobileVisibility = value;
+  toggleMobileMenuVisible(state) {
+    state.mobileMenuVisible = !state.mobileMenuVisible;
   },
 };
