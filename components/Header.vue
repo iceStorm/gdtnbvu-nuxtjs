@@ -319,12 +319,17 @@ export default {
 
         #logo img {
           max-width: 50px;
+          margin-top: -80%;
         }
 
         .nav-menu a {
           padding-top: 5px;
           padding-bottom: 5px;
           color: black !important;
+
+          &:hover {
+            color: var(--primary-color) !important;
+          }
         }
       }
     } // .nav

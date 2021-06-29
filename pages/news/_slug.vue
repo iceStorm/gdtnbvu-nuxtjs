@@ -25,7 +25,9 @@
       <div id="news-detail-page-content-body">
         <p v-html="post.meta.content"></p>
       </div>
-      <div id="news-detail-page-content-comments"></div>
+      <div id="news-detail-page-content-comments">
+          <Disqus />
+      </div>
     </div>
 
     <div id="news-detail-page-sidebar">
@@ -51,11 +53,21 @@ export default {
     return {
     };
   },
-  async asyncData({$wp, params}) {
-    const post = (await $wp.$get(`/articles?slug=${params.slug}`))[0];
+  async asyncData({$wp, $config, params}) {
+    const post = (await $wp.$get(`/articles?slug=${params.slug}`));
     console.log(post);
 
-    return { post };
+    if (post.length) {
+      return { post: post[0] };
+    }
+
+    // toError();
+    return $config.$nuxt.error({ statusCode: 404, message: 'Page not found.' });
+  },
+  methods: {
+    toError() {
+      this.$nuxt.error({ statusCode: 404, message: 'Page not found.' });
+    },
   },
 };
 </script>
@@ -65,7 +77,6 @@ export default {
   display: grid;
   grid-template-columns: 1.618fr 1fr;
   gap: 50px;
-
 
   &-content {
 
@@ -80,6 +91,7 @@ export default {
 
     &-body {
       text-align: justify;
+      padding-bottom: 75px;
     }
 
     &-comments {
