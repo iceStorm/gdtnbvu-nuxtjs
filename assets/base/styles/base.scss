@@ -77,6 +77,9 @@ strong {
 
 h1 {
   font-weight: 1000;
+  @media (max-width: 556px) {
+    font-size: 20px;
+  }
 }
 .title {
   font-weight: bold;
@@ -93,11 +96,15 @@ p, h4 {
   color: var(--color);
 }
 
+img {
+  max-width: 100%;
+}
+
 a {
   color: var(--link-color);
   
   &:hover {
-  color: var(--link-hover-color);
+    color: var(--link-hover-color);
   }
 }
 

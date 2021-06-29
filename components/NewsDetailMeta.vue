@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     getDateString(date) {
-      return this.$moment(date).format('dddd, DD-MM-YYYY');
+      return this.$moment(date).format('DD-MM-YYYY');
     },
   },
 };

@@ -67,17 +67,23 @@
             <div class="contact-default">
               <div class="contact-item">
                 <span class="text">Địa chỉ:</span>
-                <span class="text">{{ $store.state.meta.contact.address }}</span>
+                <a target="_blank" href="https://goo.gl/maps/3UhndXsNeJo5mzqE6">
+                  {{ $store.state.meta.contact.address }}
+                </a>
               </div>
 
               <div class="contact-item">
                 <span class="text">Số điện thoại:</span>
-                <span class="text">{{ $store.state.meta.contact.phone }}</span>
+                <a target="_blank" :href="hrefConvert($store.state.meta.contact.phone)">
+                  {{ $store.state.meta.contact.phone }}
+                </a>
               </div>
 
               <div class="contact-item">
                 <span class="text">E-mail:</span>
-                <span class="text">{{ $store.state.meta.contact.email }}</span>
+                <a target="_blank" :href="hrefConvert($store.state.meta.contact.email)">
+                  {{ $store.state.meta.contact.email }}
+                </a>
               </div>
             </div>
 
@@ -152,7 +158,6 @@ export default Vue.extend({
 
 <style lang="scss">
   #footer {
-    // border-top: 1px solid #eee;
     position: relative;
     z-index: 1;
 
@@ -170,7 +175,7 @@ export default Vue.extend({
         right: 0;
         bottom: 0;
 
-        background: url('/lobby-images/2019.jpg') no-repeat;
+        background: url('/footer-bg.jpg') no-repeat;
         background-size: cover;
         // background-attachment: fixed;
         // filter: blur(10px);
@@ -198,9 +203,19 @@ export default Vue.extend({
         justify-content: space-between;
         align-items: center;
 
+        @media (max-width: 800px) {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 50px;
+        }
+
         * {
           outline: none;
           border: none;
+
+          h1 {
+            line-height: 1;
+          }
         }
 
         .btn {
@@ -220,7 +235,7 @@ export default Vue.extend({
 
           input[type=email] {
             padding: 10px 15px;
-            min-width: 250px;
+            // min-width: 250px;
           }
         }
       }
@@ -230,19 +245,29 @@ export default Vue.extend({
       .inner-page {
         padding: 40px 0;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+        "first second third";
         justify-items: center;
         gap: 35px;
 
         @media (max-width: 556px) {
           justify-items: normal;
+
+          grid-template-areas:
+          "first first"
+          "second third";
         }
 
         .footer-main-section {
-          @media (max-width: 556px) {
-            &:nth-child(1) {
-              grid-column: 1 / span 3;
-            }
+          &:nth-child(1) {
+            grid-area: first;
+            justify-self: flex-start;
+          }
+          &:nth-child(2) {
+            grid-area: second;
+          }
+          &:nth-child(3) {
+            grid-area: third;
           }
 
           &-title {
@@ -300,24 +325,19 @@ export default Vue.extend({
         display: flex;
         justify-content: space-between;
         align-items: center;
-        // display: grid;
-        // grid-template-columns: 1fr 1fr 1fr;
         gap: 20px;
 
         > * {
           align-self: center;
-          &:not(:first-child) {
-            justify-self: center;
-
-            @media (max-width: 960px) {
-              display: none;
-            }
-          }
         }
 
         > *:first-child {
           @media (max-width: 960px) {
             grid-column: 1/ span 3;
+          }
+
+          @media (max-width: 376px) {
+            font-size: 11px;
           }
         }
 
@@ -326,6 +346,10 @@ export default Vue.extend({
           justify-content: space-between;
           align-items: center;
           gap: 20px;
+
+          @media (max-width: 576px) {
+            display: none;
+          }
         }
       }
     }
