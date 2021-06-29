@@ -152,7 +152,7 @@ export default Vue.extend({
 
 <style lang="scss">
   #footer {
-    border-top: 1px solid #eee;
+    // border-top: 1px solid #eee;
     position: relative;
     z-index: 1;
 

@@ -259,7 +259,7 @@ export default {
               a {
                 position: relative;
                 display: flex;
-                padding: 5px 15px;
+                padding: 5px 0;
 
                 font-weight: 500;
                 text-transform: uppercase;
@@ -270,7 +270,13 @@ export default {
                 transition: all .35s;
 
                 &:hover {
-                  color: var(--primary-color);
+                  color: var(--link-hover-color);
+                }
+              }
+
+              &:not(:last-child) {
+                a {
+                  padding-right: 28px;
                 }
               }
             }
@@ -306,10 +312,9 @@ export default {
 
       // when the page is far away from the top
       &.away {
-        background: rgba(255,255,255);
+        background: rgba(255, 255, 255, 1);
         // backdrop-filter: blur(20px) saturate(180%);
 
-        // border-top: 1px solid #ccc;
         border-bottom: 1px solid #eee;
         box-shadow: rgba(17, 12, 46, 0.05) 0px 48px 100px 0px;
 
@@ -318,8 +323,8 @@ export default {
         }
 
         #logo img {
-          max-width: 50px;
-          margin-top: -80%;
+          max-width: 70px;
+          margin-top: -55%;
         }
 
         .nav-menu a {
@@ -328,7 +333,7 @@ export default {
           color: black !important;
 
           &:hover {
-            color: var(--primary-color) !important;
+            color: var(--link-hover-color) !important;
           }
         }
       }

@@ -85,7 +85,7 @@ export default {
 
       h2 {
         line-height: 1.5;
-        padding-bottom: 20px;
+        padding-bottom: 5px;
       }
     }
 

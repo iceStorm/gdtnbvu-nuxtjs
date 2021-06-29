@@ -59,7 +59,7 @@ export default {
     gap: 50px;
 
     position: relative;
-    padding: 5px 15px;
+    padding: 5px 0;
 
     #topmost-left {
       display: flex;
