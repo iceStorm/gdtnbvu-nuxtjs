@@ -17,20 +17,16 @@
 
 <template>
   <div id="news-detail-page">
-    <div id="news-detail-page-content">
-      <div id="news-detail-page-content-title">
+    <article id="news-detail-page-content">
+      <header>
         <h2 class="title">{{ post.title.rendered }}</h2>
         <news-detail-meta :post="post" />
-      </div>
-      <div id="news-detail-page-content-body">
-        <p v-html="post.meta.content"></p>
-      </div>
-      <div id="news-detail-page-content-comments">
-          <Disqus />
-      </div>
-    </div>
+      </header>
+      <p v-html="post.meta.content"></p>
+      <!-- <Disqus /> -->
+    </article>
 
-    <div id="news-detail-page-sidebar">
+    <aside id="news-detail-page-sidebar">
       <div id="news-detail-page-sidebar-newest">
         <h2 class="title">{{ $t("sidebar.newestTitle") }}</h2>
         <ul></ul>
@@ -40,7 +36,7 @@
         <h2 class="title">{{ $t("sidebar.relatedTitle") }}</h2>
         <ul></ul>
       </div>
-    </div>
+    </aside>
   </div>
 </template>
 

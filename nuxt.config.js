@@ -49,6 +49,7 @@ export default {
     '@nuxt/http',
     '@nuxtjs/pwa',
     'nuxt-i18n',
+    '@nuxtjs/sitemap', // should be placed after i18n
     // 'nuxt-moment',
   ],
 
@@ -104,6 +105,10 @@ export default {
       short_name: 'BVU Volunteer',
       lang: 'vi',
     },
+  },
+
+  sitemap: {
+    hostname: 'https://gdtnbvu.club',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

@@ -1,13 +1,29 @@
+<i18n>
+{
+  "vi": {
+    "topmost": {
+      "clubTitle": "Gia đình Tình nguyện BVU"
+    }
+  },
+  "en": {
+    "topmost": {
+      "clubTitle": "BVU Volunteer Team"
+    }
+  }
+}
+</i18n>
+
 <template>
   <div id="topmost">
     <div class="inner-page">
+
       <div id="topmost-left">
         <a href="/" id="mobile-logo" v-if="$store.state.menu.mobile">
           <img src="/logo.png" >
         </a>
 
         <span>
-          <span v-for="letter in 'Gia đình Tình nguyện BVU'.split('')">{{ letter }}</span>
+          <span v-for="letter in $t('topmost.clubTitle').split('')">{{ letter }}</span>
         </span>
       </div>
 
@@ -21,13 +37,9 @@
         </div>
 
         <language-switcher></language-switcher>
-
-        <a-icon
-          v-if="$store.state.menu.mobile"
-          :type="$store.state.menu.mobileMenuVisible ? 'close': 'menu'"
-          @click="$store.commit('menu/toggleMobileMenuVisible')" />
       </div>
-    </div>
+
+    </div> <!-- inner-page -->
   </div>
 </template>
 
@@ -90,7 +102,8 @@ export default {
         text-transform: uppercase;
         font-size: 12px;
         font-weight: 900;
-        color: #575757;
+        color: #fff;
+        text-shadow: 1px 1px 0px #00000069;
 
         @for $i from 1 through 30 {
           span:nth-child(#{$i}) {

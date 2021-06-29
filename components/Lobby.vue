@@ -14,7 +14,7 @@
 </i18n>
 
 <template>
-  <div id="header-lobby">
+  <div id="lobby">
     <!-- single image -->
     <img id="lobby-image"
       v-show="lobby.lobby_type=='Single Image'"
@@ -38,7 +38,7 @@
 
     <!-- scroll down button -->
     <a href="#content"
-      id="header-lobby-scroll-down-btn"
+      id="lobby-scroll-down-btn"
       class="animate__animated animate__fadeInUp">
       <span>
         {{ $t('lobby.scrollDownTitle') }}
@@ -76,7 +76,6 @@ export default {
     };
   },
   mounted() {
-    //
   },
   methods: {
     initSwiperJS() {
@@ -116,18 +115,16 @@ export default {
 </script>
 
 <style lang="scss">
-#header-lobby {
-  // height: 630px;
+#lobby {
   height: 100vh;
   overflow: hidden;
   position: relative;
   z-index: 0;
+  background-color: black;
 
   @media (max-width: 1100px) {
     height: unset;
   }
-
-  background-color: black;
 
   img#lobby-image {
     max-width: 100%;
@@ -184,7 +181,7 @@ export default {
 
       width: 100%;
       height: 100%;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.05));
+      background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.15));
     }
   }
 
