@@ -87,10 +87,6 @@ export default {
   },
   methods: {
     toggleMainNav() {
-      const headerHeight = document.getElementById('header');
-      console.log(headerHeight.clientHeight);
-      // this.$store.commit('menu/setHeaderHeight', headerHeight);
-
       // hide the horizontal nav menu
       if (window.innerWidth >= 1024) {
         if (this.menu.mobile) {

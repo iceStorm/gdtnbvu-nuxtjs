@@ -36,7 +36,7 @@
     </div>
 
     <!-- video -->
-    <video :src="lobby.lobby_single_image" v-if="lobby.lobby_type=='Single Video'"></video>
+    <video :src="lobby.lobby_single_video" autoplay v-if="lobby.lobby_type=='Single Video'"></video>
 
     <!-- virtual element as anchor -->
     <div id="above-content" style="position: absolute; bottom: 50px;"></div>
@@ -147,7 +147,7 @@ export default {
   img#lobby-image {
     max-width: 100%;
     object-fit: cover;
-    object-position: center -230px;
+    // object-position: center -230px;
     background-attachment: fixed;
 
     opacity: 0;
@@ -252,6 +252,11 @@ export default {
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.15));
+  }
+
+  video {
+    width: 100%;
+    min-height: 50vh;
   }
 }
 </style>
