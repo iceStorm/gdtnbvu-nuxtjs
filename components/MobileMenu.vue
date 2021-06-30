@@ -1,6 +1,6 @@
 <template>
   <ul id="mobile-menu">
-    <li v-for="(item) in menuItems" :key="item.href">
+    <li v-for="(item) in menuItems" :key="item.href" :class="{ active: item.href == menu.activeHref }">
       <nuxt-link :to="item.href">
         <img :src="item.href == menu.activeHref ? item.icon.filled : item.icon.outline">
         <span>{{ item.title }}</span>
@@ -38,7 +38,7 @@ export default {
 
   margin: 0;
   background: #fff;
-  border-top: 2px solid #eee;
+  // border-top: 2px solid #eee;
   box-shadow: 0 -1px 24px 0 rgba(223, 223, 223, 0.521);
 
   display: flex;

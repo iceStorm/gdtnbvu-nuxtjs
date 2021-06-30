@@ -39,6 +39,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
+    '@nuxtjs/vuetify',
     '@nuxtjs/moment',
     // '@nuxtjs/color-mode',
   ],
@@ -67,7 +68,7 @@ export default {
 
   },
 
-  loading: { color: '#ff7300', throttle: 0 },
+  loading: { color: '#3edbf0', throttle: 0 },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {

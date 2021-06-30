@@ -51,7 +51,7 @@ export default {
   color: white;
   border-radius: 4px;
   background: var(--primary-color);
-  box-shadow: 0 0 20px 0 rgba(0, 187, 255, 0.178);
+  box-shadow: 0 0 20px 0 rgba(139, 139, 139, 0.178);
 
   opacity: 0;
   visibility: hidden;

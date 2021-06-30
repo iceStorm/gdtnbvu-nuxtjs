@@ -20,22 +20,33 @@
     <h1 class="title"><strong>{{ $t('newsGrid.title') }}</strong></h1>
     <div id="posts-grids">
       <div class="posts-grid left">
-        <nuxt-link v-for="post in leftPosts" :key="post.id"
-          :to="'/news/' + post.slug" class="posts-grid-item"
-          >
 
-          <img :src="post.meta.wide_thumbnail || post.meta.thumbnail"
-          class="posts-grid-item-thumbnail">
+        <v-skeleton-loader class="posts-grid-item" type="card"
+          v-for="i in 3" :key="i" v-if="!posts.length">
+        </v-skeleton-loader>
+
+        <nuxt-link
+          v-if="posts.length"
+          v-for="post in posts.slice(0, 3)"
+          :key="post.id"
+          :to="'/news/' + post.slug"
+          class="posts-grid-item">
+          <img :src="post.meta.wide_thumbnail || post.meta.thumbnail" class="posts-grid-item-thumbnail" loading="lazy">
           <span class="posts-grid-item-title">{{ post.meta.title }}</span>
         </nuxt-link>
       </div>
 
       <div class="posts-grid right">
-        <nuxt-link v-for="post in rightPosts" :key="post.id"
-          :to="'/news/' + post.slug" class="posts-grid-item"
-          >
-          <img :src="post.meta.wide_thumbnail || post.meta.thumbnail"
-          class="posts-grid-item-thumbnail">
+        <v-skeleton-loader class="posts-grid-item" type="card"
+          v-for="i in 3" :key="i" v-if="!posts.length">
+        </v-skeleton-loader>
+
+        <nuxt-link
+          v-if="posts.length"
+          v-for="post in posts.slice(-3)"
+          :key="post.id"
+          :to="'/news/' + post.slug" class="posts-grid-item">
+          <img :src="post.meta.wide_thumbnail || post.meta.thumbnail" class="posts-grid-item-thumbnail" loading="lazy">
           <span class="posts-grid-item-title">{{ post.meta.title }}</span>
         </nuxt-link>
       </div>
@@ -57,12 +68,12 @@ export default Vue.extend({
     };
   },
   computed: {
-    leftPosts() {
+    /* leftPosts() {
       return this.posts.slice(0, 3);
     },
     rightPosts() {
       return this.posts.slice(-3);
-    },
+    }, */
   },
   async fetch() {
     this.posts = await this.$wp.$get('/articles?per_page=6');
@@ -122,7 +133,9 @@ export default Vue.extend({
     .posts-grid-item {
       position: relative;
       overflow: hidden;
-      // border-radius: 6px;
+      min-height: 150px;
+      border-radius: 6px;
+      border: none;
       // box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
       box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 

@@ -14,13 +14,7 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
-import ScrollTopButton from '~/components/ScrollTopButton.vue';
-
 export default {
-  components: {
-    ScrollTopButton,
-  },
   computed: {
     classes() {
       return {
@@ -28,18 +22,6 @@ export default {
         mobile: this.$store.state.menu.mobile,
       };
     },
-  },
-  data() {
-    return {
-    };
-  },
-  async fetch() {
-    this.setMeta(await this.$wp.$get('/meta'));
-  },
-  methods: {
-    ...mapMutations({
-      setMeta: 'setMeta',
-    }),
   },
 };
 </script>

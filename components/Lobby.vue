@@ -36,6 +36,9 @@
     <!-- video -->
     <video :src="lobby.lobby_single_image" v-if="lobby.lobby_type=='Single Video'"></video>
 
+    <!-- virtual element as anchor -->
+    <div id="above-content" style="position: absolute; bottom: 50px;"></div>
+
     <!-- scroll down button -->
     <a href="#content"
       id="lobby-scroll-down-btn"

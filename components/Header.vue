@@ -28,13 +28,16 @@
           </span>
         </a>
 
-        <ul id="main-menu-right" v-if="!menu.mobile">
-          <li v-for="(item) in menuItems" :key="item.href">
-            <nuxt-link :to="item.href">
-              {{ item.title }}
-            </nuxt-link>
-          </li>
-        </ul>
+        <nav id="main-menu-navigation" v-if="!menu.mobile">
+          <ul>
+            <li v-for="(item) in menuItems" :key="item.href" :class="{ active: item.href == menu.activeHref }">
+              <nuxt-link :to="{ path: item.href, hash: '#above-content' }" v-scroll-to="{el: '#above-content'}">
+                {{ item.title }}
+              </nuxt-link>
+            </li>
+          </ul>
+          <a-icon type="search" v-show="false"></a-icon>
+        </nav>
       </div>
     </nav>
 
@@ -152,13 +155,23 @@ export default {
         }
       }
 
-      #main-menu-right {
+      #main-menu-navigation {
+        display: flex;
+        align-items: center;
         justify-content: flex-end;
+        gap: 40px;
 
-        @for $i from 1 through 10 {
-          li:nth-child(#{$i}) {
-            opacity: 0;
-            animation: fadeInRight 1.75s #{$i * 100}ms forwards;
+        .anticon {
+          color: white;
+          cursor: pointer;
+        }
+
+        ul {
+          @for $i from 1 through 10 {
+            li:nth-child(#{$i}) {
+              opacity: 0;
+              animation: fadeInRight 1.75s #{$i * 100}ms forwards;
+            }
           }
         }
       }
@@ -204,8 +217,20 @@ export default {
         color: black;
       }
 
-      #main-menu-right a:not(:last-child) {
-        padding: 15px 20px;
+      li.active {
+        a {
+          color: var(--link-hover-color);
+        }
+      }
+
+      #main-menu-navigation {
+        a:not(:last-child) {
+          padding: 15px 20px;
+        }
+
+        .anticon {
+          color: black;
+        }
       }
 
       #main-menu-logo {
