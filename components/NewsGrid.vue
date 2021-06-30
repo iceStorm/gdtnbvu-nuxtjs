@@ -32,7 +32,9 @@
           :to="'/news/' + post.slug"
           class="posts-grid-item">
           <img :src="post.meta.wide_thumbnail || post.meta.thumbnail" class="posts-grid-item-thumbnail" loading="lazy">
-          <span class="posts-grid-item-title">{{ post.meta.title }}</span>
+          <span class="posts-grid-item-title">
+            <p>{{ post.meta.title }}</p>
+          </span>
         </nuxt-link>
       </div>
 
@@ -47,7 +49,9 @@
           :key="post.id"
           :to="'/news/' + post.slug" class="posts-grid-item">
           <img :src="post.meta.wide_thumbnail || post.meta.thumbnail" class="posts-grid-item-thumbnail" loading="lazy">
-          <span class="posts-grid-item-title">{{ post.meta.title }}</span>
+          <span class="posts-grid-item-title">
+            <p>{{ post.meta.title }}</p>
+          </span>
         </nuxt-link>
       </div>
     </div>
@@ -131,6 +135,11 @@ export default Vue.extend({
     gap: var(--news-grid-gap);
 
     .posts-grid-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: stretch;
+
       position: relative;
       overflow: hidden;
       min-height: 150px;
@@ -138,6 +147,7 @@ export default Vue.extend({
       border: none;
       // box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
       box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+      // box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 
       &:nth-child(1) {
         grid-column: 1 / span 2;
@@ -163,35 +173,47 @@ export default Vue.extend({
         }
       }
 
-      .posts-grid-item-thumbnail {
+      &-thumbnail {
         width: 100%;
         height: 100%;
         object-fit: cover;
       }
 
-      .posts-grid-item-title {
+      &-title {
         position: absolute;
         z-index: 1;
         bottom: 0;
         left: 0;
         right: 0;
-        padding: 5px 10px;
+        // height: 35%;
+        padding: 75px 15px 10px;
 
-        background: rgba(154, 231, 255, 0.5);
-        backdrop-filter: blur(20px) saturate(180%);
+        background: linear-gradient(to top, black, transparent);
+        // backdrop-filter: blur(20px) saturate(180%);
 
-        font-weight: 500;
-        color: white;
-        text-shadow: 2px 2px 5px gray;
+        p {
+          color: white;
+          font-weight: 600;
+          text-transform: uppercase;
+          text-shadow: 2px 2px 5px gray;
+          margin-bottom: 0;
 
-        line-height: 2;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          line-height: 20px;     /* fallback */
+          max-height: 40px;      /* fallback */
+          -webkit-line-clamp: 2; /* number of lines to show */
+          -webkit-box-orient: vertical;
+
+          @media (max-width: 425px) {
+            line-height: 17px;     /* fallback */
+            max-height: 32px;      /* fallback */
+            font-size: 10px;
+          }
+        }
       }
-    }
-  }
+    } // .posts-grid-item
+  } // .posts-grid
 }
 </style>

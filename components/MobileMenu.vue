@@ -73,6 +73,12 @@ export default {
       color: var(--text);
       font-weight: 600;
 
+      @media (max-width: 425px) {
+        span {
+          font-size: 12px;
+        }
+      }
+
       display: flex;
       justify-content: center;
       align-items: center;

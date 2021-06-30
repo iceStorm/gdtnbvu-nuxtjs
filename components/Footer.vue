@@ -238,6 +238,7 @@ export default Vue.extend({
 
           input[type=email] {
             padding: 10px 15px;
+            background: white;
 
             @media (max-width: 360px) {
               width: 180px;
