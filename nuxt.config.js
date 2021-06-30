@@ -50,8 +50,8 @@ export default {
     '@nuxtjs/axios',
     '@nuxt/http',
     '@nuxtjs/pwa',
+    '@nuxtjs/sitemap', // should be placed after i18n to generate locale-pages
     'nuxt-i18n',
-    '@nuxtjs/sitemap', // should be placed after i18n
     // 'nuxt-moment',
   ],
 
