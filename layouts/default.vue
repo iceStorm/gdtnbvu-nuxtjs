@@ -2,6 +2,12 @@
   <div id="root" :class="[{ mobile: classes.mobile }, classes.colorMode]">
     <Header />
 
+    <!-- mobile menu -->
+    <mobile-menu v-if="$store.state.menu.mobile" />
+
+    <!-- lobby -->
+    <Lobby />
+
     <main id="content">
       <div class="inner-page">
         <Nuxt />

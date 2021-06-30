@@ -1,5 +1,5 @@
 <template>
-  <a id="scrollTopBtn" href="#header" :class="{ mobile: $store.state.menu.mobile }">
+  <a id="scrollTopBtn" href="#lobby" :class="{ mobile: $store.state.menu.mobile }">
     <a-icon type="arrow-up" />
   </a>
 </template>

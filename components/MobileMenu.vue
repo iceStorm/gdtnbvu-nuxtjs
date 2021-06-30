@@ -39,7 +39,7 @@ export default {
   margin: 0;
   background: #fff;
   // border-top: 2px solid #eee;
-  box-shadow: 0 -1px 24px 0 rgba(223, 223, 223, 0.521);
+  box-shadow: 0 -10px 24px 0 rgba(223, 223, 223, 0.521);
 
   display: flex;
   justify-content: stretch;
@@ -55,7 +55,7 @@ export default {
     right: 0;
     bottom: 0;
 
-    height: 78px;
+    height: 74px;
     width: 50px;
 
     background: linear-gradient(to left, white, transparent);

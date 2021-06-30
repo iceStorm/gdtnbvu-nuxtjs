@@ -14,7 +14,9 @@
 </i18n>
 
 <template>
-  <div id="lobby">
+  <div id="lobby"
+    :class="{ intersected: !$store.state.menu.mobile }">
+
     <!-- single image -->
     <img id="lobby-image"
       v-show="lobby.lobby_type=='Single Image'"
@@ -48,11 +50,11 @@
       </span>
       <a-icon type="arrow-down" style="transform: rotate(0deg);" />
     </a>
+
   </div>
 </template>
 
 <script>
-
 export default {
   computed: {
     lobby() {
@@ -121,12 +123,19 @@ export default {
 #lobby {
   height: 100vh;
   overflow: hidden;
+
   position: relative;
+  top: 0;
   z-index: 0;
   background-color: black;
+  transition: all .75s;
+
+  &.intersected {
+    margin-top: -90px;
+  }
 
   @media (max-width: 1100px) {
-    height: unset;
+    height: unset !important;
   }
 
   img#lobby-image {
