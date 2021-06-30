@@ -2,9 +2,6 @@
   <div id="root" :class="[{ mobile: classes.mobile }, classes.colorMode]">
     <Header />
 
-    <!-- mobile menu -->
-    <mobile-menu v-if="$store.state.menu.mobile" />
-
     <!-- lobby -->
     <Lobby />
 
@@ -13,6 +10,9 @@
         <Nuxt />
       </div>
     </main>
+
+    <!-- mobile menu -->
+    <mobile-menu v-if="$store.state.menu.mobile" />
 
     <scroll-top-button></scroll-top-button>
     <Footer />

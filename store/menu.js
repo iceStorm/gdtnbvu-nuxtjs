@@ -1,5 +1,6 @@
 export const state = () => ({
   mobile: false,
+  headerHeight: 0,
   activeHref: '/',
   items: [
     {
@@ -62,6 +63,10 @@ export const state = () => ({
 export const mutations = {
   setActiveMenuItem(state, href) {
     state.activeHref = href;
+  },
+
+  setHeaderHeight(state, height) {
+    state.headerHeight = height;
   },
 
   toggleMobileMode(state, value) {

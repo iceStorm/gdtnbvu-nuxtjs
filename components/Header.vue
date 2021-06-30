@@ -87,6 +87,10 @@ export default {
   },
   methods: {
     toggleMainNav() {
+      const headerHeight = document.getElementById('header');
+      console.log(headerHeight.clientHeight);
+      // this.$store.commit('menu/setHeaderHeight', headerHeight);
+
       // hide the horizontal nav menu
       if (window.innerWidth >= 1024) {
         if (this.menu.mobile) {
@@ -241,6 +245,10 @@ export default {
     box-shadow: 0 1px 24px 0 rgba(223, 223, 223, 0.521);
     background: #fff;
 
+    &.mobile {
+      position: fixed;
+    }
+
     a {
       color: black;
     }
@@ -252,8 +260,10 @@ export default {
     }
 
     #header-navigation {
-      a:not(:last-child) {
-        padding: 5px 20px;
+      a {
+        &:not(:last-child) {
+          padding: 5px 20px;
+        }
       }
 
       .anticon {

@@ -15,7 +15,7 @@
 
 <template>
   <div id="lobby"
-    :class="{ intersected: !$store.state.menu.mobile }">
+    :class="{ intersected: !$store.state.menu.mobile, mobile: $store.state.menu.mobile }">
 
     <!-- single image -->
     <img id="lobby-image"
@@ -132,6 +132,12 @@ export default {
 
   &.intersected {
     margin-top: -90px;
+  }
+  &.mobile {
+    margin-top: 70px;
+    @media (max-width: 425px) {
+      margin-top: 60px;
+    }
   }
 
   @media (max-width: 1100px) {
