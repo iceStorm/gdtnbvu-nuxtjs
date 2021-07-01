@@ -28,7 +28,6 @@
       "@nuxtjs/axios",
       "@types/node",
       "@nuxtjs/moment",
-      "@nuxt/image",
       "nuxt-i18n"
     ]
   },
