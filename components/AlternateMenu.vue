@@ -25,7 +25,7 @@ export default {
   border-bottom: 1px solid #eee;
 
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   top: -80px;
   left: 0;
   right: 0;

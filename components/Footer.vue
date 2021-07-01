@@ -10,7 +10,13 @@
       "memberRegister": {
         "caption": "Chưa tham gia đội tình nguyện ?",
         "registerButtonTitle": "Đăng ký gia nhập"
-      }
+      },
+      "mainTitles": [
+        "Đội Tình nguyện BVU",
+        "Mạng xã hội",
+        "Điều hướng",
+        "Liên kết"
+      ]
     }
   },
   "en": {
@@ -23,7 +29,13 @@
       "memberRegister": {
         "caption": "Not joined the team yet ?",
         "registerButtonTitle": "Register member"
-      }
+      },
+      "mainTitles": [
+        "BVU Volunteer Team",
+        "Social networks",
+        "Navigation",
+        "Links"
+      ]
     }
   }
 }
@@ -60,33 +72,19 @@
     <div id="footer-main">
       <div class="inner-page">
         <section class="footer-main-section contact">
-          <h4 class="footer-main-section-title">Đội tình nguyện BVU</h4>
+          <h4 class="footer-main-section-title">{{ $t('footer.mainTitles[0]') }}</h4>
           <div class="footer-main-section-content">
             <div class="contact-default">
-              <div class="contact-item">
-                <span class="text">Địa chỉ:</span>
-                <a target="_blank" href="https://goo.gl/maps/3UhndXsNeJo5mzqE6">
-                  {{ $store.state.meta.contact.address }}
-                </a>
-              </div>
-
-              <div class="contact-item">
-                <span class="text">Số điện thoại:</span>
-                <a target="_blank" :href="hrefConvert($store.state.meta.contact.phone)">
-                  {{ $store.state.meta.contact.phone }}
-                </a>
-              </div>
-
-              <div class="contact-item">
-                <span class="text">E-mail:</span>
-                <a target="_blank" :href="hrefConvert($store.state.meta.contact.email)">
-                  {{ $store.state.meta.contact.email }}
+              <div class="contact-item" v-for="item in contactItems" :key="item.href">
+                <span class="text">{{ item.caption[$i18n.locale] }}:</span>
+                <a target="_blank" :href="hrefConvert(item.href)">
+                  {{ item.title }}
                 </a>
               </div>
             </div>
 
             <div class="contact-social" style="padding-top: 35px;">
-              <h4 class="footer-main-section-title">Mạng xã hội</h4>
+              <h4 class="footer-main-section-title">{{ $t('footer.mainTitles[1]') }}</h4>
               <div class="contact-social-content">
                 <a v-for="item in $store.state.meta.social_media_links"
                   :key="item.social_link"
@@ -100,7 +98,7 @@
         </section>
 
         <section class="footer-main-section links">
-          <h4 class="footer-main-section-title">Điều hướng</h4>
+          <h4 class="footer-main-section-title">{{ $t('footer.mainTitles[2]') }}</h4>
           <ul class="footer-main-section-content">
             <li v-for="item in $store.state.menu.items" :key="item.href">
               <nuxt-link :to="item.href">{{ item.title[$i18n.locale] }}</nuxt-link>
@@ -109,7 +107,7 @@
         </section>
 
         <section class="footer-main-section legals">
-          <h4 class="footer-main-section-title">Liên kết</h4>
+          <h4 class="footer-main-section-title">{{ $t('footer.mainTitles[3]') }}</h4>
           <ul class="footer-main-section-content">
             <li v-for="item in otherLinks" :key="item.href">
               <a :href="item.href" target="_blank">
@@ -145,6 +143,36 @@ export default Vue.extend({
     LanguageSwitcher,
     ColorModeSwitcher,
   },
+  data() {
+    return {
+      contactItems: [
+        {
+          caption: {
+            vi: 'Địa chỉ',
+            en: 'Address',
+          },
+          title: this.$store.state.meta.contact.address,
+          href: 'https://goo.gl/maps/3UhndXsNeJo5mzqE6',
+        },
+        {
+          caption: {
+            vi: 'Số điện thoại',
+            en: 'Phone number',
+          },
+          title: this.$store.state.meta.contact.phone,
+          href: this.$store.state.meta.contact.phone,
+        },
+        {
+          caption: {
+            vi: 'E-mail',
+            en: 'E-mail',
+          },
+          title: this.$store.state.meta.contact.email,
+          href: this.$store.state.meta.contact.email,
+        },
+      ],
+    };
+  },
   computed: {
     otherLinks() {
       return [
@@ -175,7 +203,7 @@ export default Vue.extend({
     z-index: 1;
 
     &.mobile {
-      padding-bottom: 40px;
+      padding-bottom: 70px;
     }
 
     &-mail-register {

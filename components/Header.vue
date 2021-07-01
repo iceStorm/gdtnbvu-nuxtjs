@@ -139,7 +139,7 @@ export default {
 <style lang="scss">
 #header {
   position: sticky;
-  z-index: 2;
+  z-index: 9;
   top: 0;
   left: 0;
   right: 0;
