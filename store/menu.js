@@ -3,7 +3,10 @@ export const state = () => ({
   activeHref: '/',
   items: [
     {
-      title: 'Trang chủ',
+      title: {
+        vi: 'Trang chủ',
+        en: 'Home',
+      },
       href: '/',
       icon: {
         outline: '/icons/ion/outline/home-outline.svg',
@@ -12,7 +15,10 @@ export const state = () => ({
       newTab: false,
     },
     {
-      title: 'Giới thiệu',
+      title: {
+        vi: 'Giới thiệu',
+        en: 'About',
+      },
       href: '/about',
       icon: {
         outline: '/icons/ion/outline/information-circle-outline.svg',
@@ -21,7 +27,10 @@ export const state = () => ({
       newTab: false,
     },
     {
-      title: 'Thành viên',
+      title: {
+        vi: 'Thành viên',
+        en: 'Members',
+      },
       href: '/members',
       icon: {
         outline: '/icons/ion/outline/people-outline.svg',
@@ -30,7 +39,10 @@ export const state = () => ({
       newTab: false,
     },
     {
-      title: 'Thư viện',
+      title: {
+        vi: 'Thư viện',
+        en: 'Gallery',
+      },
       href: '/gallery',
       icon: {
         outline: '/icons/ion/outline/images-outline.svg',
@@ -39,7 +51,10 @@ export const state = () => ({
       newTab: false,
     },
     {
-      title: 'Tin tức',
+      title: {
+        vi: 'Tin tức',
+        en: 'News',
+      },
       href: '/news',
       icon: {
         outline: '/icons/ion/outline/newspaper-outline.svg',
@@ -48,7 +63,10 @@ export const state = () => ({
       newTab: false,
     },
     {
-      title: 'Liên hệ',
+      title: {
+        vi: 'Liên hệ',
+        en: 'Contact',
+      },
       href: '/contact',
       icon: {
         outline: '/icons/ion/outline/chatbox-outline.svg',

@@ -83,9 +83,17 @@ export default {
     > header {
       padding-bottom: 50px;
 
+      @media (max-width: 768px) {
+        padding-bottom: 35px;
+      }
+
       h2 {
         line-height: 1.5;
         padding-bottom: 5px;
+
+        @media (max-width: 768px) {
+          line-height: 1.2;
+        }
       }
     }
 

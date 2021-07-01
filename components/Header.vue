@@ -19,6 +19,8 @@
   <header id="header" ref="header" :class="{ mobile: menu.mobile, away: menu.mobile }">
 
     <div class="inner-page">
+
+      <!-- logo -->
       <a id="header-logo" href="/">
         <img src="/logo.png" >
         <span>
@@ -35,13 +37,14 @@
         </span>
       </a>
 
+      <!-- navigation -->
       <nav id="header-navigation" v-if="!menu.mobile">
         <ul>
           <li
             v-for="(item) in menuItems" :key="item.href"
             :class="{ active: item.href == menu.activeHref }">
             <nuxt-link :to="{ path: item.href }">
-              {{ item.title }}
+              {{ item.title[$i18n.locale] }}
             </nuxt-link>
           </li>
         </ul>

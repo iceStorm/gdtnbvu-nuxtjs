@@ -1,26 +1,30 @@
 <template>
   <div id="colormode-switcher">
-    <select name="" id="" @change="onColorModeChanged($event.target.value)">
-      <option v-for="mode in colorModes" :key="mode" :value="mode">{{ mode }}</option>
-    </select>
+    <img :src="currentColorMode.icon" @click="toggleColorMode">
   </div>
 </template>
 
 <script>
 export default {
   computed: {
-    colorModes() {
-      return this.$store.state.colorMode.available;
+    currentColorMode() {
+      return this.$store.getters.currentColorMode;
     },
   },
   methods: {
-    onColorModeChanged(value) {
-      this.$store.commit('changeColorMode', value);
+    toggleColorMode() {
+      this.$store.dispatch('toggleColorMode');
     },
   },
 };
 </script>
 
 <style lang="scss">
-
+#colormode-switcher {
+  img {
+    cursor: pointer;
+    width: 20px;
+    filter: invert(1) drop-shadow(0 0 7px rgba(0, 0, 0, 0.15));
+  }
+}
 </style>

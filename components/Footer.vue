@@ -100,19 +100,21 @@
         </section>
 
         <section class="footer-main-section links">
-          <h4 class="footer-main-section-title">Liên kết</h4>
+          <h4 class="footer-main-section-title">Điều hướng</h4>
           <ul class="footer-main-section-content">
             <li v-for="item in $store.state.menu.items" :key="item.href">
-              <nuxt-link :to="item.href">{{ item.title }}</nuxt-link>
+              <nuxt-link :to="item.href">{{ item.title[$i18n.locale] }}</nuxt-link>
             </li>
           </ul>
         </section>
 
         <section class="footer-main-section legals">
-          <h4 class="footer-main-section-title">Chính sách</h4>
+          <h4 class="footer-main-section-title">Liên kết</h4>
           <ul class="footer-main-section-content">
-            <li v-for="item in $store.state.menu.items" :key="item.href">
-              <nuxt-link :to="item.href">{{ item.title }}</nuxt-link>
+            <li v-for="item in otherLinks" :key="item.href">
+              <a :href="item.href" target="_blank">
+                {{ item.title[$i18n.locale] }}
+              </a>
             </li>
           </ul>
         </section>
@@ -142,6 +144,19 @@ export default Vue.extend({
   components: {
     LanguageSwitcher,
     ColorModeSwitcher,
+  },
+  computed: {
+    otherLinks() {
+      return [
+        {
+          title: {
+            vi: 'Gia nhập Đội',
+            en: 'Join the Team',
+          },
+          href: this.$store.state.meta.contact.register_form,
+        },
+      ];
+    },
   },
   methods: {
     registerNeletter() {
