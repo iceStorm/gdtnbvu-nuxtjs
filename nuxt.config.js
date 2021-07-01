@@ -43,7 +43,6 @@ export default {
     '@nuxt/typescript-build',
     '@nuxtjs/vuetify',
     '@nuxtjs/moment',
-    '@nuxt/image',
     // '@nuxtjs/color-mode',
   ],
 
@@ -53,7 +52,6 @@ export default {
     '@nuxtjs/axios',
     '@nuxt/http',
     '@nuxtjs/pwa',
-    '@nuxt/image',
     '@nuxtjs/sitemap', // should be placed after i18n to generate locale-pages
     'nuxt-i18n',
     // 'nuxt-moment',
