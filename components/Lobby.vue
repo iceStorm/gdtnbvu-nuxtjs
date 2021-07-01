@@ -186,21 +186,22 @@ export default {
         // object-position: center -230px;
       }
     }
+    @media (min-width: 1024px) {
+      &::after {
+       content: "";
+       position: absolute;
+       z-index: 1;
 
-    &::after {
-      content: "";
-      position: absolute;
-      z-index: 1;
+       top: 0;
+       left: 0;
+       right: 0;
+       bottom: 0;
 
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.05));
-    }
+       width: 100%;
+       height: 100%;
+       background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.05));
+     }
+    } // media
   }
 
   &-scroll-down-btn {
