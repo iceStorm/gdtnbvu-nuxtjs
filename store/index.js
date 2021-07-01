@@ -30,7 +30,7 @@ export const actions = {
     const { current } = state.colorMode;
     const next = state.colorMode.available.filter((mode) => mode.type !== current)[0];
 
-    console.log('next', next);
+    // console.log('next', next);
     commit('changeColorMode', next.type);
   },
 };

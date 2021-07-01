@@ -20,11 +20,11 @@ export default {
   },
   methods: {
     switchLocale(e) {
-      console.log(e);
+      // console.log(e);
     },
   },
   mounted() {
-    console.log(this.$i18n.localeProperties.name);
+    // console.log(this.$i18n.localeProperties.name);
   },
 };
 </script>

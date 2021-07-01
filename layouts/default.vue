@@ -2,6 +2,8 @@
   <div id="root" :class="[{ mobile: classes.mobile }, classes.colorMode]">
     <Header />
 
+    <AlternateMenu />
+
     <!-- lobby -->
     <Lobby />
 
@@ -46,8 +48,8 @@ body.mobile {
   }
 }
 
-@media (max-width: 1167px) {
-  #content, #footer > :not(:last-child) {
+@media (max-width: 1024px) {
+  #content, #footer {
     .inner-page {
       padding: 25px !important;
     }

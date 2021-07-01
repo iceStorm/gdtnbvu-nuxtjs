@@ -37,8 +37,28 @@
         </span>
       </a>
 
+      <div id="header-buttons">
+        <div class="container"
+          v-if="$store.state.menu.mobile && !menu.alternateHeader.visible">
+          <color-mode-switcher />
+          <language-switcher />
+        </div>
+
+        <div id="alternate-header-toggler"
+          v-if="menu.alternateHeader.visible"
+          @click="$store.commit('menu/toggleAlternateHeaderShowing')">
+          <img src="/icons/ion/outline/chevron-down-outline.svg"
+            :style="{
+              width: '20px',
+              transition: 'all .35s',
+              transformOrigin: '50% 50%',
+              transform: `rotate(${menu.alternateHeader.show ? '180deg' : '0deg'})`
+            }">
+        </div>
+      </div>
+
       <!-- navigation -->
-      <nav id="header-navigation" v-if="!menu.mobile">
+      <nav id="header-navigation">
         <ul>
           <li
             v-for="(item) in menuItems" :key="item.href"
@@ -96,9 +116,21 @@ export default {
           this.$store.commit('menu/toggleMobileMode', false);
         }
       }
-      else if (!this.menu.mobile) {
-        this.$store.commit('menu/toggleMobileMode', true);
-      }
+      else {
+        // innerWidth < 1024 ==> toggle mobile menu
+        if (!this.menu.mobile) {
+          this.$store.commit('menu/toggleMobileMode', true);
+        }
+
+        // header alternate buttons container
+        if (window.innerWidth > 480) {
+          if (this.menu.alternateHeader.visible) {
+            this.$store.commit('menu/toggleAlternateHeaderVisible', false);
+          }
+        } else if (!this.menu.alternateHeader.visible) {
+          this.$store.commit('menu/toggleAlternateHeaderVisible', true);
+        }
+      } // < 1024px
     },
   },
 };
@@ -165,6 +197,10 @@ export default {
       justify-content: flex-end;
       gap: 40px;
 
+      @media (max-width: 1023px) {
+        display: none;
+      }
+
       .anticon {
         color: white;
         cursor: pointer;
@@ -178,6 +214,13 @@ export default {
           }
         }
       }
+    }
+
+    #header-buttons .container {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 20px;
     }
 
     #header-logo {

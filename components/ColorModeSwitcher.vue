@@ -24,7 +24,7 @@ export default {
   img {
     cursor: pointer;
     width: 20px;
-    filter: invert(1) drop-shadow(0 0 7px rgba(0, 0, 0, 0.15));
+    filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.15));
   }
 }
 </style>

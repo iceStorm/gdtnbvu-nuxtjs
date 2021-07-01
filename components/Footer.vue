@@ -121,7 +121,7 @@
       </div>
     </div>
 
-    <div id="footer-copyright">
+    <div id="footer-copyright" v-if="!$store.state.menu.mobile">
       <div class="inner-page">
         <span>Copyright &copy; 2021 - {{ $t('title') }}</span>
         <!-- <span></span> -->

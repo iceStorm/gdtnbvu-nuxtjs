@@ -1,5 +1,9 @@
 export const state = () => ({
   mobile: false,
+  alternateHeader: {
+    visible: false,
+    show: false,
+  },
   activeHref: '/',
   items: [
     {
@@ -80,6 +84,16 @@ export const state = () => ({
 export const mutations = {
   setActiveMenuItem(state, href) {
     state.activeHref = href;
+  },
+
+  toggleAlternateHeaderVisible(state, value) {
+    state.alternateHeader.visible = value;
+  },
+  setAlternateHeaderShowing(state, value) {
+    state.alternateHeader.show = value;
+  },
+  toggleAlternateHeaderShowing(state) {
+    state.alternateHeader.show = !state.alternateHeader.show;
   },
 
   toggleMobileMode(state, value) {
