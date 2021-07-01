@@ -49,16 +49,17 @@ export default {
     return {
     };
   },
-  async asyncData({$wp, $config, params}) {
+  async asyncData({ $wp, redirect, error, params }) {
     const post = (await $wp.$get(`/articles?slug=${params.slug}`));
-    console.log(post);
+    // console.log(post);
 
     if (post.length) {
       return { post: post[0] };
     }
 
     // toError();
-    return $config.$nuxt.error({ statusCode: 404, message: 'Page not found.' });
+    return redirect({ path: '/404' });
+    // return error({ statusCode: 404, message: 'Page not found.' });
   },
   methods: {
     toError() {

@@ -1,5 +1,6 @@
 export default async ({ app }) => {
   app.router.afterEach((to, from) => {
-    app.store.commit('menu/setActiveMenuItem', to.path);
+    // console.log(to);
+    app.store.commit('menu/setActiveMenuItem', `/${to.matched[0].path.split('/')[1]}`);
   });
 };
