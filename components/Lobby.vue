@@ -27,7 +27,8 @@
     <div class="swiper-container" v-if="lobby.lobby_type=='Images Slider'">
       <div class="swiper-wrapper">
         <div v-for="banner in lobby.lobby_images_gallery" :key="banner" class="swiper-slide">
-          <img class="" :src="banner" onload="this.style.opacity = 1">
+          <!-- <img class="" :src="banner" onload="this.style.opacity = 1"> -->
+          <img class="" :src="banner">
         </div>
       </div>
       <div class="swiper-button-prev" />
@@ -180,7 +181,7 @@ export default {
       position: relative;
 
       img {
-        opacity: 0;
+        // opacity: 0;
         width: 100%;
         transition: all .75s ease-in-out;
         // object-position: center -230px;
