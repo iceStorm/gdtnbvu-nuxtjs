@@ -50,7 +50,7 @@
           :to="'/news/' + post.slug" class="posts-grid-item">
           <img :src="post.meta.wide_thumbnail || post.meta.thumbnail" class="posts-grid-item-thumbnail" loading="lazy">
           <span class="posts-grid-item-title">
-            <p>{{ post.meta.title }}</p>
+            <p v-html="post.meta.title"></p>
           </span>
         </nuxt-link>
       </div>
