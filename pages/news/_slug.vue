@@ -19,7 +19,7 @@
   <div id="news-detail-page">
     <article id="news-detail-page-content">
       <header>
-        <h2 class="title">{{ post.title.rendered }}</h2>
+        <h2 class="title" v-html="post.title.rendered"></h2>
         <news-detail-meta :post="post" />
       </header>
       <p v-html="post.meta.content"></p>
