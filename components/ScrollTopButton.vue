@@ -1,5 +1,5 @@
 <template>
-  <a id="scrollTopBtn" href="#lobby" :class="{ mobile: $store.state.menu.mobile }">
+  <a id="scrollTopBtn" @click.prevent="scrollToTop" :class="{ mobile: $store.state.menu.mobile }">
     <a-icon type="arrow-up" />
   </a>
 </template>
@@ -19,6 +19,15 @@ export default {
         document.getElementById('scrollTopBtn').classList.remove('visible');
       }
     });
+  },
+  methods: {
+    scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'auto',
+      });
+    },
   },
 };
 </script>

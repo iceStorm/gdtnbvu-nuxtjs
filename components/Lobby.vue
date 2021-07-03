@@ -43,7 +43,7 @@
     <div id="above-content" style="position: absolute; bottom: 50px;"></div>
 
     <!-- scroll down button -->
-    <a href="#content"
+    <a @click.prevent="scrollToContent"
       id="lobby-scroll-down-btn"
       class="animate__animated animate__fadeInUp">
       <span>
@@ -84,6 +84,14 @@ export default {
   mounted() {
   },
   methods: {
+    scrollToContent() {
+      const yCoordinate = document.getElementById('above-content').offsetTop - 20;
+      window.scrollTo({
+        top: yCoordinate,
+        left: 0,
+        behavior: 'smooth',
+      });
+    },
     initSwiperJS() {
       const swiper = new Swiper('.swiper-container', {
         loop: true,
