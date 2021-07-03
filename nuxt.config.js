@@ -139,11 +139,11 @@ export default {
       // /^\/$/
     ],
 
-    key(route, context) {
-      // custom function to return cache key, when used previous
-      // properties (useHostPrefix, pages) are ignored. return
-      // falsy value to bypass the cache
-    },
+    // key(route, context) {
+    //   // custom function to return cache key, when used previous
+    //   // properties (useHostPrefix, pages) are ignored. return
+    //   // falsy value to bypass the cache
+    // },
 
     store: {
       type: 'memory',
