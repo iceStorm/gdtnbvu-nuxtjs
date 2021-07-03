@@ -1,4 +1,4 @@
-<template>
+  <template>
   <div id="news">
     <h1>News page.</h1>
   </div>
@@ -6,7 +6,13 @@
 
 <script>
 export default {
-  //
+  head: {
+    title: 'BVU Volunteer Team - News',
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'description', content: 'Tin tức mới nhất.' },
+    ],
+  },
 };
 </script>
 

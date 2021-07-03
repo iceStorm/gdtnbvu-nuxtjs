@@ -10,12 +10,12 @@ export default {
   head: {
     title: 'BVU Volunteer Team',
     htmlAttrs: {
-      lang: 'en',
+      lang: 'vi',
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Gia đình Tình nguyện BVU' },
+      { name: 'description', content: 'Gia Đình Tình nguyện BVU - Trường Đại học Bà Rịa - Vũng Tàu.' },
       { name: 'theme-color', content: '#3edbf0' },
     ],
     link: [
