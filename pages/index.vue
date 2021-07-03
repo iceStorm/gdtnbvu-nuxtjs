@@ -6,13 +6,15 @@
 
 <script>
 import Vue from 'vue';
-import NewsGrid from '~/components/NewsGrid.vue';
 
 export default Vue.extend({
-  components: { NewsGrid },
   scrollToTop: false,
   head() {
     return {
+      title: 'BVU Volunteer Team',
+      meta: [
+        { hid: 'description', name: 'description', content: 'Gia Đình Tình nguyện BVU - Trường Đại học Bà Rịa - Vũng Tàu.' },
+      ],
       link: [
         { rel: 'stylesheet', href: '/libs/aos/aos.css' },
       ],

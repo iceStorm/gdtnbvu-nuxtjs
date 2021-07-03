@@ -10,7 +10,7 @@ export default Vue.extend({
     title: 'BVU Volunteer Team - Gallery',
     meta: [
       { charset: 'utf-8' },
-      { name: 'description', content: 'Thư viện ảnh, video.' },
+      { hid: 'description', name: 'description', content: 'Thư viện ảnh, video.' },
     ],
   },
 });

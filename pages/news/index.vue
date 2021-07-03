@@ -10,7 +10,7 @@ export default {
     title: 'BVU Volunteer Team - News',
     meta: [
       { charset: 'utf-8' },
-      { name: 'description', content: 'Tin tức mới nhất.' },
+      { hid: 'description', name: 'description', content: 'Tin tức mới nhất.' },
     ],
   },
 };

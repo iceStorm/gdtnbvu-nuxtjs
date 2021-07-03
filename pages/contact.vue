@@ -8,7 +8,7 @@ export default {
     title: 'BVU Volunteer Team - Contact',
     meta: [
       { charset: 'utf-8' },
-      { name: 'description', content: 'Liên hệ với chúng tôi.' },
+      { hid: 'description', name: 'description', content: 'Liên hệ với chúng tôi.' },
     ],
   },
 };

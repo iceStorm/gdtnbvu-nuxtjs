@@ -10,7 +10,7 @@ export default Vue.extend({
     title: 'BVU Volunteer Team - Events',
     meta: [
       { charset: 'utf-8' },
-      { name: 'description', content: 'Các sự kiện trong năm.' },
+      { hid: 'description', name: 'description', content: 'Các sự kiện trong năm.' },
     ],
   },
 });

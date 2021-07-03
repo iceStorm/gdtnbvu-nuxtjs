@@ -15,7 +15,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'description', content: 'Gia Đình Tình nguyện BVU - Trường Đại học Bà Rịa - Vũng Tàu.' },
+      { hid: 'description', name: 'description', content: 'Gia Đình Tình nguyện BVU - Trường Đại học Bà Rịa - Vũng Tàu.' },
       { name: 'theme-color', content: '#3edbf0' },
     ],
     link: [

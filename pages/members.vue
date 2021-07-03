@@ -10,7 +10,7 @@ export default Vue.extend({
     title: 'BVU Volunteer Team - Members',
     meta: [
       { charset: 'utf-8' },
-      { name: 'description', content: 'Các thành viên Ban Quản trị và thành viên nổi bật.' },
+      { hid: 'description', name: 'description', content: 'Các thành viên Ban Quản trị và thành viên nổi bật.' },
     ],
   },
 });
