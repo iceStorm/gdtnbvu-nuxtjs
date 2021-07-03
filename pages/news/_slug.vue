@@ -54,6 +54,18 @@ import NewsDetailMeta from '~/components/NewsDetailMeta.vue';
 export default {
   components: { NewsDetailMeta },
   scrollToTop: false,
+  head() {
+    return {
+      title: this.post.title.rendered,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.post.meta.content,
+        },
+      ],
+    };
+  },
   data() {
     return {
     };
