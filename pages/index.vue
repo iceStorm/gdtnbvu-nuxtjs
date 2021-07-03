@@ -11,9 +11,9 @@ export default Vue.extend({
   scrollToTop: false,
   head() {
     return {
-      title: 'BVU Volunteer Team',
+      title: 'Gia Đình Tình nguyện BVU - Trường Đại học Bà Rịa - Vũng Tàu',
       meta: [
-        { hid: 'description', name: 'description', content: 'Gia Đình Tình nguyện BVU - Trường Đại học Bà Rịa - Vũng Tàu.' },
+        { hid: 'description', name: 'description', content: 'Tuổi trẻ - Nhiệt huyết - Đam mê.' },
       ],
       link: [
         { rel: 'stylesheet', href: '/libs/aos/aos.css' },

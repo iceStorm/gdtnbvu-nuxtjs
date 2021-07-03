@@ -49,10 +49,8 @@
 <script>
 // import tippy from 'tippy.js';
 // import 'tippy.js/dist/tippy.css';
-import NewsDetailMeta from '~/components/NewsDetailMeta.vue';
 
 export default {
-  components: { NewsDetailMeta },
   scrollToTop: false,
   head() {
     return {
