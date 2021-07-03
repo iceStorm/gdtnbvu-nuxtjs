@@ -59,7 +59,7 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: this.post.meta.content,
+          content: this.post.title.rendered,
         },
       ],
     };
