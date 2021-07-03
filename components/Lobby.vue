@@ -143,8 +143,14 @@ export default {
 
   @media (max-width: 1100px) {
     height: unset !important;
+    .swiper-slide {
+      img {
+        object-position: unset !important;
+      }
+    }
   }
 
+  // single image
   img#lobby-image {
     max-width: 100%;
     object-fit: cover;
@@ -184,7 +190,7 @@ export default {
         // opacity: 0;
         width: 100%;
         transition: all .75s ease-in-out;
-        // object-position: center -230px;
+        object-position: center -30px;
       }
     }
     @media (min-width: 1024px) {

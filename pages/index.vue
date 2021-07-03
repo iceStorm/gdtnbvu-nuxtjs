@@ -10,7 +10,7 @@ import NewsGrid from '~/components/NewsGrid.vue';
 
 export default Vue.extend({
   components: { NewsGrid },
-  scrollToTop: true,
+  scrollToTop: false,
   head() {
     return {
       link: [

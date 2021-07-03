@@ -17,6 +17,12 @@
 
 <template>
   <div id="news-detail-page">
+    <div id="news-detail-page-navigation">
+      <div @click="$router.go(-1)">
+        <img class="ionicon" src="/icons/ion/outline/arrow-back-outline.svg">
+      </div>
+    </div>
+
     <article id="news-detail-page-content">
       <header>
         <h2 class="title" v-html="post.title.rendered"></h2>
@@ -41,7 +47,10 @@
 </template>
 
 <script>
+// import tippy from 'tippy.js';
+// import 'tippy.js/dist/tippy.css';
 import NewsDetailMeta from '~/components/NewsDetailMeta.vue';
+
 export default {
   components: { NewsDetailMeta },
   scrollToTop: false,
@@ -61,6 +70,9 @@ export default {
     return redirect({ path: '/404' });
     // return error({ statusCode: 404, message: 'Page not found.' });
   },
+  mounted() {
+    // tippy('[data-tippy-content]');
+  },
   methods: {
     toError() {
       this.$nuxt.error({ statusCode: 404, message: 'Page not found.' });
@@ -72,11 +84,37 @@ export default {
 <style lang="scss">
 #news-detail-page {
   display: grid;
-  grid-template-columns: 1.618fr 1fr;
+  grid-template-columns: 35px 1.618fr 1fr;
   gap: 50px;
 
   @media (max-width: 992px) {
     grid-template-columns: unset !important;
+  }
+
+  &-navigation {
+    > div {
+      position: sticky;
+      top: 100px;
+      width: 30px;
+      height: 30px;
+
+      border-radius: 50%;
+      border: 2px solid #eee;
+      background: var(--bg-color);
+
+      &:hover {
+        background: rgb(245, 245, 245);
+      }
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 20px;
+        cursor: pointer;
+      }
+    }
   }
 
   &-content {

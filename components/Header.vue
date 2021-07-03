@@ -3,13 +3,13 @@
   "vi": {
     "header": {
       "clubTitle": "Gia đình Tình nguyện BVU",
-      "clubSubTitle": "Chia sẻ Yêu thương!"
+      "clubSubTitle": "Tuổi trẻ, nhiệt huyết, đam mê!"
     }
   },
   "en": {
     "header": {
       "clubTitle": "BVU Volunteer Team",
-      "clubSubTitle": "Sharing the love!"
+      "clubSubTitle": "Youth, enthusiasm, passion!"
     }
   }
 }
