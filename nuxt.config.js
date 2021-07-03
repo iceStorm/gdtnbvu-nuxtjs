@@ -19,7 +19,8 @@ export default {
       { name: 'theme-color', content: '#3edbf0' },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' },
+      { rel: 'image/x-icon', href: 'favicon.ico' },
+      { rel: 'shortcut icon', href: '/favicon.ico' },
     ],
   },
 
