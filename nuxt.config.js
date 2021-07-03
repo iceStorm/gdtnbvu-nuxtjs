@@ -1,11 +1,10 @@
 export default {
   target: 'server',
-  
+
   // If you provide a version, it will be stored inside cache.
   // Later when you deploy a new version, old cache will be
   // automatically purged.
-  version: pkg.version,
-
+  // version: pkg.version,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -59,8 +58,7 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/sitemap', // should be placed after i18n to generate locale-pages
     'nuxt-i18n',
-	'nuxt-ssr-cache',
-
+    'nuxt-ssr-cache',
     // 'nuxt-moment',
   ],
 
