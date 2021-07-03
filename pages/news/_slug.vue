@@ -17,7 +17,7 @@
 
 <template>
   <div id="news-detail-page">
-    <div id="news-detail-page-navigation">
+    <div id="news-detail-page-navigation" ref="backButton">
       <div @click="$router.go(-1)">
         <img class="ionicon" src="/icons/ion/outline/arrow-back-outline.svg">
       </div>
@@ -70,10 +70,24 @@ export default {
     return redirect({ path: '/404' });
     // return error({ statusCode: 404, message: 'Page not found.' });
   },
+  destroyed() {
+    // window.removeEventListener('scroll', this.handleScroll);
+  },
   mounted() {
-    // tippy('[data-tippy-content]');
+    // window.addEventListener('scroll', this.handleScroll);
+
+    const yCoordinate = document.getElementById('above-content').offsetTop - 20;
+    window.scrollTo({
+      top: yCoordinate,
+      left: 0,
+      behavior: 'smooth',
+    });
   },
   methods: {
+    handleScroll(e) {
+      const backButton = this.$refs.backButton;
+    },
+
     toError() {
       this.$nuxt.error({ statusCode: 404, message: 'Page not found.' });
     },
@@ -81,18 +95,34 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 #news-detail-page {
   display: grid;
   grid-template-columns: 35px 1.618fr 1fr;
   gap: 50px;
+
+  @media (max-width: 1192px) {
+    grid-template-columns: 1.618fr 1fr;
+  }
 
   @media (max-width: 992px) {
     grid-template-columns: unset !important;
   }
 
   &-navigation {
+    &.hidden {
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    @media (max-width: 1192px) {
+      display: none !important;
+    }
+
     > div {
+      visibility: visible;
+      opacity: 1;
+
       position: sticky;
       top: 100px;
       width: 30px;

@@ -1,7 +1,7 @@
 <template>
   <div id="news-detail-content-title-meta">
     <div id="news-detail-content-title-meta-author">
-      <img :src="post.author_meta.avatar_urls['24']">
+      <img :src="post.author_meta.avatar_urls['24']" style="border-radius: 50%;">
       <span>{{ post.author_meta.name }}</span>
     </div>
 
@@ -35,15 +35,28 @@ export default {
 <style lang="scss">
 #news-detail-content-title-meta {
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
   gap: 30px;
+
+  @media (max-width: 425px) {
+    gap: 10px;
+  }
 
   > * {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 7px;
+
+    &:first-child {
+      @media (max-width: 425px) {
+        flex-basis: 100%;
+        order: 3;
+        justify-content: flex-start;
+      }
+    }
 
     span {
       line-height: 1;

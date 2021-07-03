@@ -19,7 +19,7 @@
 
     <!-- single image -->
     <img id="lobby-image"
-      v-show="lobby.lobby_type=='Single Image'"
+      v-if="lobby.lobby_type=='Single Image'"
       :src="lobby.lobby_single_image"
       onload="this.style.opacity = 1">
 
@@ -143,6 +143,13 @@ export default {
 
   @media (max-width: 1100px) {
     height: unset !important;
+    .swiper-slide {
+      img {
+        object-position: unset !important;
+      }
+    }
+  }
+  @media (max-width: 1330px) {
     .swiper-slide {
       img {
         object-position: unset !important;

@@ -42,7 +42,7 @@ export default {
     border-radius: 20px;
     border: none;
     background: rgba(0, 0, 0, 0.151);
-    color: white;
+    color: black;
 
     img {
       width: 15px;

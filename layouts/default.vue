@@ -48,7 +48,7 @@ body.mobile {
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1192px) {
   #content, #footer {
     .inner-page {
       padding: 25px !important;
