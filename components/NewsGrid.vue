@@ -49,15 +49,15 @@
           :key="post.id"
           :to="'/news/' + post.slug" class="posts-grid-item">
           <img :src="post.meta.wide_thumbnail || post.meta.thumbnail" class="posts-grid-item-thumbnail" loading="lazy">
-          <span class="posts-grid-item-title">
+          <div class="posts-grid-item-title">
             <p v-html="post.meta.title"></p>
-          </span>
+          </div>
         </nuxt-link>
       </div>
     </div>
 
     <nuxt-link to="/news" id="btn-news-grid-view-more" class="">
-      <strong>{{ $t('newsGrid.viewMoreTitle') }}</strong>
+      <strong class="more">{{ $t('newsGrid.viewMoreTitle') }}</strong>
     </nuxt-link>
   </div>
 </template>
@@ -106,8 +106,7 @@ export default Vue.extend({
     float: right;
     text-align: right;
 
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 16px;
     color: #000;
 
     // background: url('/patterns/underline-3.svg');

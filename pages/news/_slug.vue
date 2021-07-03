@@ -76,12 +76,12 @@ export default {
   mounted() {
     // window.addEventListener('scroll', this.handleScroll);
 
-    const yCoordinate = document.getElementById('above-content').offsetTop - 20;
-    window.scrollTo({
-      top: yCoordinate,
-      left: 0,
-      behavior: 'smooth',
-    });
+    // const yCoordinate = document.getElementById('above-content').offsetTop - 20;
+    // window.scrollTo({
+    //   top: yCoordinate,
+    //   left: 0,
+    //   behavior: 'smooth',
+    // });
   },
   methods: {
     handleScroll(e) {

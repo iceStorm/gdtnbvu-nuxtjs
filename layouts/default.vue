@@ -23,12 +23,31 @@
 
 <script>
 export default {
+  // scrollToTop: false,
   computed: {
     classes() {
       return {
         colorMode: this.$store.state.colorMode.current,
         mobile: this.$store.state.menu.mobile,
       };
+    },
+  },
+  mounted() {
+    this.$router.afterEach((to, from) => {
+      if (to.path !== '/') {
+        console.log('scrolling to #content..');
+        this.scrollToContent();
+      }
+    });
+  },
+  methods: {
+    scrollToContent() {
+      const yCoordinate = document.getElementById('above-content').offsetTop - 20;
+      window.scrollTo({
+        top: yCoordinate,
+        left: 0,
+        behavior: 'smooth',
+      });
     },
   },
 };

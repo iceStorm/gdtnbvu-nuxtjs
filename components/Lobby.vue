@@ -102,6 +102,10 @@ export default {
           delay: 3000,
         },
 
+        zoom: {
+          maxRatio: 5,
+        },
+
         effect: 'fade',
         fadeEffect: {
           crossFade: true,
@@ -199,7 +203,7 @@ export default {
     }
 
     .swiper-slide {
-      position: relative;
+      // position: relative;
 
       img {
         // opacity: 0;
@@ -208,6 +212,7 @@ export default {
         object-position: center -30px;
       }
     }
+
     @media (min-width: 1024px) {
       &::after {
        content: "";
