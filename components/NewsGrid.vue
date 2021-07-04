@@ -167,6 +167,10 @@ export default Vue.extend({
       }
 
       &:hover {
+        p {
+          color: var(--color-primary);
+        }
+
         &::after {
           background: rgba(0, 0, 0, 0.5);
         }

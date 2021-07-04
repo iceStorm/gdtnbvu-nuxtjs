@@ -1,22 +1,24 @@
-
 :root {
-  --primary-color: #3edbf0;
+  --color-primary: #3edbf0;
 
-  --bg: #fff;
+  --color-body: #fff;
+  --color-text: #243746;
 
-  --color: #243746;
-  --link-color: dodgerblue;
-  --selection-color: rgb(255, 160, 97);
-  --link-hover-color: rgb(255, 160, 97);
+  --color-selection: rgb(255, 160, 97);
+  --color-hover-gray: rgb(248, 248, 248);
+  
+  --color-link: dodgerblue;
+  --color-link-hover: rgb(255, 160, 97);
 }
-
 
 
 // dark mode palette
 .dark {
-  --bg: #2f495e;
+  --color-body: #182029;
+  --color-text: #fafafa;
 
-  --color: #ebf4f1;
-  --link-color: var(--primary-color);
+  --color-hover-gray: rgb(124, 124, 124);
+  
+  --color-link: var(--color-primary);
 }
 

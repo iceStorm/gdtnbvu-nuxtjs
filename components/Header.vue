@@ -16,7 +16,7 @@
 </i18n>
 
 <template>
-  <header id="header" ref="header" :class="{ mobile: menu.mobile, away: menu.mobile }">
+  <header id="header" ref="header" :class="{ away: $store.state.menu.mobile }">
 
     <div class="inner-page">
 
@@ -86,29 +86,26 @@ export default {
     },
   },
   mounted() {
-    let prevPos = window.pageYOffset;
-
     // handling scroll event
-    window.onscroll = (e) => {
-      const currentPos = window.pageYOffset;
-      const headerRef = this.$refs.header;
-
-      if (currentPos > 100) {
-        if (!headerRef.classList.contains('away')) {
-          headerRef.classList.add('away');
-        }
-      } else if (headerRef.classList.contains('away') && !headerRef.classList.contains('mobile')) {
-        headerRef.classList.remove('away');
-      }
-
-      prevPos = currentPos;
-    };
+    window.addEventListener('scroll', this.handleWindowScrolling);
 
     // handling resize event
     window.onload = () => this.toggleMainNav();
     window.onresize = () => this.toggleMainNav();
   },
   methods: {
+    handleWindowScrolling() {
+      const currentPos = window.pageYOffset;
+      const headerEl = this.$refs.header;
+
+      if (currentPos > 100) {
+        if (!headerEl.classList.contains('away')) {
+          headerEl.classList.add('away');
+        }
+      } else if (headerEl.classList.contains('away') && !this.$store.state.menu.mobile) {
+        headerEl.classList.remove('away');
+      }
+    },
     toggleMainNav() {
       // hide the horizontal nav menu
       if (window.innerWidth >= 1024) {
@@ -167,7 +164,7 @@ export default {
       font-weight: 500;
       text-transform: uppercase;
       &:hover {
-        color: var(--link-hover-color);
+        color: var(--color-link-hover);
       }
     }
 
@@ -287,7 +284,7 @@ export default {
     box-shadow: 0 1px 24px 0 rgba(223, 223, 223, 0.521);
     background: #fff;
 
-    &.mobile {
+    @media (max-width: var(--mobile-threshold)) {
       position: fixed;
     }
 
@@ -297,7 +294,7 @@ export default {
 
     li.active {
       a {
-        color: var(--link-hover-color);
+        color: var(--color-link-hover);
       }
     }
 

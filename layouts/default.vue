@@ -35,7 +35,7 @@ export default {
   mounted() {
     this.$router.afterEach((to, from) => {
       if (to.path !== '/') {
-        console.log('scrolling to #content..');
+        console.log('scrolling to #above-content..');
         this.scrollToContent();
       }
     });
@@ -77,7 +77,7 @@ body.mobile {
 
 #root {
   transition: background .45s;
-  background: var(--bg);
+  background: var(--color-body);
   min-height: 100vh;
 
   display: flex;

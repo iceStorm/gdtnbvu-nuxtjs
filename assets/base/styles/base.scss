@@ -1,4 +1,5 @@
 @import './fonts';
+@import './threshholds';
 @import './colors';
 @import './scrollbar';
 @import url('~/static/libs/animate.min');
@@ -35,7 +36,7 @@ html {
 // selection
 ::selection {
   color: #000;
-  background: var(--selection-color);
+  background: var(--color-selection);
 }
 
 
@@ -62,7 +63,7 @@ html {
 }
 
 .btn {
-  background: var(--primary-color);
+  background: var(--color-primary);
   color: black;
 
   font-weight: 500;
@@ -91,17 +92,17 @@ h1 {
 }
 .title {
   font-weight: bold;
-  color: var(--color);
+  color: var(--color-text);
 }
 .link {
-  color: var(--link-color);
+  color: var(--color-link);
 }
 .text {
-  color: var(--color);
+  color: var(--color-text);
 }
 
 p, h4 {
-  color: var(--color);
+  color: var(--color-text);
 }
 
 img {
@@ -109,10 +110,10 @@ img {
 }
 
 a {
-  color: var(--link-color);
+  color: var(--color-link);
   
   &:hover {
-    color: var(--link-hover-color);
+    color: var(--color-link-hover);
   }
 }
 

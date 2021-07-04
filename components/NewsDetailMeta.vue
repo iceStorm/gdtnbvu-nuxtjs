@@ -60,7 +60,7 @@ export default {
 
     span {
       line-height: 1;
-      color: var(--color);
+      color: var(--color-text);
     }
 
     &:not(:first-child) {

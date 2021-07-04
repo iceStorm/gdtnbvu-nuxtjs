@@ -59,7 +59,7 @@ export default {
   font-size: 18px;
   color: white;
   border-radius: 4px;
-  background: var(--primary-color);
+  background: var(--color-primary);
   box-shadow: 0 0 20px 0 rgba(139, 139, 139, 0.178);
 
   opacity: 0;

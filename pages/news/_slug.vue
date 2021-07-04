@@ -17,40 +17,46 @@
 
 <template>
   <div id="news-detail-page">
+
+    <!-- navigation -->
     <div id="news-detail-page-navigation" ref="backButton">
       <div @click="$router.go(-1)">
         <img class="ionicon" src="/icons/ion/outline/arrow-back-outline.svg">
       </div>
     </div>
 
-    <article id="news-detail-page-content">
-      <header>
-        <h2 class="title" v-html="post.title.rendered"></h2>
-        <news-detail-meta :post="post" />
-      </header>
-      <p v-html="post.meta.content"></p>
-      <!-- <Disqus class="disqus" /> -->
-    </article>
+    <div id="news-detail-page-content">
+      <!-- content -->
+      <article id="news-detail-page-content-body">
+        <header>
+          <h1 class="title" v-html="post.title.rendered"></h1>
+          <news-detail-meta :post="post" />
+        </header>
+        <p v-html="post.meta.content"></p>
+        <Disqus class="disqus" />
+      </article>
 
-    <aside id="news-detail-page-sidebar">
-      <div id="news-detail-page-sidebar-newest">
-        <h2 class="title">{{ $t("sidebar.newestTitle") }}</h2>
-        <ul></ul>
-      </div>
+      <!-- sidebar -->
+      <aside id="news-detail-page-content-sidebar">
+        <div id="news-detail-page-content-sidebar-newest">
+          <h1 class="title">{{ $t("sidebar.newestTitle") }}</h1>
+          <related-news />
+        </div>
 
-      <div id="news-detail-page-sidebar-related">
-        <h2 class="title">{{ $t("sidebar.relatedTitle") }}</h2>
-        <ul></ul>
-      </div>
-    </aside>
+        <div id="news-detail-page-content-sidebar-related">
+          <h1 class="title">{{ $t("sidebar.relatedTitle") }}</h1>
+          <ul></ul>
+        </div>
+      </aside>
+    </div>
+
   </div>
 </template>
 
 <script>
-// import tippy from 'tippy.js';
-// import 'tippy.js/dist/tippy.css';
-
+import RelatedNews from '~/components/RelatedNews.vue';
 export default {
+  components: { RelatedNews },
   scrollToTop: false,
   head() {
     return {
@@ -80,24 +86,7 @@ export default {
     return redirect({ path: '/404' });
     // return error({ statusCode: 404, message: 'Page not found.' });
   },
-  destroyed() {
-    // window.removeEventListener('scroll', this.handleScroll);
-  },
-  mounted() {
-    // window.addEventListener('scroll', this.handleScroll);
-
-    // const yCoordinate = document.getElementById('above-content').offsetTop - 20;
-    // window.scrollTo({
-    //   top: yCoordinate,
-    //   left: 0,
-    //   behavior: 'smooth',
-    // });
-  },
   methods: {
-    handleScroll(e) {
-      const backButton = this.$refs.backButton;
-    },
-
     toError() {
       this.$nuxt.error({ statusCode: 404, message: 'Page not found.' });
     },
@@ -108,8 +97,8 @@ export default {
 <style lang="scss" scoped>
 #news-detail-page {
   display: grid;
-  grid-template-columns: 35px 1.618fr 1fr;
-  gap: 50px;
+  grid-template-columns: 35px auto;
+  gap: 75px;
 
   @media (max-width: 1192px) {
     grid-template-columns: 1.618fr 1fr;
@@ -143,7 +132,7 @@ export default {
       background: var(--bg-color);
 
       &:hover {
-        background: rgb(245, 245, 245);
+        background: var(--color-hover-gray);
       }
 
       display: flex;
@@ -158,48 +147,66 @@ export default {
   }
 
   &-content {
-    > header {
-      padding-bottom: 50px;
+    display: grid;
+    gap: 70px;
 
-      @media (max-width: 768px) {
-        padding-bottom: 35px;
-      }
+    @media (max-width: 425px) {
+      gap: 30px;
+    }
 
-      h2 {
-        line-height: 1.5;
-        padding-bottom: 5px;
+    &-body {
+      > header {
+        padding-bottom: 50px;
 
         @media (max-width: 768px) {
-          line-height: 1.2;
+          padding-bottom: 35px;
+        }
+
+        h1 {
+          line-height: 1.5;
+          padding-bottom: 5px;
+          font-size: 26px;
+
+          @media (max-width: 768px) {
+            line-height: 1.2;
+          }
+        }
+      }
+
+      > p {
+        text-align: justify;
+        padding-bottom: 75px;
+      }
+
+      > .disqus {
+      }
+    }
+
+    &-sidebar {
+      @media (max-width: 992px) {
+        padding-top: 35px;
+      }
+
+      > * {
+        h1 {
+          padding-bottom: 5px;
+          position: relative;
+          text-transform: uppercase;
+
+          &::before {
+            content: '';
+            position: absolute;
+          }
+        }
+      }
+
+      &-related {
+        h1 {
+          padding-top: 50px;
         }
       }
     }
-
-    > p {
-      text-align: justify;
-      padding-bottom: 75px;
-    }
-
-    > .disqus {
-    }
   }
 
-  &-sidebar {
-    @media (max-width: 992px) {
-      padding-top: 35px;
-    }
-
-    > * {
-      h2 {
-        padding-bottom: 20px;
-      }
-    }
-
-    &-related {
-      h2 {
-        padding-top: 50px;
-      }
-    }
-  }
 }
 </style>

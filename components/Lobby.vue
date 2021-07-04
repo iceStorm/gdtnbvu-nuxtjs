@@ -14,8 +14,7 @@
 </i18n>
 
 <template>
-  <div id="lobby"
-    :class="{ intersected: !$store.state.menu.mobile, mobile: $store.state.menu.mobile }">
+  <div id="lobby" :class="{ intersected: !$store.state.menu.mobile }">
 
     <!-- single image -->
     <img id="lobby-image"
@@ -137,23 +136,24 @@ export default {
   height: 100vh;
   overflow: hidden;
 
-  position: relative;
+  // position: relative;
   top: 0;
   z-index: 0;
   background-color: black;
   transition: all .75s;
 
-  &.intersected {
+  @media (min-width: 1024px) {
     margin-top: -90px;
   }
-  &.mobile {
+
+  @media (max-width: var(--mobile-threshold)) {
     margin-top: 70px;
     @media (max-width: 425px) {
       margin-top: 60px;
     }
   }
 
-  @media (max-width: 1100px) {
+  @media (max-width: 1240px) {
     height: unset !important;
     .swiper-slide {
       img {
@@ -191,7 +191,7 @@ export default {
 
       &::after {
         font-size: 18px;
-        color: var(--primary-color);
+        color: var(--color-primary);
       }
     }
 

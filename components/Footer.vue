@@ -362,7 +362,7 @@ export default Vue.extend({
     }
 
     &-copyright {
-      background: var(--primary-color);
+      background: var(--color-primary);
       color: black;
 
       .inner-page {
