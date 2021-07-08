@@ -110,7 +110,7 @@ export default {
           delay: this.lobby.lobby_slider_props?.delay ?? 3500,
         },
 
-        effect: this.lobby.lobby_slider_props?.effect ?? 'fade',
+        effect: this.lobby.lobby_slider_props?.effect.toLowerCase() ?? 'fade',
 
         pagination: {
           el: '.swiper-pagination',
