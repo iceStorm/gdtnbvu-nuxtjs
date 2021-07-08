@@ -25,12 +25,13 @@
     <!-- slider -->
     <div class="swiper-container" v-if="lobby.lobby_type=='Images Slider'">
       <div class="swiper-wrapper">
-        <div v-for="banner in lobby.lobby_images_list" :key="banner.image" class="swiper-slide">
-          <a :href="get_banner_item_link(banner)" style="display: block;">
+        <a v-for="banner in lobby.lobby_slider" :key="banner.image" class="swiper-slide"
+          :href="get_banner_item_link(banner)" :target="get_banner_item_target(banner)"
+          :data-tippy-content="banner.link_to_post? ($i18n.locale == 'vi' ? 'Bấm xem chi tiết' : 'Click to view detail') : undefined">
             <img class="" :src="banner.image">
-          </a>
-        </div>
+        </a>
       </div>
+
       <div class="swiper-button-prev" />
       <div class="swiper-button-next" />
       <div class="swiper-pagination" />
@@ -56,6 +57,11 @@
 </template>
 
 <script>
+import tippy, {followCursor} from 'tippy.js';
+import 'tippy.js/dist/tippy.css';
+import 'tippy.js/themes/light.css';
+
+
 export default {
   computed: {
     lobby() {
@@ -82,11 +88,20 @@ export default {
     };
   },
   mounted() {
+    tippy('[data-tippy-content]', {
+      theme: 'light',
+      followCursor: true,
+      plugins: [followCursor],
+    });
   },
   methods: {
     get_banner_item_link(banner) {
-      return banner.link_to_post?.slug || '#';
+      return banner.link_to_post?.slug ? `/news/${banner.link_to_post.slug}` : '#';
     },
+    get_banner_item_target(banner) {
+      return banner.link_to_post?.open_in_new_tab ? '_blank' : '_self';
+    },
+
     scrollToContent() {
       const yCoordinate = document.getElementById('above-content').offsetTop - 20;
       window.scrollTo({
@@ -97,14 +112,14 @@ export default {
     },
     initSwiperJS() {
       const speed = this.lobby.lobby_slider_props?.transition ?? 1750;
-      console.log(speed);
       
       const swiper = new Swiper('.swiper-container', {
         loop: true,
-        parallax: true,
-        // speed: this.lobby.lobby_slider_props?.transition ?? 1750,
-        // speed: speed,
-        speed: 1750,
+        speed: parseInt(speed),
+
+        preventClicks: false,
+        preventClicksPropagation: false,
+        // simulateTouch: false,
 
         autoplay: {
           delay: this.lobby.lobby_slider_props?.delay ?? 3500,
@@ -128,6 +143,11 @@ export default {
       });
 
       swiper.update();
+
+      swiper.on('click', function(swiper, e) {
+        // console.log(swiper, e);
+        console.log(swiper.clickedSlide);
+      });
     },
   },
 };
@@ -205,32 +225,34 @@ export default {
     }
 
     .swiper-slide {
-      // position: relative;
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+
+      @media (min-width: 1024px) {
+        &::after {
+          content: "";
+          position: absolute;
+          z-index: 1;
+
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.05));
+        }
+      }
 
       img {
-        // opacity: 0;
         width: 100%;
         transition: all .75s ease-in-out;
         object-position: center -30px;
+        transition: opacity 0.75s;
       }
     }
-
-    @media (min-width: 1024px) {
-      &::after {
-       content: "";
-       position: absolute;
-       z-index: 1;
-
-       top: 0;
-       left: 0;
-       right: 0;
-       bottom: 0;
-
-       width: 100%;
-       height: 100%;
-       background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.05));
-     }
-    } // media
   }
 
   &-scroll-down-btn {
