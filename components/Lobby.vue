@@ -25,9 +25,10 @@
     <!-- slider -->
     <div class="swiper-container" v-if="lobby.lobby_type=='Images Slider'">
       <div class="swiper-wrapper">
-        <div v-for="banner in lobby.lobby_images_gallery" :key="banner" class="swiper-slide">
-          <!-- <img class="" :src="banner" onload="this.style.opacity = 1"> -->
-          <img class="" :src="banner">
+        <div v-for="banner in lobby.lobby_images_list" :key="banner.image" class="swiper-slide">
+          <a :href="get_banner_item_link(banner)" style="display: block;">
+            <img class="" :src="banner.image">
+          </a>
         </div>
       </div>
       <div class="swiper-button-prev" />
@@ -83,6 +84,9 @@ export default {
   mounted() {
   },
   methods: {
+    get_banner_item_link(banner) {
+      return banner.link_to_post?.slug || '#';
+    },
     scrollToContent() {
       const yCoordinate = document.getElementById('above-content').offsetTop - 20;
       window.scrollTo({
@@ -92,23 +96,21 @@ export default {
       });
     },
     initSwiperJS() {
+      const speed = this.lobby.lobby_slider_props?.transition ?? 1750;
+      console.log(speed);
+      
       const swiper = new Swiper('.swiper-container', {
         loop: true,
         parallax: true,
+        // speed: this.lobby.lobby_slider_props?.transition ?? 1750,
+        // speed: speed,
         speed: 1750,
 
         autoplay: {
-          delay: 3000,
+          delay: this.lobby.lobby_slider_props?.delay ?? 3500,
         },
 
-        zoom: {
-          maxRatio: 5,
-        },
-
-        effect: 'fade',
-        fadeEffect: {
-          crossFade: true,
-        },
+        effect: this.lobby.lobby_slider_props?.effect ?? 'fade',
 
         pagination: {
           el: '.swiper-pagination',
