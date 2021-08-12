@@ -25,11 +25,14 @@
     <!-- slider -->
     <div class="swiper-container" v-if="lobby.lobby_type=='Images Slider'">
       <div class="swiper-wrapper">
-        <a v-for="banner in lobby.lobby_slider" :key="banner.image" class="swiper-slide"
-          :href="get_banner_item_link(banner)" :target="get_banner_item_target(banner)"
-          :data-tippy-content="banner.link_to_post? ($i18n.locale == 'vi' ? 'Bấm xem chi tiết' : 'Click to view detail') : undefined">
+        <div v-for="banner in lobby.lobby_slider" class="swiper-slide">
+          <!-- <img class="" :src="banner" onload="this.style.opacity = 1"> -->
+          <img :src="banner.image">
+        </div>
+        <!-- <a v-for="(banner, index) in lobby.lobby_slider" :key="index" class="swiper-slide"
+          >
             <img class="" :src="banner.image">
-        </a>
+        </a> -->
       </div>
 
       <div class="swiper-button-prev" />
@@ -81,18 +84,18 @@ export default {
         {
           hid: 'swiper',
           src: '/libs/swiperjs/swiper-bundle.min.js',
-          defer: false,
+          defer: true,
           callback: () => { this.initSwiperJS(); },
         },
       ],
     };
   },
   mounted() {
-    tippy('[data-tippy-content]', {
-      theme: 'light',
-      followCursor: true,
-      plugins: [followCursor],
-    });
+    // tippy('[data-tippy-content]', {
+    //   theme: 'light',
+    //   followCursor: true,
+    //   plugins: [followCursor],
+    // });
   },
   methods: {
     get_banner_item_link(banner) {

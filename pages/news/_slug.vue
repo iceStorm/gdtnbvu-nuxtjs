@@ -2,7 +2,7 @@
 {
   "vi": {
     "sidebar": {
-      "newestTitle": "Mới nhất",
+      "newestTitle": "Bài đăng mới nhất",
       "relatedTitle": "Tin liên quan"
     }
   },
@@ -16,47 +16,48 @@
 </i18n>
 
 <template>
-  <div id="news-detail-page">
+  <div id="news-detail">
 
-    <!-- navigation -->
-    <div id="news-detail-page-navigation" ref="backButton">
-      <div @click="$router.go(-1)">
-        <img class="ionicon" src="/icons/ion/outline/arrow-back-outline.svg">
+    <div id="news-detail-head">
+      <!-- navigation -->
+      <div id="news-detail-head-navigation" ref="backButton">
+        <div @click="$router.go(-1)">
+          <img class="ionicon" src="/icons/ion/outline/arrow-back-outline.svg">
+        </div>
       </div>
-    </div>
 
-    <div id="news-detail-page-content">
       <!-- content -->
-      <article id="news-detail-page-content-body">
+      <article id="news-detail-head-content">
         <header>
           <h1 class="title" v-html="post.title.rendered"></h1>
           <news-detail-meta :post="post" />
         </header>
+
         <p v-html="post.meta.content"></p>
-        <Disqus class="disqus" />
+        <!-- <Disqus class="disqus" /> -->
       </article>
-
-      <!-- sidebar -->
-      <aside id="news-detail-page-content-sidebar">
-        <div id="news-detail-page-content-sidebar-newest">
-          <h1 class="title">{{ $t("sidebar.newestTitle") }}</h1>
-          <related-news />
-        </div>
-
-        <div id="news-detail-page-content-sidebar-related">
-          <h1 class="title">{{ $t("sidebar.relatedTitle") }}</h1>
-          <ul></ul>
-        </div>
-      </aside>
     </div>
+
+    <!-- sidebar -->
+    <aside id="news-detail-sidebar">
+      <div id="news-detail-sidebar-newest">
+        <h1 class="title" style="font-weight: 900;">
+          <ion-icon name="logo-stackoverflow"></ion-icon>
+          {{ $t("sidebar.newestTitle") }}
+        </h1>
+        <related-news />
+      </div>
+      <!-- <div id="news-detail-page-content-sidebar-related">
+        <h1 class="title">{{ $t("sidebar.relatedTitle") }}</h1>
+        <ul></ul>
+      </div> -->
+    </aside>
 
   </div>
 </template>
 
 <script>
-import RelatedNews from '~/components/RelatedNews.vue';
 export default {
-  components: { RelatedNews },
   scrollToTop: false,
   head() {
     return {
@@ -94,78 +95,68 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-#news-detail-page {
-  display: grid;
-  grid-template-columns: 35px auto;
-  gap: 75px;
-
-  @media (max-width: 1192px) {
-    grid-template-columns: 1.618fr 1fr;
-  }
-
-  @media (max-width: 992px) {
-    grid-template-columns: unset !important;
-  }
-
-  &-navigation {
-    &.hidden {
-      visibility: hidden;
-      opacity: 0;
-    }
-
-    @media (max-width: 1192px) {
-      display: none !important;
-    }
-
-    > div {
-      visibility: visible;
-      opacity: 1;
-
-      position: sticky;
-      top: 100px;
-      width: 30px;
-      height: 30px;
-
-      border-radius: 50%;
-      border: 2px solid #eee;
-      background: var(--bg-color);
-
-      &:hover {
-        background: var(--color-hover-gray);
-      }
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      img {
-        width: 20px;
-        cursor: pointer;
-      }
-    }
-  }
-
-  &-content {
+<style lang="scss">
+#news-detail {
+  &-head {
     display: grid;
-    gap: 70px;
+    grid-template-columns: 35px auto;
+    gap: 35px;
 
-    @media (max-width: 425px) {
-      gap: 30px;
+    @media (max-width: 1024px) {
+      grid-template-columns: unset !important;
     }
 
-    &-body {
-      > header {
-        padding-bottom: 50px;
+    &-navigation {
+      &.hidden {
+        visibility: hidden;
+        opacity: 0;
+      }
 
-        @media (max-width: 768px) {
-          padding-bottom: 35px;
+      @media (max-width: 1024px) {
+        display: none !important;
+      }
+
+      > div {
+        visibility: visible;
+        opacity: 1;
+
+        position: sticky;
+        top: 100px;
+        width: 30px;
+        height: 30px;
+
+        border-radius: 50%;
+        border: 2px solid #eee;
+        background: var(--bg-color);
+
+        &:hover {
+          background: var(--color-hover-gray);
         }
 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          width: 20px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    &-content {
+      display: grid;
+      gap: 40px;
+
+      @media (max-width: 425px) {
+        gap: 30px;
+      }
+
+      > header {
         h1 {
           line-height: 1.5;
           padding-bottom: 5px;
-          font-size: 26px;
+          font-size: 22px;
 
           @media (max-width: 768px) {
             line-height: 1.2;
@@ -176,34 +167,42 @@ export default {
       > p {
         text-align: justify;
         padding-bottom: 75px;
+
+        img[class^=wp-image] {
+          height: 100% !important;
+        }
       }
 
       > .disqus {
       }
     }
+  }
 
-    &-sidebar {
-      @media (max-width: 992px) {
-        padding-top: 35px;
-      }
+  &-sidebar {
+    @media (max-width: 992px) {
+      padding-top: 35px;
+    }
 
-      > * {
-        h1 {
-          padding-bottom: 5px;
-          position: relative;
-          text-transform: uppercase;
+    > * {
+      h1 {
+        padding-bottom: 5px;
+        position: relative;
+        text-transform: uppercase;
 
-          &::before {
-            content: '';
-            position: absolute;
-          }
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        &::before {
+          content: '';
+          position: absolute;
         }
       }
+    }
 
-      &-related {
-        h1 {
-          padding-top: 50px;
-        }
+    &-related {
+      h1 {
+        padding-top: 50px;
       }
     }
   }

@@ -39,6 +39,11 @@ export default {
     height: 200px;
     overflow: hidden;
     position: relative;
+    border-radius: 6px;
+
+    @media (max-width: 425px) {
+      height: 130px;
+    }
 
     &-link {
       position: relative;

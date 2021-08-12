@@ -60,7 +60,7 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/sitemap', // should be placed after i18n to generate locale-pages
     'nuxt-i18n',
-    'nuxt-ssr-cache',
+    // 'nuxt-ssr-cache',
     // 'nuxt-moment',
   ],
 
