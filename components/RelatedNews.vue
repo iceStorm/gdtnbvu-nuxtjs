@@ -39,7 +39,8 @@ export default {
     height: 200px;
     overflow: hidden;
     position: relative;
-    border-radius: 6px;
+    border-radius: 0px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 
     @media (max-width: 425px) {
       height: 130px;

@@ -34,7 +34,7 @@
         </header>
 
         <p v-html="post.meta.content"></p>
-        <!-- <Disqus class="disqus" /> -->
+        <Disqus class="disqus" />
       </article>
     </div>
 
@@ -179,9 +179,9 @@ export default {
   }
 
   &-sidebar {
-    @media (max-width: 992px) {
-      padding-top: 35px;
-    }
+    margin-top: 35px;
+    padding-top: 35px;
+    border-top: 1px solid rgba(156, 156, 156,.5);
 
     > * {
       h1 {

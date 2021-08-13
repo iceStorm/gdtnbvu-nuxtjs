@@ -21,13 +21,12 @@
     <div id="posts-grids">
       <div class="posts-grid left">
 
-        <v-skeleton-loader class="posts-grid-item" type="card"
-          v-for="i in 3" :key="i" v-if="!posts.length">
+        <v-skeleton-loader class="posts-grid-item" type="card" v-for="i in 3" :key="i" v-if="!posts.length">
         </v-skeleton-loader>
 
         <nuxt-link
           v-if="posts.length"
-          v-for="post in posts.slice(0, 3)"
+          v-for="post in leftPosts"
           :key="post.id"
           :to="'/news/' + post.slug"
           class="posts-grid-item">
@@ -39,13 +38,12 @@
       </div>
 
       <div class="posts-grid right">
-        <v-skeleton-loader class="posts-grid-item" type="card"
-          v-for="i in 3" :key="i" v-if="!posts.length">
+        <v-skeleton-loader class="posts-grid-item" type="card" v-for="i in 3" :key="i" v-if="!posts.length">
         </v-skeleton-loader>
 
         <nuxt-link
           v-if="posts.length"
-          v-for="post in posts.slice(-3)"
+          v-for="post in rightPosts"
           :key="post.id"
           :to="'/news/' + post.slug" class="posts-grid-item">
           <img :src="post.meta.wide_thumbnail || post.meta.thumbnail" class="posts-grid-item-thumbnail" loading="lazy">
@@ -72,15 +70,20 @@ export default Vue.extend({
     };
   },
   computed: {
-    /* leftPosts() {
-      return this.posts.slice(0, 3);
+    leftPosts() {
+      return this.posts.slice(0, 1).concat(this.posts.slice(2, 4));
     },
     rightPosts() {
-      return this.posts.slice(-3);
-    }, */
+      return this.posts.slice(1, 2).concat(this.posts.slice(3, 5));
+    },
   },
   async fetch() {
     this.posts = await this.$wp.$get('/articles?per_page=6');
+
+    // const leftPost = this.posts.slice(0, 1).concat(this.posts.slice(2, 4));
+    // const rightPost = this.posts.slice(1, 2).concat(this.posts.slice(3, 5));
+
+    // console.log(leftPost, rightPost);
   },
 });
 </script>
@@ -88,6 +91,7 @@ export default Vue.extend({
 <style lang="scss">
 :root {
   --news-grid-gap: 35px;
+  --news-grid-radius: 0px;
 
   @media (max-width: 576px) {
     --news-grid-gap: 15px;
@@ -114,7 +118,7 @@ export default Vue.extend({
 }
 
 #posts-grids {
-  padding: 30px 0;
+  padding: 10px 0 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--news-grid-gap);
@@ -142,7 +146,7 @@ export default Vue.extend({
       position: relative;
       overflow: hidden;
       min-height: 150px;
-      border-radius: 6px;
+      border-radius: var(--news-grid-radius);
       border: none;
       // box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
       box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;

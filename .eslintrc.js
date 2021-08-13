@@ -17,6 +17,7 @@ module.exports = {
   rules: {
     'linebreak-style': 'off',
     'func-names': 'off',
+    'max-len': 'off',
     'import/prefer-default-export': 'off',
   },
 };
