@@ -265,7 +265,7 @@ export default Vue.extend({
         }
 
         .btn {
-          border-radius: 0;
+          border-radius: 0px;
           cursor: pointer;
         }
 

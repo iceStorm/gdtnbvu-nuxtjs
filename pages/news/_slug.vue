@@ -34,15 +34,15 @@
         </header>
 
         <p v-html="post.meta.content"></p>
-        <Disqus class="disqus" />
+        <!-- <Disqus class="disqus" /> -->
       </article>
     </div>
 
     <!-- sidebar -->
     <aside id="news-detail-sidebar">
       <div id="news-detail-sidebar-newest">
-        <h1 class="title" style="font-weight: 900;">
-          <ion-icon name="logo-stackoverflow"></ion-icon>
+        <h1 class="title" style="font-weight: 700;">
+          <ion-icon name="sparkles"></ion-icon>
           {{ $t("sidebar.newestTitle") }}
         </h1>
         <related-news />
@@ -179,8 +179,8 @@ export default {
   }
 
   &-sidebar {
-    margin-top: 35px;
-    padding-top: 35px;
+    margin-top: 25px;
+    padding-top: 15px;
     border-top: 1px solid rgba(156, 156, 156,.5);
 
     > * {
@@ -192,6 +192,8 @@ export default {
         display: flex;
         align-items: center;
         gap: 10px;
+
+        font-size: 18px;
 
         &::before {
           content: '';
