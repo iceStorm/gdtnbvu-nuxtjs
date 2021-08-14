@@ -61,9 +61,7 @@
 </template>
 
 <script>
-import Vue from 'vue';
-
-export default Vue.extend({
+export default {
   data() {
     return {
       posts: [],
@@ -85,7 +83,7 @@ export default Vue.extend({
 
     // console.log(leftPost, rightPost);
   },
-});
+};
 </script>
 
 <style lang="scss">

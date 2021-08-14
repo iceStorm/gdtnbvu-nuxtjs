@@ -1,13 +1,11 @@
 <template>
   <div id="index">
-    <news-grid></news-grid>
+    <NewsGrid />
   </div>
 </template>
 
 <script>
-import Vue from 'vue';
-
-export default Vue.extend({
+export default {
   scrollToTop: false,
   head() {
     return {
@@ -34,9 +32,8 @@ export default Vue.extend({
       });
     },
   },
-});
+};
 </script>
 
 <style>
-
 </style>
