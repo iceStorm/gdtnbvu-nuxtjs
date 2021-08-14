@@ -1,11 +1,12 @@
   <template>
-  <div id="news">
+  <div id="news-page">
     <h1>News page.</h1>
   </div>
 </template>
 
 <script>
 export default {
+  scrollToTop: false,
   head: {
     title: 'BVU Volunteer Team - News',
     meta: [

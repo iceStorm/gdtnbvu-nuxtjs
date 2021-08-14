@@ -1,5 +1,5 @@
 <template>
-  <div id="index">
+  <div id="index-page">
     <NewsGrid />
   </div>
 </template>

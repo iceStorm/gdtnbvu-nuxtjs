@@ -1,19 +1,18 @@
 <template>
-  <div id=""></div>
+  <div id="gallery-page"></div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-
-export default Vue.extend({
+<script>
+export default {
+  scrollToTop: false,
   head: {
-    title: 'BVU Volunteer Team - Gallery',
+    title: 'Thư viện ảnh, video',
     meta: [
       { charset: 'utf-8' },
-      { hid: 'description', name: 'description', content: 'Thư viện ảnh, video.' },
+      { hid: 'description', name: 'description', content: 'Thư viện hình ảnh, video của Đội Tình nguyện.' },
     ],
   },
-});
+};
 </script>
 
 <style lang="scss">

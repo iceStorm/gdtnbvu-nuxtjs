@@ -1,9 +1,10 @@
 <template>
-  <div id="contact"></div>
+  <div id="contact-page"></div>
 </template>
 
 <script>
 export default {
+  scrollToTop: false,
   head: {
     title: 'BVU Volunteer Team - Contact',
     meta: [

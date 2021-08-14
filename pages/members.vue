@@ -1,21 +1,19 @@
 <template>
-  <div id=""></div>
+  <div id="members-page"></div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-
-export default Vue.extend({
+<script>
+export default {
+  scrollToTop: false,
   head: {
-    title: 'BVU Volunteer Team - Members',
+    title: 'Các thành viên',
     meta: [
       { charset: 'utf-8' },
       { hid: 'description', name: 'description', content: 'Các thành viên Ban Quản trị và thành viên nổi bật.' },
     ],
   },
-});
+};
 </script>
 
 <style lang="scss">
-
 </style>
