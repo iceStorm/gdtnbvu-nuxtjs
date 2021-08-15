@@ -8,7 +8,7 @@
 export default {
   scrollToTop: false,
   head: {
-    title: 'BVU Volunteer Team - News',
+    title: 'Tin tức',
     meta: [
       { charset: 'utf-8' },
       { hid: 'description', name: 'description', content: 'Tin tức mới nhất.' },
