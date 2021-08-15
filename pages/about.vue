@@ -143,6 +143,10 @@ export default {
   &-logo {
     margin: auto;
     width: 200px;
+
+    @media (max-width: 360px) {
+      margin-bottom: -30px;
+    }
   }
 
   > section {
