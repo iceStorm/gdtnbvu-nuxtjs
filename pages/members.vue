@@ -48,7 +48,7 @@ export default {
         }
       });
 
-      console.log('roles:', roles);
+      // console.log('roles:', roles);
       return roles;
     },
   },
@@ -92,7 +92,7 @@ export default {
       padding-bottom: 5px;
       margin-bottom: 20px;
 
-      border-bottom: 1px solid rgba(154, 154, 154, 0.5);
+      border-bottom: 1px solid rgba(154, 154, 154, 0.26);
     }
 
     &-members {
@@ -104,19 +104,21 @@ export default {
         display: flex;
         flex-direction: column;
         gap: 5px;
+
         width: 200px;
+        background: rgb(248, 248, 248);
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 
         h3 {
           text-align: center;
+          font-size: 13px;
         }
 
         img {
           width: 100%;
           height: 200px;
           object-fit: cover;
-
-          border-radius: 4px;
-          box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+          border-bottom: 1px solid rgba(154, 154, 154, 0.5);
         }
       }
     }
