@@ -42,22 +42,22 @@ export default {
     },
   },
   mounted() {
-    // this.$router.afterEach((to, from) => {
-    //   if (to.path !== '/') {
-    //     console.log('scrolling to #above-content..');
-    //     this.scrollToContent();
-    //   }
-    // });
+    this.$router.afterEach((to, from) => {
+      if (to.path !== '/') {
+        console.log('scrolling to #above-content..');
+        this.scrollToContent();
+      }
+    });
   },
   methods: {
-    // scrollToContent() {
-    //   const yCoordinate = document.getElementById('above-content').offsetTop - 20;
-    //   window.scrollTo({
-    //     top: yCoordinate,
-    //     left: 0,
-    //     behavior: 'smooth',
-    //   });
-    // },
+    scrollToContent() {
+      const yCoordinate = document.getElementById('content').offsetTop - 30;
+      window.scrollTo({
+        top: yCoordinate,
+        left: 0,
+        // behavior: 'smooth',
+      });
+    },
   },
 };
 </script>

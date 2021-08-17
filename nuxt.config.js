@@ -38,7 +38,7 @@ export default {
     { src: '@/plugins/hrefConverter' },
     { src: '@/plugins/disqus' },
     { src: '@/plugins/after-each' },
-    { src: '@/plugins/vuex-persist', ssr: false },
+    // { src: '@/plugins/vuex-persist', ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

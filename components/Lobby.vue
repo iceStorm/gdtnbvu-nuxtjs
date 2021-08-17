@@ -25,14 +25,14 @@
     <!-- slider -->
     <div class="swiper-container" v-if="lobby.lobby_type=='Images Slider'">
       <div class="swiper-wrapper">
-        <div v-for="banner in lobby.lobby_slider" class="swiper-slide">
-          <!-- <img class="" :src="banner" onload="this.style.opacity = 1"> -->
+        <!-- <div v-for="banner in lobby.lobby_slider" class="swiper-slide">
           <img :src="banner.image">
-        </div>
-        <!-- <a v-for="(banner, index) in lobby.lobby_slider" :key="index" class="swiper-slide"
-          >
+        </div> -->
+
+        <a v-for="(banner, index) in lobby.lobby_slider" :key="index" class="swiper-slide"
+          :href="get_banner_item_link(banner)" :target="get_banner_item_target(banner)">
             <img class="" :src="banner.image">
-        </a> -->
+        </a>
       </div>
 
       <div class="swiper-button-prev" />
