@@ -1,11 +1,11 @@
 <template>
   <div class="members-page">
 
-    <div class="members-page-category" v-for="(members, categoryKey) in getBoardMembers" :key=categoryKey>
-      <h3 class="title members-page-category-title">{{ categoryKey }}</h3>
+    <div class="members-page-category" v-for="(role, categoryKey) in getBoardMembers" :key=categoryKey>
+      <h3 class="title members-page-category-title">{{ role.roleName }}</h3>
 
       <div class="members-page-category-members">
-        <div class="members-page-category-members-item" v-for="member in members" :key="member.id">
+        <div class="members-page-category-members-item" v-for="member in role.members" :key="member.id">
           <img :src="member.meta.avatar">
           <h3 class="text">{{ member.title.rendered }}</h3>
         </div>
@@ -34,27 +34,22 @@ export default {
 
   computed: {
     getBoardMembers() {
-      const boardMemberCategories = {};
+      // getting roles
+      const roles = this.getMemberRoles(this.boardMembers);
+      const roleIds = Object.keys(roles).map((role) => parseInt(role, 10));
 
       this.boardMembers.forEach((member) => {
-        // console.log(member.meta.name, member.member_roles[0]);
+        if (roleIds.includes(member.member_roles[0])) {
+          if (!roles[member.member_roles[0]].members) {
+            roles[member.member_roles[0]].members = [];
+          }
 
-        if (boardMemberCategories[member.meta.role] === undefined) {
-          boardMemberCategories[member.meta.role] = [];
+          roles[member.member_roles[0]].members.push(member);
         }
-        boardMemberCategories[member.meta.role].push(member);
       });
 
-      // sort descending
-      const memberCategories = Object.keys(boardMemberCategories).reverse();
-      const result = {};
-      memberCategories.forEach((roleId) => {
-        console.log(roleId);
-        result[roleId] = boardMemberCategories[roleId];
-      });
-
-      // console.log('result:', result);
-      return result;
+      console.log('roles:', roles);
+      return roles;
     },
   },
 
@@ -66,6 +61,20 @@ export default {
   },
 
   methods: {
+    getMemberRoles(members) {
+      const roles = {};
+
+      members.forEach((member) => {
+        if (member.member_roles[0] !== 2 && !Object.keys(roles).includes(member.member_roles[0])) {
+          roles[member.member_roles[0]] = {
+            roleId: member.member_roles[0],
+            roleName: member.meta.role,
+          };
+        }
+      });
+
+      return roles;
+    },
   },
 };
 </script>
