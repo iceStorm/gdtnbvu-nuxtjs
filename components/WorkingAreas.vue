@@ -3,13 +3,15 @@
   "vi": {
     "workingArea": {
       "title": "Lĩnh vực hoạt động",
-      "subTitle": "Tổ chức các chương trình thiện nguyện với quy mô từ 400 đến 2000 người"
+      "subTitle": "Tổ chức các chương trình thiện nguyện với quy mô từ 400 đến 2000 người",
+      "biggestItemTitle": "Thiện nguyện"
     }
   },
   "en": {
     "workingArea": {
       "title": "Working areas",
-      "subTitle": "Organizing volunteer programs for the scale about 400 to 2000 people"
+      "subTitle": "Organizing volunteer programs for the scale about 400 to 2000 people",
+      "biggestItemTitle": "Giving"
     }
   }
 }
@@ -25,13 +27,16 @@
       </div>
 
       <div class="working-areas-grid">
-        <div class="working-areas-grid-item" v-for="(item, index) in gridItems" :key="item.title.en" :data-aos="index < 3 ?'fade-down':'fade-right'">
-          <h3>{{ item.title[$i18n.locale] }}</h3>
+        <div class="working-areas-grid-item" v-for="(item, index) in gridItems.slice(1)" :key="item.title.en" :data-aos="index < 3 ?'fade-down':'fade-right'">
+          <h3 :class="getUnderlineClass(index)">{{ item.title[$i18n.locale] }}</h3>
           <img :src="item.image">
         </div>
         <!-- bigest item  -->
         <div class="working-areas-grid-item" data-aos="fade-up">
-          <h3>{{ gridItems[0].title[$i18n.locale] }}</h3>
+          <h3 class="underline-4">
+            <h1>{{ $t('workingArea.biggestItemTitle') }}</h1>
+            {{ gridItems[0].title[$i18n.locale] }}
+          </h3>
           <img :src="gridItems[0].image">
         </div>
       </div>
@@ -45,6 +50,15 @@ export default {
   data() {
     return {
       gridItems: [
+        // biggest item
+        {
+          image: 'https://cms.gdtnbvu.club/wp-content/uploads/2021/07/IMG_3221-scaled.jpg',
+          title: {
+            vi: 'bằng cả trái tim',
+            en: 'by all heart',
+          },
+        },
+
         {
           image: 'https://cms.gdtnbvu.club/wp-content/uploads/2021/07/2019.jpg',
           title: {
@@ -82,6 +96,17 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    getRandomArbitrary(min, max) {
+      return Math.round(Math.random() * (max - min) + min);
+    },
+    getUnderlineClass(index) {
+      const theIndex = (index > 0 && index < 5) ? index : this.getRandomArbitrary(1, 5);
+      console.log('theIndex:', theIndex);
+
+      return `underline-${theIndex}`;
+    },
   },
 };
 </script>
@@ -171,15 +196,29 @@ export default {
       h3 {
         position: absolute;
         z-index: 1;
-        bottom: 10px;
-        left: 0;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
 
-        width: 100%;
-        padding: 0 20px;
+        width: 80%;
+        padding: 5px;
 
         text-align: center;
+        text-transform: uppercase;
         font-weight: 900;
         color: white;
+
+        &[class^=underline] {
+          // background: red;
+          background-position-y: bottom;
+        }
+
+        h1 {
+          color: white;
+          margin-bottom: 0;
+          letter-spacing: 1.5px;
+          text-transform: lowercase;
+        }
       }
 
       img {

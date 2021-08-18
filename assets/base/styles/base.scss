@@ -130,3 +130,14 @@ a.more {
     filter: grayscale(1);
   }
 }
+
+
+.underline {
+  @for $i from 1 to 5 {
+    &-#{$i} {
+      background: url('/patterns/underline-'+#{$i}+'.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+}
