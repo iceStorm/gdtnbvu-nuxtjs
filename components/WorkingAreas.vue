@@ -103,7 +103,7 @@ export default {
     },
     getUnderlineClass(index) {
       const theIndex = (index > 0 && index < 5) ? index : this.getRandomArbitrary(1, 5);
-      console.log('theIndex:', theIndex);
+      // console.log('theIndex:', theIndex);
 
       return `underline-${theIndex}`;
     },
