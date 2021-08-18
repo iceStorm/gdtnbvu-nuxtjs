@@ -191,39 +191,43 @@ export default {
         justify-items: center;
         grid-template-areas:
         "ngocmai ngocmai ngoctai ngoctai duydat duydat"
-        "congdi congdi congdi quoccuong quoccuong quoccuong";
+        "thutrinh thutrinh congdi congdi quoccuong quoccuong";
 
         > div[class$=item] {
           // Đội Trưởng
           &:nth-child(1) {
             grid-area: ngoctai;
-            @media (max-width: 559px) {
-             justify-self: center;
-            }
+            // @media (max-width: 559px) {
+            //  justify-self: center;
+            // }
           }
           &:nth-child(2) {
             grid-area: ngocmai;
-            justify-self: end;
+            // justify-self: end;
           }
           &:nth-child(3) {
             grid-area: duydat;
-            justify-self: start;
+            // justify-self: start;
           }
 
           &:nth-last-child(1) {
             grid-area: quoccuong;
-            justify-self: start;
+            // justify-self: start;
           }
           &:nth-last-child(2) {
             grid-area: congdi;
-            justify-self: end;
+            // justify-self: end;
+          }
+          &:nth-last-child(3) {
+            grid-area: thutrinh;
+            // justify-self: end;
           }
         }
 
         @media (max-width: 650px) {
           grid-template-areas:
-          "ngoctai ngoctai ngoctai ngoctai ngoctai ngoctai"
-          "ngocmai ngocmai ngocmai duydat duydat duydat"
+          "ngoctai ngoctai ngoctai ngocmai ngocmai ngocmai"
+          "duydat duydat duydat thutrinh thutrinh thutrinh"
           "congdi congdi congdi quoccuong quoccuong quoccuong";
         }
         @media (max-width: 430px) {
@@ -231,6 +235,7 @@ export default {
           "ngoctai ngoctai ngoctai ngoctai ngoctai ngoctai"
           "ngocmai ngocmai ngocmai ngocmai ngocmai ngocmai"
           "duydat duydat duydat duydat duydat duydat"
+          "thutrinh thutrinh thutrinh thutrinh thutrinh thutrinh"
           "congdi congdi congdi congdi congdi congdi"
           "quoccuong quoccuong quoccuong quoccuong quoccuong quoccuong";
         }
