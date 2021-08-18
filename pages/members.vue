@@ -56,7 +56,7 @@
 export default {
   scrollToTop: false,
   head: {
-    title: 'Các thành viên Ban Quản trị',
+    title: 'Các thành viên Ban Quản Trị',
     meta: [
       { charset: 'utf-8' },
       { hid: 'description', name: 'description', content: 'Các thành viên Ban Quản trị và thành viên nổi bật.' },
@@ -197,30 +197,22 @@ export default {
           // Đội Trưởng
           &:nth-child(1) {
             grid-area: ngoctai;
-            // @media (max-width: 559px) {
-            //  justify-self: center;
-            // }
           }
           &:nth-child(2) {
             grid-area: ngocmai;
-            // justify-self: end;
           }
           &:nth-child(3) {
             grid-area: duydat;
-            // justify-self: start;
           }
 
           &:nth-last-child(1) {
             grid-area: quoccuong;
-            // justify-self: start;
           }
           &:nth-last-child(2) {
             grid-area: congdi;
-            // justify-self: end;
           }
           &:nth-last-child(3) {
             grid-area: thutrinh;
-            // justify-self: end;
           }
         }
 
@@ -248,7 +240,7 @@ export default {
         justify-items: center;
 
         padding-top: 35px;
-        border-top: 1px solid rgba(0, 0, 0, 0.05);
+        border-top: 1px solid rgb(238, 238, 238);
       }
     }
   }
