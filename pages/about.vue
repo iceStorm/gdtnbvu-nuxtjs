@@ -19,7 +19,7 @@
 
 <template>
   <div class="about-page">
-    <img src="/logo.png" class="about-page-logo animate__animated animate__rubberBand">
+    <img src="/logo.png" class="about-page-logo animate__animated animate__backInDown">
 
     <section class="about-page-general">
       <h1 class="title">{{ $t("about.generalTitle") }}</h1>
