@@ -18,37 +18,41 @@
 </i18n>
 
 <template>
-  <div class="about-page inner-page">
-    <img src="/logo.png" class="about-page-logo animate__animated animate__backInDown">
+  <div class="about-page">
+    <div class="inner-page">
 
-    <section class="about-page-general">
-      <h1 class="title">{{ $t("about.generalTitle") }}</h1>
+      <img src="/logo.png" class="about-page-logo animate__animated animate__backInDown">
 
-      <div class="about-page-general-meta">
-        <div class="about-page-general-meta-info">
+      <section class="about-page-general">
+        <h1 class="title">{{ $t("about.generalTitle") }}</h1>
 
-          <div class="about-page-general-meta-info-item animate__animated animate__fadeInUp"
-            :style="{ animationDelay: `${ index*100 }ms` }"
-            v-for="(item, index) in meta" :key=index>
-            <h3 class="about-page-general-meta-info-item-key text">
-              {{ item.key[$i18n.locale] }}
-            </h3><span class="text">:&nbsp;</span>
-            <h3 class="title">{{ item.value[$i18n.locale] }}</h3>
+        <div class="about-page-general-meta">
+          <div class="about-page-general-meta-info">
+
+            <div class="about-page-general-meta-info-item animate__animated animate__fadeInUp"
+              :style="{ animationDelay: `${ index*100 }ms` }"
+              v-for="(item, index) in meta" :key=index>
+              <h3 class="about-page-general-meta-info-item-key text">
+                {{ item.key[$i18n.locale] }}
+              </h3><span class="text">:&nbsp;</span>
+              <h3 class="title">{{ item.value[$i18n.locale] }}</h3>
+            </div>
+
           </div>
-
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="about-page-working-type">
-      <h1 class="title" data-aos="fade-up">{{ $t("about.workingTypeTitle") }}</h1>
-      <img src="/pages/about/about-working-type.png">
-    </section>
+      <section class="about-page-working-type">
+        <h1 class="title" data-aos="fade-up">{{ $t("about.workingTypeTitle") }}</h1>
+        <img src="/pages/about/about-working-type.png">
+      </section>
 
-    <section class="about-page-profits">
-      <h1 class="title" data-aos="fade-up">{{ $t("about.benefitTitle") }}</h1>
-      <img src="/pages/about/about-benefits.png">
-    </section>
+      <section class="about-page-profits">
+        <h1 class="title" data-aos="fade-up">{{ $t("about.benefitTitle") }}</h1>
+        <img src="/pages/about/about-benefits.png">
+      </section>
+
+    </div>
   </div>
 </template>
 
@@ -135,24 +139,43 @@ export default {
 
 <style lang="scss">
 .about-page {
-  display: flex;
-  flex-direction: column;
-  // align-items: center;
-  gap: 75px;
+  position: relative;
+  &::before {
+    content: "";
+
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: url('/pages/about/bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.25;
+  }
+
+  > .inner-page {
+    display: flex;
+    flex-direction: column;
+    gap: 75px;
+
+    // position: relative;
+    // z-index: 1;
+  }
 
   &-logo {
     margin: auto;
     width: 200px;
-
-    @media (max-width: 360px) {
-      margin-bottom: -30px;
-    }
+    margin-bottom: -30px;
   }
 
-  > section {
+  section {
     h1 {
       padding-bottom: 10px;
-      border-bottom: 1px solid rgba(0,0,0,0.2);
+      border-bottom: 1px solid rgba(68, 46, 46, 0.2);
     }
 
     @media (max-width: 550px) {

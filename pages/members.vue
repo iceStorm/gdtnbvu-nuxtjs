@@ -16,39 +16,41 @@
 </i18n>
 
 <template>
-  <div class="members-page inner-page">
+  <div class="members-page">
+    <div class="inner-page">
 
-    <!-- thành viên trong Ban Quản trị -->
-    <div class="members-page-boards">
-      <h1 class="title">{{ $t('members.boardsTitle') }}</h1>
+      <!-- thành viên trong Ban Quản trị -->
+      <div class="members-page-boards">
+        <h1 class="title">{{ $t('members.boardsTitle') }}</h1>
 
-      <div class="members-page-boards-members">
-        <div class="members-page-boards-members-head">
-          <!-- Đội Trưởng/Đội Phó -->
-          <div class="members-page-boards-members-item" v-for="member in getBoardHeadMembers" :key="member.id">
-            <img :src="member.meta.avatar">
-            <h3 class="text">{{ member.meta.role }}</h3>
-            <h3 class="text">{{ member.title.rendered }}</h3>
+        <div class="members-page-boards-members">
+          <div class="members-page-boards-members-head">
+            <!-- Đội Trưởng/Đội Phó -->
+            <div class="members-page-boards-members-item" v-for="member in getBoardHeadMembers" :key="member.id">
+              <img :src="member.meta.avatar">
+              <h3 class="text">{{ member.meta.role }}</h3>
+              <h3 class="text">{{ member.title.rendered }}</h3>
+            </div>
           </div>
-        </div>
 
-        <div class="members-page-boards-members-others">
-          <!-- Không phải Đội Trưởng/Đội Phó -->
-          <div class="members-page-boards-members-item" v-for="member in getBoardOtherMembers" :key="member.id">
-            <img :src="member.meta.avatar">
-            <h3 class="text">{{ member.meta.role }}</h3>
-            <h3 class="text">{{ member.title.rendered }}</h3>
+          <div class="members-page-boards-members-others">
+            <!-- Không phải Đội Trưởng/Đội Phó -->
+            <div class="members-page-boards-members-item" v-for="member in getBoardOtherMembers" :key="member.id">
+              <img :src="member.meta.avatar">
+              <h3 class="text">{{ member.meta.role }}</h3>
+              <h3 class="text">{{ member.title.rendered }}</h3>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- thành viên nổi bật -->
-    <div class="members-page-stars" v-if="false">
-      <h1 class="title">{{ $t('members.starsTitle') }}</h1>
-      <!--  -->
-    </div>
+      <!-- thành viên nổi bật -->
+      <div class="members-page-stars" v-if="false">
+        <h1 class="title">{{ $t('members.starsTitle') }}</h1>
+        <!--  -->
+      </div>
 
+    </div>
   </div>
 </template>
 
@@ -136,14 +138,37 @@ export default {
 
 <style lang="scss">
 .members-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 50px;
+  position: relative;
+  &::before {
+    content: "";
+
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: url('/pages/members/5655510.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.25;
+  }
+
+  .inner-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+
+    position: relative;
+    z-index: 1;
+  }
 
   &-boards {
     .title {
-      padding-bottom: 10px;
+      padding-bottom: 20px;
       margin-bottom: 30px;
 
       text-align: center;
@@ -152,20 +177,11 @@ export default {
 
       &::before {
         content: "*";
-        width: 40px;
-        height: 40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        padding: 10px;
-        background: white;
-        border-radius: 50%;
 
         position: absolute;
         z-index: 1;
-        top: 65%;
-        left: calc(50% - 20px);
+        top: 67%;
+        left: calc(50% - 10px);
       }
 
       &::after {
