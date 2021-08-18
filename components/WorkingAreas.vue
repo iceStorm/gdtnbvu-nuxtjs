@@ -100,10 +100,10 @@ export default {
     width: 100%;
     height: 100%;
 
-    background: url('/pages/index/working-areas-bg.jpg');
-    background-size: cover;
+    background: url('/pages/index/hands.jpg');
+    background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0.55;
+    opacity: 0.35;
   }
   &::after {
     content: "";
