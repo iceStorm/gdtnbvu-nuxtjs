@@ -32,7 +32,7 @@ export const state = () => ({
     },
     {
       title: {
-        vi: 'Thành viên',
+        vi: 'Ban Quản Trị',
         en: 'Members',
       },
       href: '/members',

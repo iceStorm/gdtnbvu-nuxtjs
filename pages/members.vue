@@ -2,7 +2,7 @@
 {
   "vi": {
     "members": {
-      "boardsTitle": "Các thành viên BQT",
+      "boardsTitle": "Các thành viên Ban Quản Trị",
       "starsTitle": "Các thành viên nổi bật"
     }
   },
@@ -56,7 +56,7 @@
 export default {
   scrollToTop: false,
   head: {
-    title: 'Các thành viên',
+    title: 'Các thành viên Ban Quản trị',
     meta: [
       { charset: 'utf-8' },
       { hid: 'description', name: 'description', content: 'Các thành viên Ban Quản trị và thành viên nổi bật.' },
