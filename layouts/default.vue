@@ -8,9 +8,7 @@
     <Lobby />
 
     <main id="content">
-      <div class="inner-page">
-        <Nuxt />
-      </div>
+      <Nuxt />
     </main>
 
     <!-- mobile menu -->

@@ -1,5 +1,5 @@
 <template>
-  <div id="gallery-page"></div>
+  <div class="gallery-page inner-page"></div>
 </template>
 
 <script>

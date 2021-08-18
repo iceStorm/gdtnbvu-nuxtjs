@@ -16,7 +16,7 @@
 </i18n>
 
 <template>
-  <div id="news-detail">
+  <div id="news-detail" class="inner-page">
 
     <div id="news-detail-head">
       <!-- navigation -->

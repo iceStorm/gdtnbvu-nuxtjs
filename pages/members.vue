@@ -16,7 +16,7 @@
 </i18n>
 
 <template>
-  <div class="members-page">
+  <div class="members-page inner-page">
 
     <!-- thành viên trong Ban Quản trị -->
     <div class="members-page-boards">
@@ -143,8 +143,56 @@ export default {
 
   &-boards {
     .title {
-      padding-bottom: 20px;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+
       text-align: center;
+      position: relative;
+      z-index: 2;
+
+      &::before {
+        content: "*";
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 10px;
+        background: white;
+        border-radius: 50%;
+
+        position: absolute;
+        z-index: 1;
+        top: 65%;
+        left: calc(50% - 20px);
+      }
+
+      &::after {
+        content: "";
+
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        height: 1px;
+
+        transform: scale(0);
+        transform-origin: center;
+
+        background: rgba(154, 154, 154, 0.35);
+        animation: spanWidth 2s forwards;
+      }
+
+      @keyframes spanWidth {
+        0% {
+          transform: scale(0);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
     }
 
     &-members {
@@ -240,7 +288,7 @@ export default {
         justify-items: center;
 
         padding-top: 35px;
-        border-top: 1px solid rgb(238, 238, 238);
+        border-top: 1px solid rgba(154, 154, 154, 0.35);
       }
     }
   }

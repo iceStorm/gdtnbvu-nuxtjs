@@ -18,7 +18,7 @@
 </i18n>
 
 <template>
-  <div class="about-page">
+  <div class="about-page inner-page">
     <img src="/logo.png" class="about-page-logo animate__animated animate__backInDown">
 
     <section class="about-page-general">
