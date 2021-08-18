@@ -42,7 +42,7 @@ export default {
   mounted() {
     this.$router.afterEach((to, from) => {
       if (to.path !== '/') {
-        console.log('scrolling to #above-content..');
+        // console.log('scrolling to #above-content..');
         this.scrollToContent();
       }
     });
@@ -68,6 +68,9 @@ body.mobile {
 .inner-page {
   width: 1168px;
   margin: auto;
+
+  position: relative;
+  z-index: 1;
 
   @media (max-width: 1167px) {
     width: 100%;

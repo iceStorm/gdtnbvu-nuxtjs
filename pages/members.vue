@@ -35,7 +35,7 @@
 
           <div class="members-page-boards-members-others">
             <!-- Không phải Đội Trưởng/Đội Phó -->
-            <div class="members-page-boards-members-item" v-for="member in getBoardOtherMembers" :key="member.id">
+            <div class="members-page-boards-members-item" v-for="(member, index) in getBoardOtherMembers" :key="member.id" :data-aos="index < 3 ?'':'zoom-out'">
               <img :src="member.meta.avatar">
               <h3 class="text">{{ member.meta.role }}</h3>
               <h3 class="text">{{ member.title.rendered }}</h3>
@@ -57,12 +57,25 @@
 <script>
 export default {
   scrollToTop: false,
-  head: {
-    title: 'Các thành viên Ban Quản Trị',
-    meta: [
-      { charset: 'utf-8' },
-      { hid: 'description', name: 'description', content: 'Các thành viên Ban Quản trị và thành viên nổi bật.' },
-    ],
+  head() {
+    return {
+      title: 'Các thành viên Ban Quản Trị',
+      meta: [
+        { charset: 'utf-8' },
+        { hid: 'description', name: 'description', content: 'Các thành viên Ban Quản trị và thành viên nổi bật.' },
+      ],
+      link: [
+        { hid: 'aos-css-member', rel: 'stylesheet', href: '/libs/aos/aos.css' },
+      ],
+      script: [
+        {
+          hid: 'aos-js-member',
+          src: '/libs/aos/aos.js',
+          defer: true,
+          callback: () => { this.initAOS(); },
+        },
+      ],
+    };
   },
 
   data() {
@@ -100,6 +113,12 @@ export default {
   },
 
   methods: {
+    initAOS() {
+      console.log('initializing AOS [members]...');
+      AOS.init({
+        once: true,
+      });
+    },
     getMemberRoles(members) {
       const roles = {};
 
@@ -129,7 +148,7 @@ export default {
         }
       });
 
-      console.log('roles:', roles);
+      // console.log('roles:', roles);
       return roles;
     },
   },
@@ -180,7 +199,7 @@ export default {
 
         position: absolute;
         z-index: 1;
-        top: 67%;
+        top: 70%;
         left: calc(50% - 10px);
       }
 

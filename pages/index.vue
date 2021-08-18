@@ -1,6 +1,8 @@
 <template>
-  <div class="index-page inner-page">
+  <div class="index-page">
     <NewsGrid />
+    <working-areas />
+    <!-- <div class="inner-page"> -->
   </div>
 </template>
 
@@ -14,12 +16,13 @@ export default {
         { hid: 'description', name: 'description', content: 'Tuổi trẻ - Nhiệt huyết - Đam mê.' },
       ],
       link: [
-        { rel: 'stylesheet', href: '/libs/aos/aos.css' },
+        { hid: 'aos-css', rel: 'stylesheet', href: '/libs/aos/aos.css' },
       ],
       script: [
         {
+          hid: 'aos-js',
           src: '/libs/aos/aos.js',
-          defer: false,
+          defer: true,
           callback: () => { this.initAOS(); },
         },
       ],
@@ -27,6 +30,7 @@ export default {
   },
   methods: {
     initAOS() {
+      console.log('initializing AOS [index]...');
       AOS.init({
         once: true,
       });
@@ -36,4 +40,8 @@ export default {
 </script>
 
 <style>
+.index-page {
+  display: flex;
+  flex-direction: column;
+}
 </style>
