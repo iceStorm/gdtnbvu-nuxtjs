@@ -25,17 +25,17 @@
             <!-- post date -->
             <div class="news-page-list-item-meta-info-date">
               <!-- <img src="/icons/ion/outline/calendar-clear-outline.svg" class="ionicon"> -->
-              {{ getDateString(post.date) }}
+              <span class="text">{{ getDateString(post.date) }}</span>
             </div>
 
             <!-- post author -->
             <div class="news-page-list-item-meta-info-author">
               <img :src="post.author_meta.avatar_urls['24']" style="border-radius: 50%;">
-              {{ post.author_meta.name }}
+              <span class="text">{{ post.author_meta.name }}</span>
             </div>
           </div>
 
-          <h3 class="news-page-list-item-meta-excerpt" v-html="post.excerpt.rendered"></h3>
+          <h3 class="news-page-list-item-meta-excerpt text" v-html="post.excerpt.rendered"></h3>
         </div>
       </div>
 
