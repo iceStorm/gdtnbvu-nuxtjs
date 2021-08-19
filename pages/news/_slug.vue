@@ -20,15 +20,15 @@
 
     <div class="news-page-list">
 
-      <div class="news-page-list-item" v-for="post in posts" :key="post.id">
-        <nuxt-link :to=" 'news/p/'+post.slug ">
+      <div class="news-page-list-item" v-for="post in posts" :key="post.slug">
+        <a target="_blank" :href=" '/news/p/'+post.slug ">
           <img :src="post.meta.thumbnail" class="thumbnail">
-        </nuxt-link>
+        </a>
 
         <div class="news-page-list-item-meta">
-          <nuxt-link :to=" 'news/p/'+post.slug " class="news-page-list-item-meta-title">
+          <a target="_blank" :href=" '/news/p/'+post.slug " class="news-page-list-item-meta-title">
             <h3 class="title" v-html="post.title.rendered"></h3>
-          </nuxt-link>
+          </a>
 
           <div class="news-page-list-item-meta-info">
             <!-- post date -->
@@ -38,11 +38,10 @@
             </div>
 
             <!-- post category -->
-            <nuxt-link class="news-page-list-item-meta-info-category"
-            :to="{ name: 'news', params: { slug: post.category_meta[0].slug } }">
+            <a class="news-page-list-item-meta-info-category" target="_blank" :href="'news/'+post.category_meta[0].slug">
               <!-- <img src="/icons/ion/outline/folder-open-outline.svg" class="ionicon"> -->
               #{{ post.category_meta[0].name }}
-            </nuxt-link>
+            </a>
 
             <!-- post author -->
             <!-- <div class="news-page-list-item-meta-info-author">
@@ -68,20 +67,22 @@
 <script>
 export default {
   scrollToTop: false,
-  head: {
-    title: 'Tin tức',
-    meta: [
-      { charset: 'utf-8' },
-      { hid: 'description', name: 'description', content: 'Tin tức mới nhất.' },
-    ],
+  head() {
+    return {
+      title: `Tin tức - ${this.current_category.name}`,
+      meta: [
+        { charset: 'utf-8' },
+        { hid: 'description', name: 'description', content: 'Tin tức mới nhất.' },
+      ],
+    };
   },
 
   data() {
     return {
-      posts: [],
-      current_category: '',
-      current_page_index: 1,
-      total_pages: 1,
+      // posts: [],
+      // current_category: '',
+      // current_page_index: 1,
+      // total_pages: 1,
     };
   },
 
@@ -94,6 +95,11 @@ export default {
       // gettting the article type object
       try {
         const response = await $wp.get(`/article_types?slug=${params.slug}`);
+
+        if (!response.data.length) {
+          throw new Error(`Post category not found: ${params.slug}`);
+        }
+
         [articleType] = response.data;
         queryString = `?article_types=${articleType.id}`;
       } catch (error) {
@@ -110,10 +116,18 @@ export default {
     // console.info('totalPages:', totalPages);
 
     // retrieving current post category
-    articleType = articleType ? articleType.slug : '';
     // console.info(articleType);
 
-    return { posts: posts.data, current_category: articleType, total_pages: totalPages };
+    return {
+      posts: posts.data,
+      current_category: {
+        id: articleType ? articleType.id : -1,
+        slug: articleType ? articleType.slug : '',
+        name: articleType ? articleType.name : 'Mới nhất',
+      },
+      current_page_index: 1,
+      total_pages: totalPages,
+    };
   },
 
   methods: {
@@ -122,8 +136,9 @@ export default {
     },
     async fetchMorePosts() {
       // console.info('fetching more posts...');
+      // console.log(this.current_category);
 
-      const articleTypes = this.current_category ? `?article_types=${this.current_category}` : '';
+      const articleTypes = this.current_category.id !== -1 ? `?article_types=${this.current_category.id}` : '';
       const perPage = `${articleTypes ? '&' : '?'}per_page=${this.$store.state.configs.news.perPage}`;
       const nextPosts = await this.$wp.get(`/articles${articleTypes}${perPage}&page=${this.current_page_index + 1}`);
 
@@ -153,6 +168,7 @@ export default {
 
     width: fit-content;
     margin: auto;
+    margin-top: -20px;
 
     display: flex;
     justify-content: center;

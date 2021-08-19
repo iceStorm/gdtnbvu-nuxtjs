@@ -183,7 +183,7 @@ export default {
   &-sidebar {
     margin-top: 25px;
     padding-top: 15px;
-    border-top: 1px solid rgba(156, 156, 156,.5);
+    // border-top: 1px solid rgba(156, 156, 156,.5);
 
     > * {
       h1 {

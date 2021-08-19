@@ -17,13 +17,13 @@
   <div class="news-category-picker">
 
     <!-- pre-filled menu item: all articles -->
-    <nuxt-link :class="{'news-category-picker-item': true, 'active': current_category==''}" to="news">
+    <nuxt-link :class="{'news-category-picker-item': true, 'active': current_category.slug==''}" to="/news">
       <h3 class="title">{{ $t('news.allTitle') }}</h3>
     </nuxt-link>
 
-    <nuxt-link :class="{'news-category-picker-item': true, 'active': current_category==item.slug}"
+    <nuxt-link :class="{'news-category-picker-item': true, 'active': current_category.slug==item.slug}"
       v-for="item in articleTypes" :key="item.id"
-      :to="'news/'+item.slug">
+      :to="'/news/'+item.slug">
       <h3 class="title">{{ item.name }}</h3>
     </nuxt-link>
 
