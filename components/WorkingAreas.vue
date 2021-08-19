@@ -29,7 +29,7 @@
       <div class="working-areas-grid">
         <div class="working-areas-grid-item" v-for="(item, index) in gridItems.slice(1)" :key="item.title.en"
           :data-aos="index < 3 ?'fade-down':'fade-right'" data-aos-duration="750">
-          <h3 :class="getUnderlineClass(index)">{{ item.title[$i18n.locale] }}</h3>
+          <h3 class="underline straight">{{ item.title[$i18n.locale] }}</h3>
           <img :src="item.image">
         </div>
         <!-- bigest item  -->
@@ -210,13 +210,16 @@ export default {
         text-align: center;
         text-transform: uppercase;
         text-shadow: 1px 1px 5px var(--color-primary);
-        text-shadow: 1px 1px 5px black;
+        text-shadow: 2px 2px 20px black;
         font-weight: 900;
         color: white;
 
-        &[class^=underline] {
+        &[class$=straight], &[class^=underline] {
           // background: red;
           background-position-y: bottom;
+        }
+        &[class$=straight] {
+          border-bottom: 1px solid rgba(255, 255, 255, 0.5);
         }
 
         h1 {
