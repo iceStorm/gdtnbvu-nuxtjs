@@ -30,7 +30,7 @@
             v-if="posts.length"
             v-for="post in leftPosts"
             :key="post.id"
-            :to="'/news/' + post.slug"
+            :to="'/news/p/' + post.slug"
             class="posts-grid-item">
             <img :src="post.meta.wide_thumbnail || post.meta.thumbnail" class="posts-grid-item-thumbnail" loading="lazy">
             <span class="posts-grid-item-title">
@@ -47,7 +47,8 @@
             v-if="posts.length"
             v-for="post in rightPosts"
             :key="post.id"
-            :to="'/news/' + post.slug" class="posts-grid-item">
+            :to="'/news/p/' + post.slug"
+            class="posts-grid-item">
             <img :src="post.meta.wide_thumbnail || post.meta.thumbnail" class="posts-grid-item-thumbnail" loading="lazy">
             <div class="posts-grid-item-title">
               <p v-html="post.meta.title"></p>
