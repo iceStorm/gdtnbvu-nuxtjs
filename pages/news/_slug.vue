@@ -1,6 +1,6 @@
   <template>
   <div class="news-page inner-page">
-    <NewsCategoryPicker />
+    <NewsCategoryPicker :current_category="current_category" />
 
     <div class="news-page-list">
 
@@ -56,6 +56,7 @@ export default {
 
   data() {
     return {
+      current_category: '',
     };
   },
 
@@ -63,11 +64,14 @@ export default {
     console.log('news category params:', params);
 
     let queryString = '';
+    let articleType = null;
+
     if (params.slug) {
       // gettting the article type object
       try {
         const response = await $wp.get(`/article_types?slug=${params.slug}`);
-        queryString = `?article_types=${response.data[0].id}`;
+        [articleType] = response.data;
+        queryString = `?article_types=${articleType.id}`;
       } catch (error) {
         console.error(error);
         redirect({ path: '/404' });
@@ -78,7 +82,9 @@ export default {
     const posts = (await $wp.get(`/articles${queryString}`));
     // console.log('posts:', posts);
 
-    return { posts: posts.data };
+    articleType = articleType ? articleType.slug : '';
+    console.info(articleType);
+    return { posts: posts.data, current_category: articleType };
   },
 
   methods: {
