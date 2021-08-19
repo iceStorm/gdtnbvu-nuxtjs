@@ -158,8 +158,15 @@ export default {
     flex-direction: column;
     align-items: center;
 
+    text-align: center;
+
     h1 {
       margin-bottom: 5px;
+    }
+    h3 {
+      @media (max-width: 430px) {
+        font-size: 12px;
+      }
     }
   }
 
@@ -171,6 +178,16 @@ export default {
     "organizeEvents biggest biggest"
     "skillsTraining biggest biggest"
     "exploreYouth conquerEthusiasm conquerPassion";
+
+    @media (max-width: 580px) {
+      grid-template-areas:
+      "biggest biggest biggest"
+      "organizeEvents organizeEvents organizeEvents"
+      "skillsTraining skillsTraining skillsTraining"
+      "exploreYouth exploreYouth exploreYouth"
+      "conquerEthusiasm conquerEthusiasm conquerEthusiasm"
+      "conquerPassion conquerPassion conquerPassion";
+    }
 
     &-item {
       position: relative;
@@ -228,6 +245,10 @@ export default {
           letter-spacing: 1.5px;
           text-transform: lowercase;
         }
+
+        @media (max-width: 430px) {
+          font-size: 12px;
+        }
       }
 
       img {
@@ -261,6 +282,10 @@ export default {
       &:nth-child(6) {
         grid-area: biggest;
         height: 100%;
+
+        @media (max-width: 580px) {
+          height: 150px;
+        }
       }
     }
   }
