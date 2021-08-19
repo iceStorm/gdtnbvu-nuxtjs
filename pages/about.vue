@@ -106,6 +106,16 @@ export default {
         },
         {
           key: {
+            vi: 'Ngày thành lập',
+            en: 'Founded date',
+          },
+          value: {
+            vi: '05/10/2017',
+            en: '2017-10-05',
+          },
+        },
+        {
+          key: {
             vi: 'Thành viên',
             en: 'Members',
           },
