@@ -49,6 +49,7 @@ export default {
 <style lang="scss">
 .news-category-picker {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 20px;

@@ -1,3 +1,19 @@
+  <i18n>
+{
+  "vi": {
+    "news": {
+      "viewMoreTitle": "Xem thêm"
+    }
+  },
+  "en": {
+    "news": {
+      "viewMoreTitle": "View more"
+    }
+  }
+}
+</i18n>
+
+  
   <template>
   <div class="news-page inner-page">
     <NewsCategoryPicker :current_category="current_category" />
@@ -15,24 +31,24 @@
           </nuxt-link>
 
           <div class="news-page-list-item-meta-info">
-            <!-- post category -->
-            <nuxt-link class="news-page-list-item-meta-info-category"
-            :to="{ name: 'news', params: { slug: post.category_meta[0].slug } }">
-              <!-- <img src="/icons/ion/outline/folder-open-outline.svg" class="ionicon"> -->
-              {{ post.category_meta[0].name }}
-            </nuxt-link>
-
             <!-- post date -->
             <div class="news-page-list-item-meta-info-date">
               <!-- <img src="/icons/ion/outline/calendar-clear-outline.svg" class="ionicon"> -->
               <span class="text">{{ getDateString(post.date) }}</span>
             </div>
 
+            <!-- post category -->
+            <nuxt-link class="news-page-list-item-meta-info-category"
+            :to="{ name: 'news', params: { slug: post.category_meta[0].slug } }">
+              <!-- <img src="/icons/ion/outline/folder-open-outline.svg" class="ionicon"> -->
+              #{{ post.category_meta[0].name }}
+            </nuxt-link>
+
             <!-- post author -->
-            <div class="news-page-list-item-meta-info-author">
+            <!-- <div class="news-page-list-item-meta-info-author">
               <img :src="post.author_meta.avatar_urls['24']" style="border-radius: 50%;">
               <span class="text">{{ post.author_meta.name }}</span>
-            </div>
+            </div> -->
           </div>
 
           <h3 class="news-page-list-item-meta-excerpt text" v-html="post.excerpt.rendered"></h3>
@@ -40,6 +56,12 @@
       </div>
 
     </div>
+
+    <button class="news-page-view-more-btn"
+      @click="fetchMorePosts()"
+      v-if="current_page_index < total_pages">
+      <h3>{{ $t('news.viewMoreTitle') }}</h3>
+    </button>
   </div>
 </template>
 
@@ -56,13 +78,15 @@ export default {
 
   data() {
     return {
+      posts: [],
       current_category: '',
+      current_page_index: 1,
+      total_pages: 1,
     };
   },
 
-  async asyncData({ $wp, params, redirect }) {
+  async asyncData({ $wp, params, redirect, store }) {
     // console.log('news category params:', params);
-
     let queryString = '';
     let articleType = null;
 
@@ -78,18 +102,35 @@ export default {
       }
     }
 
-    // default: per_page=10
-    const posts = (await $wp.get(`/articles${queryString}`));
-    // console.log('posts:', posts);
+    const perPage = `${queryString ? '&' : '?'}per_page=${store.state.configs.news.perPage}`;
+    const posts = await $wp.get(`/articles${queryString}${perPage}`);
 
+    // pagination
+    const totalPages = posts.headers['x-wp-totalpages'];
+    console.info('totalPages:', totalPages);
+
+    // retrieving current post category
     articleType = articleType ? articleType.slug : '';
     // console.info(articleType);
-    return { posts: posts.data, current_category: articleType };
+
+    return { posts: posts.data, current_category: articleType, total_pages: totalPages };
   },
 
   methods: {
     getDateString(date) {
       return this.$moment(date).format('DD-MM-YYYY');
+    },
+    async fetchMorePosts() {
+      console.info('fetching more posts...');
+
+      const articleTypes = this.current_category ? `?article_types=${this.current_category}` : '';
+      const perPage = `${articleTypes ? '&' : '?'}per_page=${this.$store.state.configs.news.perPage}`;
+      const nextPosts = await this.$wp.get(`/articles${articleTypes}${perPage}&page=${this.current_page_index + 1}`);
+
+      this.posts.push(...nextPosts.data);
+      this.current_page_index += 1;
+      console.log(nextPosts);
+      console.log(this.posts);
     },
   },
 };
@@ -104,6 +145,29 @@ export default {
     gap: 50px;
   }
 
+  &-view-more-btn {
+    padding: 10px 25px;
+    border-radius: 99px;
+    background: var(--color-primary);
+    color: #000000;
+
+    width: fit-content;
+    margin: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h3 {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      background: #38c7da;
+      // color: white;
+    }
+  }
+
   &-list {
     display: flex;
     flex-direction: column;
@@ -114,6 +178,10 @@ export default {
 
       display: flex;
       gap: 20px;
+
+      @media (max-width: 470px) {
+        flex-direction: column;
+      }
 
       img.thumbnail {
         height: 165px;
@@ -146,13 +214,36 @@ export default {
       }
 
       &-meta {
+        flex: 1 1 0;
+
         &-title {
           text-transform: uppercase;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          line-height: 20px;     /* fallback */
+          max-height: 40px;      /* fallback */
+          -webkit-line-clamp: 2; /* number of lines to show */
+          -webkit-box-orient: vertical;
+
           &:hover {
             text-decoration: underline;
           }
         }
         &-excerpt {
+          p {
+            padding-bottom: 0;
+            margin-bottom: 0;
+
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            line-height: 20px;     /* fallback */
+            max-height: 40px;      /* fallback */
+            -webkit-line-clamp: 2; /* number of lines to show */
+            -webkit-box-orient: vertical;
+          }
+
           font-weight: 300;
           padding-top: 20px;
         }
@@ -161,6 +252,13 @@ export default {
           display: flex;
           align-items: center;
           gap: 35px;
+          // padding-top: 10px;
+
+          @media (max-width: 530px) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0;
+          }
 
           > * {
             display: flex;

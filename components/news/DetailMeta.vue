@@ -12,7 +12,9 @@
 
     <div id="news-detail-content-title-meta-category">
       <img src="/icons/ion/outline/folder-open-outline.svg" class="ionicon">
-      <span>{{ post.category_meta[0].name }}</span>
+      <nuxt-link :to="{ path: 'news/'+post.category_meta[0].slug }">
+        <span class="link">{{ post.category_meta[0].name }}</span>
+      </nuxt-link>
     </div>
   </div>
 </template>
@@ -58,7 +60,7 @@ export default {
       }
     }
 
-    span {
+    span:not([class^=link]) {
       line-height: 1;
       color: var(--color-text);
     }

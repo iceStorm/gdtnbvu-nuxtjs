@@ -7,6 +7,11 @@
 
 export const state = () => ({
   meta: {},
+  configs: {
+    news: {
+      perPage: 5,
+    },
+  },
   colorMode: {
     current: 'light',
     available: [
