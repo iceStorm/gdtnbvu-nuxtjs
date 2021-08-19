@@ -13,54 +13,57 @@
 }
 </i18n>
 
-  
-  <template>
-  <div class="news-page inner-page">
-    <NewsCategoryPicker :current_category="current_category" />
+<template>
+  <div class="news-page">
+    <div class="inner-page">
 
-    <div class="news-page-list">
+      <NewsCategoryPicker :current_category="current_category" />
 
-      <div class="news-page-list-item" v-for="post in posts" :key="post.slug">
-        <a target="_blank" :href=" '/news/p/'+post.slug ">
-          <img :src="post.meta.thumbnail" class="thumbnail">
-        </a>
+      <div class="news-page-list">
 
-        <div class="news-page-list-item-meta">
-          <a target="_blank" :href=" '/news/p/'+post.slug " class="news-page-list-item-meta-title">
-            <h3 class="title" v-html="post.title.rendered"></h3>
+        <div class="news-page-list-item" v-for="post in posts" :key="post.slug">
+          <a target="_blank" :href=" '/news/p/'+post.slug ">
+            <img :src="post.meta.thumbnail" class="thumbnail">
           </a>
 
-          <div class="news-page-list-item-meta-info">
-            <!-- post date -->
-            <div class="news-page-list-item-meta-info-date">
-              <!-- <img src="/icons/ion/outline/calendar-clear-outline.svg" class="ionicon"> -->
-              <span class="text">{{ getDateString(post.date) }}</span>
-            </div>
-
-            <!-- post category -->
-            <a class="news-page-list-item-meta-info-category" target="_blank" :href="'news/'+post.category_meta[0].slug">
-              <!-- <img src="/icons/ion/outline/folder-open-outline.svg" class="ionicon"> -->
-              #{{ post.category_meta[0].name }}
+          <div class="news-page-list-item-meta">
+            <a target="_blank" :href=" '/news/p/'+post.slug " class="news-page-list-item-meta-title">
+              <h3 class="title" v-html="post.title.rendered"></h3>
             </a>
 
-            <!-- post author -->
-            <!-- <div class="news-page-list-item-meta-info-author">
-              <img :src="post.author_meta.avatar_urls['24']" style="border-radius: 50%;">
-              <span class="text">{{ post.author_meta.name }}</span>
-            </div> -->
-          </div>
+            <div class="news-page-list-item-meta-info">
+              <!-- post date -->
+              <div class="news-page-list-item-meta-info-date">
+                <!-- <img src="/icons/ion/outline/calendar-clear-outline.svg" class="ionicon"> -->
+                <span class="text">{{ getDateString(post.date) }}</span>
+              </div>
 
-          <h3 class="news-page-list-item-meta-excerpt text" v-html="post.excerpt.rendered"></h3>
+              <!-- post category -->
+              <a class="news-page-list-item-meta-info-category" target="_blank" :href="'news/'+post.category_meta[0].slug">
+                <!-- <img src="/icons/ion/outline/folder-open-outline.svg" class="ionicon"> -->
+                #{{ post.category_meta[0].name }}
+              </a>
+
+              <!-- post author -->
+              <!-- <div class="news-page-list-item-meta-info-author">
+                <img :src="post.author_meta.avatar_urls['24']" style="border-radius: 50%;">
+                <span class="text">{{ post.author_meta.name }}</span>
+              </div> -->
+            </div>
+
+            <h3 class="news-page-list-item-meta-excerpt text" v-html="post.excerpt.rendered"></h3>
+          </div>
         </div>
+
       </div>
 
-    </div>
+      <button class="news-page-view-more-btn"
+        @click="fetchMorePosts()"
+        v-if="current_page_index < total_pages">
+        <h3>{{ $t('news.viewMoreTitle') }}</h3>
+      </button>
 
-    <button class="news-page-view-more-btn"
-      @click="fetchMorePosts()"
-      v-if="current_page_index < total_pages">
-      <h3>{{ $t('news.viewMoreTitle') }}</h3>
-    </button>
+    </div>
   </div>
 </template>
 
@@ -153,8 +156,25 @@ export default {
 
 <style lang="scss">
 .news-page {
+  position: relative;
+  &::before {
+    content: "";
 
-  &.inner-page {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: url('/pages/news/bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+  }
+
+  > .inner-page {
     display: flex;
     flex-direction: column;
     gap: 50px;
@@ -190,7 +210,7 @@ export default {
 
     &-item {
       padding: 25px 0;
-      border-bottom: 1px solid rgba(154, 154, 154, 0.5);
+      border-bottom: 1px solid rgba(179, 179, 179, 0.5);
 
       display: flex;
       gap: 20px;
