@@ -46,7 +46,7 @@
 <script>
 import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
-import LanguageSwitcher from './LanguageSwitcher.vue';
+import LanguageSwitcher from '../LanguageSwitcher.vue';
 
 export default {
   components: { LanguageSwitcher },

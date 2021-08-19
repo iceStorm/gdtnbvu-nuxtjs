@@ -1,6 +1,6 @@
   <template>
   <div class="news-page inner-page">
-    <h1>News page.</h1>
+    <NewsCategoryPicker />
   </div>
 </template>
 

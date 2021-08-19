@@ -135,8 +135,8 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import ColorModeSwitcher from './ColorModeSwitcher.vue';
-import LanguageSwitcher from './LanguageSwitcher.vue';
+import ColorModeSwitcher from '../ColorModeSwitcher.vue';
+import LanguageSwitcher from '../LanguageSwitcher.vue';
 
 export default Vue.extend({
   components: {

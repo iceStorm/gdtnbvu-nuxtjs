@@ -1,21 +1,21 @@
 <template>
   <div id="root" :class="[{ mobile: classes.mobile }, classes.colorMode]">
-    <Header />
+    <LayoutHeader />
 
-    <AlternateMenu />
+    <LayoutAlternateMenu />
 
     <!-- lobby -->
-    <Lobby />
+    <LayoutLobby />
 
     <main id="content">
       <Nuxt />
     </main>
 
     <!-- mobile menu -->
-    <mobile-menu v-if="$store.state.menu.mobile" />
+    <LayoutMobileMenu v-if="$store.state.menu.mobile" />
 
-    <scroll-top-button></scroll-top-button>
-    <Footer />
+    <LayoutScrollTopButton />
+    <LayoutFooter />
   </div>
 </template>
 

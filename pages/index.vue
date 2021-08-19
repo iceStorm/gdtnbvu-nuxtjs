@@ -1,8 +1,7 @@
 <template>
   <div class="index-page">
-    <NewsGrid />
-    <working-areas />
-    <!-- <div class="inner-page"> -->
+    <IndexNewsGrid />
+    <IndexWorkingAreas />
   </div>
 </template>
 

@@ -45,7 +45,7 @@
           <ion-icon name="sparkles"></ion-icon>
           {{ $t("sidebar.newestTitle") }}
         </h1>
-        <related-news />
+        <news-detail-related />
       </div>
       <!-- <div id="news-detail-page-content-sidebar-related">
         <h1 class="title">{{ $t("sidebar.relatedTitle") }}</h1>
