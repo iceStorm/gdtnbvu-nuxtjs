@@ -282,7 +282,10 @@ export default {
     padding: 0;
     border-bottom: 1px solid #eee;
     box-shadow: 0 1px 24px 0 rgba(223, 223, 223, 0.521);
+
     background: #fff;
+    // background: rgba(255, 255, 255, 0.904);
+    // backdrop-filter: blur(20px);
 
     @media (max-width: var(--mobile-threshold)) {
       position: fixed;

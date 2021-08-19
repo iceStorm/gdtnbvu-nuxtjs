@@ -27,12 +27,13 @@
       </div>
 
       <div class="working-areas-grid">
-        <div class="working-areas-grid-item" v-for="(item, index) in gridItems.slice(1)" :key="item.title.en" :data-aos="index < 3 ?'fade-down':'fade-right'">
+        <div class="working-areas-grid-item" v-for="(item, index) in gridItems.slice(1)" :key="item.title.en"
+          :data-aos="index < 3 ?'fade-down':'fade-right'" data-aos-duration="750">
           <h3 :class="getUnderlineClass(index)">{{ item.title[$i18n.locale] }}</h3>
           <img :src="item.image">
         </div>
         <!-- bigest item  -->
-        <div class="working-areas-grid-item" data-aos="fade-up">
+        <div class="working-areas-grid-item" data-aos="fade-up" data-aos-duration="750">
           <h3 class="underline-4">
             <h1>{{ $t('workingArea.biggestItemTitle') }}</h1>
             {{ gridItems[0].title[$i18n.locale] }}
@@ -60,14 +61,14 @@ export default {
         },
 
         {
-          image: 'https://cms.gdtnbvu.club/wp-content/uploads/2021/07/2019.jpg',
+          image: '/pages/index/working-areas/events.jpg',
           title: {
             vi: 'Tổ chức sự kiện',
             en: 'Organizing events',
           },
         },
         {
-          image: 'https://cms.gdtnbvu.club/wp-content/uploads/2021/07/2019.jpg',
+          image: '/pages/index/working-areas/skills.jpg',
           title: {
             vi: 'Rèn luyện kỹ năng',
             en: 'Skills training',
@@ -81,14 +82,14 @@ export default {
           },
         },
         {
-          image: 'https://cms.gdtnbvu.club/wp-content/uploads/2021/07/2019.jpg',
+          image: '/pages/index/working-areas/ethuasism.jpg',
           title: {
             vi: 'Chinh phục nhiệt huyết',
             en: 'Conquering enthusiasm',
           },
         },
         {
-          image: 'https://cms.gdtnbvu.club/wp-content/uploads/2021/07/2019.jpg',
+          image: '/pages/index/working-areas/passion.jpg',
           title: {
             vi: 'Chinh phục đam mê',
             en: 'Conquering passion',
@@ -125,7 +126,7 @@ export default {
     width: 100%;
     height: 100%;
 
-    background: url('/pages/index/hands.jpg');
+    background: url('/pages/index/working-areas/bg.jpg');
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0.35;
@@ -180,6 +181,8 @@ export default {
       box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
       box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 
+      // border: dashed 2px var(--color-primary);
+
       &::after {
         content: "";
         position: absolute;
@@ -190,7 +193,8 @@ export default {
         width: 100%;
         height: 100%;
 
-        background: #00000088;
+        background: #00000063;
+        // background: #006c7a73;
       }
 
       h3 {
@@ -205,6 +209,8 @@ export default {
 
         text-align: center;
         text-transform: uppercase;
+        text-shadow: 1px 1px 5px var(--color-primary);
+        text-shadow: 1px 1px 5px black;
         font-weight: 900;
         color: white;
 
@@ -226,6 +232,8 @@ export default {
         z-index: -1;
         top: 0;
         left: 0;
+        right: 0;
+        bottom: 0;
 
         width: 100%;
         height: 100%;

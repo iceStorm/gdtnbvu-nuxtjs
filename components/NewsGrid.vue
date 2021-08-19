@@ -113,7 +113,7 @@ export default {
     width: 100%;
     height: 100%;
 
-    background: url('/pages/index/v935-aum-13.jpg');
+    background: url('/pages/index/news-grid/bg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0.35;
@@ -182,8 +182,10 @@ export default {
       overflow: hidden;
       min-height: 150px;
       border-radius: var(--news-grid-radius);
+
       border: none;
       box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+      // border: 1px dashed var(--color-primary);
 
       &:nth-child(1) {
         grid-column: 1 / span 2;
