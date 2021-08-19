@@ -61,7 +61,7 @@ export default {
   },
 
   async asyncData({ $wp, params, redirect }) {
-    console.log('news category params:', params);
+    // console.log('news category params:', params);
 
     let queryString = '';
     let articleType = null;
@@ -83,7 +83,7 @@ export default {
     // console.log('posts:', posts);
 
     articleType = articleType ? articleType.slug : '';
-    console.info(articleType);
+    // console.info(articleType);
     return { posts: posts.data, current_category: articleType };
   },
 

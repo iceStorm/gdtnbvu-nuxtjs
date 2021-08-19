@@ -2,7 +2,7 @@
   <ul class="related-news">
 
     <li class="related-news-item" v-for="post in posts" :key="post.id">
-      <nuxt-link :to="'/news/' + post.slug" class="related-news-item-link">
+      <nuxt-link :to="'/news/p/' + post.slug" class="related-news-item-link">
         <img class="related-news-item-thumbnail" :src="post.meta.thumbnail">
         <h3 class="related-news-item-title">
           <p v-html="post.title.rendered"></p>
