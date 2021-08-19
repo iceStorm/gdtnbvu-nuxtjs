@@ -107,7 +107,7 @@ export default {
 
     // pagination
     const totalPages = posts.headers['x-wp-totalpages'];
-    console.info('totalPages:', totalPages);
+    // console.info('totalPages:', totalPages);
 
     // retrieving current post category
     articleType = articleType ? articleType.slug : '';
@@ -121,7 +121,7 @@ export default {
       return this.$moment(date).format('DD-MM-YYYY');
     },
     async fetchMorePosts() {
-      console.info('fetching more posts...');
+      // console.info('fetching more posts...');
 
       const articleTypes = this.current_category ? `?article_types=${this.current_category}` : '';
       const perPage = `${articleTypes ? '&' : '?'}per_page=${this.$store.state.configs.news.perPage}`;
@@ -129,8 +129,8 @@ export default {
 
       this.posts.push(...nextPosts.data);
       this.current_page_index += 1;
-      console.log(nextPosts);
-      console.log(this.posts);
+      // console.log(nextPosts);
+      // console.log(this.posts);
     },
   },
 };
