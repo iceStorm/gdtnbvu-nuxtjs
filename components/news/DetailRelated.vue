@@ -74,7 +74,7 @@ export default {
         }
 
         &::after {
-          background: rgba(0, 0, 0, 0.5);
+          background: rgba(0, 0, 0, 0.25);
         }
       }
 

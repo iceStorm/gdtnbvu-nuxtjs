@@ -22,8 +22,8 @@
       <div class="news-page-list">
 
         <div class="news-page-list-item" v-for="post in posts" :key="post.slug">
-          <a target="_blank" :href=" '/news/p/'+post.slug ">
-            <img :src="post.meta.wide_thumbnail" class="thumbnail">
+          <a target="_blank" :href=" '/news/p/'+post.slug " class="news-page-list-item-thumbnail">
+            <img :src="post.meta.wide_thumbnail">
           </a>
 
           <div class="news-page-list-item-meta">
@@ -233,13 +233,9 @@ export default {
         padding: 0;
       }
 
-      img.thumbnail {
-        height: 165px;
-        box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-        border: 0.5px solid var(--color-primary);
-
+      &-thumbnail {
         position: relative;
-        z-index: 0;
+        // z-index: 0;
         &::after {
           content: "";
           position: absolute;
@@ -251,7 +247,8 @@ export default {
 
           width: 100%;
           height: 100%;
-          background: rgba(0, 0, 0, 0.5);
+
+          background: rgba(0, 0, 0, 0.25);
           opacity: 0;
           transition: opacity .35s;
         }
@@ -262,13 +259,19 @@ export default {
           }
         }
 
-        @media (max-width: 700px) {
-          width: 100%;
-          height: 255px;
-          object-fit: cover;
-        }
-        @media (max-width: 430px) {
-          height: 175px;
+        img {
+          height: 165px;
+          box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+          border: 0.5px solid var(--color-primary);
+
+          @media (max-width: 700px) {
+            width: 100%;
+            height: 255px;
+            object-fit: cover;
+          }
+          @media (max-width: 430px) {
+            height: 175px;
+          }
         }
       }
 
@@ -351,6 +354,7 @@ export default {
 
         @media (max-width: 700px) {
           position: absolute;
+          z-index: 2;
           bottom: 0;
           left: 0;
 

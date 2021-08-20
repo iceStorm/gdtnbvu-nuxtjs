@@ -186,7 +186,7 @@ export default {
 
       border: none;
       box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-      // border: 0.5px solid dodgerblue;
+      border: 0.5px solid rgba(255, 255, 255, 0.267);
 
       &:nth-child(1) {
         grid-column: 1 / span 2;

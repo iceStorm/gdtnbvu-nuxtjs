@@ -129,7 +129,7 @@ export default {
     background: url('/pages/index/working-areas/bg.jpg');
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0.35;
+    opacity: 0.55;
   }
   &::after {
     content: "";
@@ -198,7 +198,7 @@ export default {
       box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
       box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 
-      // border: dashed 2px var(--color-primary);
+      border: 1px solid rgba(255, 255, 255, 0.267);
 
       &::after {
         content: "";
