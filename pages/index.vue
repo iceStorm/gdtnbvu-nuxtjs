@@ -3,7 +3,11 @@
     <IndexNewsGrid />
     <IndexWorkingAreas />
 
-    <img src="/pages/index/events/events.jpg">
+    <div class="index-page-events">
+      <div class="inner-page">
+        <img src="/pages/index/events/events.jpg">
+      </div>
+    </div>
   </div>
 </template>
 
@@ -40,9 +44,13 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .index-page {
   display: flex;
   flex-direction: column;
+
+  &-events {
+    background: #000;
+  }
 }
 </style>
