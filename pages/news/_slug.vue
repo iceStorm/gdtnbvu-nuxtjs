@@ -23,7 +23,7 @@
 
         <div class="news-page-list-item" v-for="post in posts" :key="post.slug">
           <a target="_blank" :href=" '/news/p/'+post.slug ">
-            <img :src="post.meta.thumbnail" class="thumbnail">
+            <img :src="post.meta.wide_thumbnail" class="thumbnail">
           </a>
 
           <div class="news-page-list-item-meta">
@@ -168,7 +168,7 @@ export default {
     width: 100%;
     height: 100%;
 
-    background: url('/pages/news/bg.jpg');
+    // background: url('/pages/news/bg-2.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0.15;
@@ -182,11 +182,12 @@ export default {
 
   &-view-more-btn {
     padding: 10px 25px;
-    border-radius: 99px;
+    // border-radius: 99px;
     background: var(--color-primary);
     color: #000000;
 
     width: fit-content;
+    margin-right: 0;
     margin: auto;
     margin-top: -20px;
 
@@ -202,11 +203,21 @@ export default {
       background: #38c7da;
       // color: white;
     }
+
+    @media (max-width: 430px) {
+      padding: 5px 15px;
+      h3 {
+        font-size: 13px;
+      }
+    }
   }
 
   &-list {
     display: flex;
     flex-direction: column;
+    @media (max-width: 700px) {
+      gap: 25px;
+    }
 
     &-item {
       padding: 25px 0;
@@ -215,14 +226,17 @@ export default {
       display: flex;
       gap: 20px;
 
-      @media (max-width: 470px) {
+      @media (max-width: 700px) {
         flex-direction: column;
+        border-bottom: none;
+        position: relative;
+        padding: 0;
       }
 
       img.thumbnail {
         height: 165px;
         box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-        border: 2px solid dodgerblue;
+        border: 0.5px solid var(--color-primary);
 
         position: relative;
         z-index: 0;
@@ -247,6 +261,15 @@ export default {
             opacity: 1;
           }
         }
+
+        @media (max-width: 700px) {
+          width: 100%;
+          height: 255px;
+          object-fit: cover;
+        }
+        @media (max-width: 430px) {
+          height: 175px;
+        }
       }
 
       &-meta {
@@ -267,6 +290,10 @@ export default {
           }
         }
         &-excerpt {
+          @media (max-width: 700px) {
+            display: none;
+          }
+
           p {
             padding-bottom: 0;
             margin-bottom: 0;
@@ -288,12 +315,9 @@ export default {
           display: flex;
           align-items: center;
           gap: 35px;
-          // padding-top: 10px;
 
-          @media (max-width: 530px) {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0;
+          @media (max-width: 430px) {
+            gap: 10px;
           }
 
           > * {
@@ -308,16 +332,42 @@ export default {
           }
 
           &-category {
-
+            @media (max-width: 330px) {
+              display: none;
+            }
           }
           &-date {
-
+           @media (max-width: 700px) {
+             color: white !important;
+           }
           }
           &-author {
             img {
               border-radius: 50%;
               border: 1px solid #eee;
             }
+          }
+        }
+
+        @media (max-width: 700px) {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+
+          width: 100%;
+          padding: 5px;
+
+          border-top: 0.5px solid var(--color-primary);
+          background: rgba(0, 0, 0, 0.596);
+          backdrop-filter: blur(20px) saturate(180%);
+
+          .title {
+            color: var(--color-primary);
+            font-size: 13px;
+          }
+
+          .text {
+            color: white;
           }
         }
       }

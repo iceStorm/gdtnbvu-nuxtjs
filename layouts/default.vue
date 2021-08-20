@@ -49,7 +49,7 @@ export default {
   },
   methods: {
     scrollToContent() {
-      const yCoordinate = document.getElementById('above-content').offsetTop - 20;
+      const yCoordinate = document.getElementById('content').offsetTop - 50;
       window.scrollTo({
         top: yCoordinate,
         left: 0,

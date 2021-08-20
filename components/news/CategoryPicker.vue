@@ -54,6 +54,10 @@ export default {
   align-items: center;
   gap: 20px;
 
+  @media (max-width: 530px) {
+    justify-content: flex-start;
+  }
+
   &-item {
     display: flex;
     justify-content: center;
@@ -71,6 +75,12 @@ export default {
 
     h3 {
       margin-bottom: 0;
+      font-weight: 500;
+
+      @media (max-width: 530px) {
+        font-size: 13px;
+        font-weight: 400;
+      }
     }
   }
 }

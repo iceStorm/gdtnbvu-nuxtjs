@@ -28,11 +28,11 @@
 
           <nuxt-link
             v-if="posts.length"
-            v-for="post in leftPosts"
+            v-for="(post, index) in leftPosts"
             :key="post.id"
             :to="'/news/p/' + post.slug"
             class="posts-grid-item">
-            <img :src="post.meta.wide_thumbnail || post.meta.thumbnail" class="posts-grid-item-thumbnail" loading="lazy">
+            <img :src="index === 0 ? post.meta.wide_thumbnail : post.meta.thumbnail" class="posts-grid-item-thumbnail" loading="lazy">
             <span class="posts-grid-item-title">
               <p v-html="post.meta.title"></p>
             </span>
@@ -45,11 +45,11 @@
 
           <nuxt-link
             v-if="posts.length"
-            v-for="post in rightPosts"
+            v-for="(post, index) in rightPosts"
             :key="post.id"
             :to="'/news/p/' + post.slug"
             class="posts-grid-item">
-            <img :src="post.meta.wide_thumbnail || post.meta.thumbnail" class="posts-grid-item-thumbnail" loading="lazy">
+            <img :src="index === 0 ? post.meta.wide_thumbnail : post.meta.thumbnail" class="posts-grid-item-thumbnail" loading="lazy">
             <div class="posts-grid-item-title">
               <p v-html="post.meta.title"></p>
             </div>
@@ -186,7 +186,7 @@ export default {
 
       border: none;
       box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-      // border: 1px dashed var(--color-primary);
+      // border: 0.5px solid dodgerblue;
 
       &:nth-child(1) {
         grid-column: 1 / span 2;
@@ -228,11 +228,9 @@ export default {
         bottom: 0;
         left: 0;
         right: 0;
-        // height: 35%;
-        padding: 75px 15px 10px;
 
+        padding: 75px 15px 10px;
         background: linear-gradient(to top, black, transparent);
-        // backdrop-filter: blur(20px) saturate(180%);
 
         p {
           color: white;
