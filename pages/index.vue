@@ -2,6 +2,8 @@
   <div class="index-page">
     <IndexNewsGrid />
     <IndexWorkingAreas />
+
+    <img src="/pages/index/events/events.jpg">
   </div>
 </template>
 
