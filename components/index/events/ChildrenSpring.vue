@@ -94,6 +94,10 @@ export default {
         right: 0px;
         bottom: 50px;
         filter: drop-shadow(0 0 0.75rem rgba(97, 168, 255, 0.664));
+        border: 1px solid #ddd;
+        border-radius: 50%;
+        background: rgba(210, 245, 255, 0.452);
+        backdrop-filter: blur(5px);
       }
 
       // nhóm gói quà
@@ -102,6 +106,10 @@ export default {
         left: -15px;
         bottom: 0px;
         filter: drop-shadow(0 0 0.75rem rgba(97, 168, 255, 0.664));
+        border: 1px solid #ddd;
+        border-radius: 50%;
+        background: rgba(255, 239, 210, 0.452);
+        backdrop-filter: blur(5px);
       }
 
       // balo

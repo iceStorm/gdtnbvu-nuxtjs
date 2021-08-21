@@ -1,0 +1,177 @@
+<template>
+  <div class="highlight-events-night-porridge">
+    <div class="inner-page">
+
+      <div class="highlight-events-night-porridge-left">
+        <div class="highlight-events-night-porridge-left-images">
+          <img src="/pages/index/events/tách chủ thể chương trình/Cháo đêm ấm lòng/moon.svg" data-aos="zoom-in-up" data-aos-duration="1000">
+          <img src="/pages/index/events/tách chủ thể chương trình/Cháo đêm ấm lòng/stars.png" data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="450">
+
+          <img src="/pages/index/events/tách chủ thể chương trình/Cháo đêm ấm lòng/typo - cháo đêm ấm lòng.png" data-aos="zoom-in-down" data-aos-duration="1000">
+          <img src="/pages/index/events/tách chủ thể chương trình/Cháo đêm ấm lòng/sản phẩm hộp cháo 2.png" data-aos="zoom-in-up" data-aos-duration="1000">
+        </div>
+
+        <h4 class="title highlight-events-night-porridge-left-descriptions" data-aos="fade-up" data-aos-duration="1000">
+          <p>
+            Vào những ngày cuối năm, khi chúng ta đang bận rộn trong những mục sắm sửa ăn Tết, thì ngoài kia vẫn còn rất nhiều mảnh đời khó khăn vẫn đang lam lũ những ngày cuối cùng trong năm để có thêm ít thu nhập ăn Tết.
+          </p>
+          <p>
+            Đội đã tập trung các bạn để làm một chương trình "Cháo đêm ấm lòng" với các hộp cháo nhỏ nhắn nhưng chứa đựng rất nhiều tình cảm của các bạn thành viên tham gia.
+          </p>
+          <p>Phải đi đêm một hôm chúng ta mới cảm nhận được, những mảnh đời khó khăn họ phải làm dưới cái lạnh đêm giá rét, nỗi lo hiện rõ lên khuôn mặt cố gắng từng chút để cuộc sống thêm phần ổn định hơn.</p>
+        </h4>
+      </div>
+
+      <div class="highlight-events-night-porridge-right">
+          <div><img src="/pages/index/events/tách chủ thể chương trình/Cháo đêm ấm lòng/nồi cháo trên bếp lửa-circle.png" data-aos="zoom-in-down" data-aos-duration="1000"></div>
+          <div><img src="/pages/index/events/tách chủ thể chương trình/Cháo đêm ấm lòng/khuấy chào-circle.png" data-aos="zoom-in-right" data-aos-duration="1000"></div>
+          <div><img src="/pages/index/events/tách chủ thể chương trình/Cháo đêm ấm lòng/múc cháo-circle.png" data-aos="zoom-in-left" data-aos-duration="1000"></div>
+          <div><img src="/pages/index/events/tách chủ thể chương trình/Cháo đêm ấm lòng/tặng cháo-circle.png" data-aos="zoom-in-up" data-aos-duration="1000"></div>
+      </div>
+
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  //
+};
+</script>
+
+<style lang="scss">
+.highlight-events-night-porridge {
+  position: relative;
+  // margin-top: 100px;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    // background: url('/pages/index/events/tách chủ thể chương trình/Trung thu cho em/vòng tròn trung thu.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.25;
+  }
+
+  .inner-page {
+    // display: flex;
+    // align-items: center;
+    // gap: 100px;
+
+    display: grid;
+    // grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    gap: 100px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: unset;
+    }
+  }
+
+  &-left {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    text-align: justify;
+    h4 {
+      font-weight: 300;
+      // p {
+      //   color: var(--color-primary);
+      // }
+    }
+
+    &-images {
+      position: relative;
+
+      img {
+        &:not(:nth-child(3)) {
+          position: absolute;
+        }
+
+        // moon
+        &:nth-child(1) {
+          width: 120px;
+          top: 20px;
+          right: 70px;
+        }
+        // star
+        &:nth-child(2) {
+          width: 30px;
+          top: 70px;
+          right: 90px;
+        }
+
+        // typo
+        &:nth-child(3) {
+        }
+
+        // cháo
+        &:nth-child(4) {
+          width: 120px;
+          bottom: 70px;
+          left: 120px;
+        }
+      }
+    }
+  }
+
+  &-right {
+    position: relative;
+    justify-self: end;
+    width: 100%;
+
+    div {
+      position: absolute;
+      // filter: drop-shadow(0 0 0.75rem rgba(255, 192, 97, 0.664));
+
+      border: 1px solid #ddd;
+      border-radius: 50%;
+      background: rgba(224, 224, 224, 0.452);
+      backdrop-filter: blur(5px);
+
+      // bếp
+      &:nth-child(1) {
+        width: 300px;
+        left: calc(50% / 2.5);
+        top: 20%;
+        transform: translateY(-45%);
+      }
+
+      // khuấy
+      &:nth-child(2) {
+        width: 250px;
+        right: 50px;
+        top: 40%;
+        transform: translateY(-45%);
+      }
+
+      // múc
+      &:nth-child(3) {
+        // width: 100px;
+        left: 0px;
+        top: 50%;
+        transform: translateY(-45%);
+      }
+
+      // tặng
+      &:nth-child(4) {
+        width: 50%;
+        left: 30%;
+        // margin-left: -45%;
+        top: 50%;
+        transform: translateY(-5%);
+      }
+    }
+  }
+}
+</style>

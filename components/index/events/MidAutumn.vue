@@ -11,7 +11,9 @@
 
         <img src="/pages/index/events/tách chủ thể chương trình/Trung thu cho em/lồng đèn.png" data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="350">
         <img src="/pages/index/events/tách chủ thể chương trình/Trung thu cho em/mây2.png" data-aos="zoom-in-right" data-aos-duration="1000">
-        <img src="/pages/index/events/tách chủ thể chương trình/Trung thu cho em/mây.png" data-aos="zoom-in-left" data-aos-duration="1000">
+
+        <img src="/pages/index/events/tách chủ thể chương trình/Trung thu cho em/moonstars.png" data-aos="zoom-in-up" data-aos-duration="1000">
+        <img src="/pages/index/events/tách chủ thể chương trình/Trung thu cho em/moonglow.png" data-aos="fade-in" data-aos-duration="3000">
       </div>
 
       <div class="highlight-events-mid-autumn-right">
@@ -79,7 +81,6 @@ export default {
 
       // chùa
       &:nth-child(1) {
-
       }
 
       // lân vàng
@@ -121,9 +122,11 @@ export default {
 
       // mây (right-to-left)
       &:nth-child(7) {
-        width: 25%;
-        right: -20px;
-        top: 0px;
+        width: 200px;
+        right: -50px;
+        top: -20px;
+
+        filter: drop-shadow(0 0 0.75rem rgba(255, 218, 97, 0.89));
       }
     }
   }

@@ -33,6 +33,7 @@
         <IndexEventsMidAutumn />
         <IndexEventsLovelySpring />
         <IndexEventsChildrenSpring />
+        <IndexEventsNightPorridge />
       </div>
     </div>
 
@@ -78,7 +79,7 @@ export default {
   flex-direction: column;
 
   &-highlight-events {
-    // background: #182029;
+    // background: #000;
     position: relative;
     min-height: 600px;
 
