@@ -32,6 +32,7 @@
       <div class="index-page-highlight-events-sections">
         <IndexEventsMidAutumn />
         <IndexEventsLovelySpring />
+        <IndexEventsChildrenSpring />
       </div>
     </div>
 
@@ -128,7 +129,9 @@ export default {
     &-sections {
       display: flex;
       flex-direction: column;
-      gap: 25px;
+      gap: 100px;
+
+      padding-bottom: 50px;
     }
   }
 }

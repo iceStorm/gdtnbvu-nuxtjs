@@ -17,9 +17,9 @@
       <div class="highlight-events-mid-autumn-right">
         <img src="/pages/index/events/tách chủ thể chương trình/Trung thu cho em/typo.png" data-aos="zoom-out" data-aos-duration="1000">
         <h4 class="text highlight-events-mid-autumn-right-descriptions" data-aos="fade-up" data-aos-duration="1000">
-          "Trung Thu Cho Em" là một chương trình được tổ chức vào tháng trung thu của mỗi năm.
-          Như thường lệ, Đội sẽ tổ chức chương trình tại Chùa Quy Sơ - đường Trần Phú với quy mô khoảng 400 bạn tình nguyện viên và 300 em thiếu nhi - tương ứng với 300 phần quà.
-          Đội Tình nguyện BVU đã gây quỹ liên tục 2 tháng trước khi chương trình diễn ra với 2 hình thức là bán bánh trung thu và múa lân gây quỹ.
+          <p>"Trung Thu Cho Em" là một chương trình được tổ chức vào tháng trung thu của mỗi năm.
+          Như thường lệ, Đội sẽ tổ chức chương trình tại Chùa Quy Sơ - đường Trần Phú với quy mô khoảng 400 bạn tình nguyện viên và 300 em thiếu nhi - tương ứng với 300 phần quà.</p>
+          <p>Đội Tình nguyện BVU đã gây quỹ liên tục 2 tháng trước khi chương trình diễn ra với 2 hình thức là bán bánh trung thu và múa lân gây quỹ.</p>
         </h4>
       </div>
 
@@ -101,7 +101,7 @@ export default {
       &:nth-child(4) {
         width: 85%;
         left: 50%;
-        bottom: 20px;
+        bottom: 0px;
         margin-left: -45%;
         // transform: translateX(-50%) !important;
       }
