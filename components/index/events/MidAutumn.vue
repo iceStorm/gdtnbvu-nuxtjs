@@ -93,7 +93,7 @@ export default {
       &:nth-child(2) {
         width: 30%;
         right: -50px;
-        bottom: 50px;
+        bottom: 0px;
         // transform: scale(-1);
       }
 
@@ -101,14 +101,14 @@ export default {
       &:nth-child(3) {
         width: 30%;
         left: -60px;
-        bottom: 20px;
+        bottom: 0px;
       }
 
       // bánh
       &:nth-child(4) {
         width: 85%;
         left: 50%;
-        bottom: 0px;
+        bottom: -30px;
         margin-left: -45%;
         // transform: translateX(-50%) !important;
       }

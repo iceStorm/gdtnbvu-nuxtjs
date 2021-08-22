@@ -98,7 +98,7 @@ export default {
       &:nth-child(2) {
         width: 40%;
         right: 0px;
-        bottom: 50px;
+        bottom: -10px;
         filter: drop-shadow(0 0 0.75rem rgba(97, 168, 255, 0.664));
         border: 1px solid #ddd;
         border-radius: 50%;
@@ -110,7 +110,7 @@ export default {
       &:nth-child(3) {
         width: 50%;
         left: -15px;
-        bottom: 0px;
+        bottom: -60px;
         filter: drop-shadow(0 0 0.75rem rgba(97, 168, 255, 0.664));
         border: 1px solid #ddd;
         border-radius: 50%;
@@ -122,33 +122,33 @@ export default {
       &:nth-child(4) {
         width: 30px;
         left: 47px;
-        bottom: 0px;
+        bottom: -60px;
       }
 
       // bãi cỏ cô bé
       &:nth-child(5) {
         width: 25%;
         right: -30px;
-        bottom: 30px;
+        bottom: -40px;
       }
       // cô bé
       &:nth-child(6) {
         width: 15%;
         right: -10px;
-        bottom: 40px;
+        bottom: -30px;
       }
 
       // bãi cỏ cậu bé
       &:nth-child(7) {
         width: 25%;
         left: -30px;
-        bottom: -30px;
+        bottom: -80px;
       }
       // cậu bé
       &:nth-child(8) {
         width: 15%;
         left: -30px;
-        bottom: -20px;
+        bottom: -70px;
       }
 
       // mây trái

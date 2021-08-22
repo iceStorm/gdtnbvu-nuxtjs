@@ -136,42 +136,42 @@ export default {
       position: absolute;
       // filter: drop-shadow(0 0 0.75rem rgba(255, 192, 97, 0.664));
 
-      border: 1px solid #ddd;
+      border: 1px dashed rgba(233, 233, 233, 0.664);
       border-radius: 50%;
       background: rgba(224, 224, 224, 0.452);
       backdrop-filter: blur(5px);
+
+      &:not(:first-child) {
+        background: rgba(255, 251, 231, 0.781);
+      }
 
       // bếp
       &:nth-child(1) {
         width: 300px;
         left: calc(50% / 2.5);
         top: 20%;
-        transform: translateY(-45%);
+        background: rgba(0, 0, 0, 0.973);
       }
 
       // khuấy
       &:nth-child(2) {
         width: 250px;
         right: 50px;
-        top: 40%;
-        transform: translateY(-45%);
+        top: 130px;
       }
 
       // múc
       &:nth-child(3) {
         // width: 100px;
         left: 0px;
-        top: 50%;
-        transform: translateY(-45%);
+        top: 180px;
       }
 
       // tặng
       &:nth-child(4) {
         width: 50%;
         left: 30%;
-        // margin-left: -45%;
-        top: 50%;
-        transform: translateY(-5%);
+        top: 300px;
       }
     }
   }

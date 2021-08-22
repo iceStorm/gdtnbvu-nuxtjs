@@ -154,6 +154,13 @@ export default {
           filter: invert(1);
         }
       }
+
+      > div[class^=highlight-events] {
+        > .inner-page > div[class^=highlight-events] {
+          // background: red;
+          height: fit-content;
+        }
+      }
     }
   }
 }
