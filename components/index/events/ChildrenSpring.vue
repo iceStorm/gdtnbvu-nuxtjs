@@ -22,10 +22,12 @@
 
       <div class="highlight-events-children-spring-right">
         <img src="/pages/index/events/tách chủ thể chương trình/Tết thiếu nhi/typo.png" data-aos="zoom-out" data-aos-duration="1000">
-        <h4 class="text highlight-events-children-spring-right-descriptions" data-aos="fade-up" data-aos-duration="1000">
-          <p>"Tết thiếu nhi - Ước mơ cho em" là một chương trình cũng diễn ra hàng năm nhưng theo một mô-tuýp mới là thực hiện ước mơ cho một hoàn cảnh khó khăn nào đó trên địa bàn tỉnh Bà Rịa - Vũng Tàu.</p>
-          <p>Trong năm 2021 - khi mà dịch bệnh Covid-19 vẫn đang hoành hành, Đội Tình nguyện BVU đã tổ chức bán những chiếc khẩu trang nho nhỏ nhằm gây quỹ mua quà tặng cho các em nhỏ có hoàn cảnh khó khăn. Đặc biệt là phần quà cho em Thảo với một chiếc xe đạp, một chiếc balo cùng dụng cụ học tập mới, một chiếc phong bì để em và gia đình trang trải thêm cho việc học tập.</p>
-          <p>Cùng với đó, Đội cũng trao 40 phần quà cho các em thiếu nhi có hoàn cảnh khó khăn trên địa bàn Phường 5, giúp mang lại niềm vui - động lực cho các em trong mùa dịch khó khăn.</p>
+        <h4 class="text highlight-events-children-spring-right-descriptions">
+          <p v-html="meta.descriptions" data-aos="fade-up" data-aos-duration="1000"></p>
+          <a :href="meta.video_url" target="_blank" class="btn-event-viewmore" data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="450" data-aos-offset="20">
+            <img src="/pages/index/events/youtube.png">
+            <span>Xem video chi tiết</span>
+          </a>
         </h4>
       </div>
 
@@ -35,7 +37,11 @@
 
 <script>
 export default {
-  //
+  computed: {
+    meta() {
+      return this.$store.state.meta.events.filter((event) => event.key === 'children_spring')[0];
+    },
+  },
 };
 </script>
 

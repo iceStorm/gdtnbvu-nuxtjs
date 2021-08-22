@@ -34,6 +34,7 @@ export const actions = {
       // $wp.$get('/articles?per_page=6'),
     ]);
 
+    // console.log(values[0]);
     commit('setMeta', values[0]);
     // commit('setNewsGrid', values[1]);
   },

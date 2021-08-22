@@ -131,8 +131,29 @@ export default {
       display: flex;
       flex-direction: column;
       gap: 100px;
-
       padding-bottom: 50px;
+
+      .btn-event-viewmore {
+        color: white;
+        padding: 5px 10px;
+        font-weight: 300;
+        background: linear-gradient(to top right, rgb(145, 0, 0), rgb(173, 1, 1));
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+        &:hover {
+          background: rgb(160, 0, 0);
+        }
+
+        img {
+          width: 15px;
+          filter: invert(1);
+        }
+      }
     }
   }
 }

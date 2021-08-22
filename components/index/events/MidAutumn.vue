@@ -18,10 +18,12 @@
 
       <div class="highlight-events-mid-autumn-right">
         <img src="/pages/index/events/tách chủ thể chương trình/Trung thu cho em/typo.png" data-aos="zoom-out" data-aos-duration="1000">
-        <h4 class="text highlight-events-mid-autumn-right-descriptions" data-aos="fade-up" data-aos-duration="1000">
-          <p>"Trung Thu Cho Em" là một chương trình được tổ chức vào tháng trung thu của mỗi năm.
-          Như thường lệ, Đội sẽ tổ chức chương trình tại Chùa Quy Sơ - đường Trần Phú với quy mô khoảng 400 bạn tình nguyện viên và 300 em thiếu nhi - tương ứng với 300 phần quà.</p>
-          <p>Đội Tình nguyện BVU đã gây quỹ liên tục 2 tháng trước khi chương trình diễn ra với 2 hình thức là bán bánh trung thu và múa lân gây quỹ.</p>
+        <h4 class="text highlight-events-mid-autumn-right-descriptions">
+          <p v-html="meta.descriptions" data-aos="fade-up" data-aos-duration="1000"></p>
+          <a :href="meta.video_url" target="_blank" class="btn-event-viewmore" data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="450" data-aos-offset="20">
+            <img src="/pages/index/events/youtube.png">
+            <span>Xem video chi tiết</span>
+          </a>
         </h4>
       </div>
 
@@ -31,7 +33,11 @@
 
 <script>
 export default {
-  //
+  computed: {
+    meta() {
+      return this.$store.state.meta.events.filter((event) => event.key === 'mid_autumn')[0];
+    },
+  },
 };
 </script>
 

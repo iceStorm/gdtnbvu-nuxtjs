@@ -11,14 +11,12 @@
           <img src="/pages/index/events/tách chủ thể chương trình/Cháo đêm ấm lòng/sản phẩm hộp cháo 2.png" data-aos="zoom-in-up" data-aos-duration="1000">
         </div>
 
-        <h4 class="title highlight-events-night-porridge-left-descriptions" data-aos="fade-up" data-aos-duration="1000">
-          <p>
-            Vào những ngày cuối năm, khi chúng ta đang bận rộn trong những mục sắm sửa ăn Tết, thì ngoài kia vẫn còn rất nhiều mảnh đời khó khăn vẫn đang lam lũ những ngày cuối cùng trong năm để có thêm ít thu nhập ăn Tết.
-          </p>
-          <p>
-            Đội đã tập trung các bạn để làm một chương trình "Cháo đêm ấm lòng" với các hộp cháo nhỏ nhắn nhưng chứa đựng rất nhiều tình cảm của các bạn thành viên tham gia.
-          </p>
-          <p>Phải đi đêm một hôm chúng ta mới cảm nhận được, những mảnh đời khó khăn họ phải làm dưới cái lạnh đêm giá rét, nỗi lo hiện rõ lên khuôn mặt cố gắng từng chút để cuộc sống thêm phần ổn định hơn.</p>
+        <h4 class="title highlight-events-night-porridge-left-descriptions">
+          <p v-html="meta.descriptions" data-aos="fade-up" data-aos-duration="1000"></p>
+          <a :href="meta.video_url" target="_blank" class="btn-event-viewmore" data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="450" data-aos-offset="20">
+            <img src="/pages/index/events/youtube.png">
+            <span>Xem video chi tiết</span>
+          </a>
         </h4>
       </div>
 
@@ -35,7 +33,11 @@
 
 <script>
 export default {
-  //
+  computed: {
+    meta() {
+      return this.$store.state.meta.events.filter((event) => event.key === 'night_porridge')[0];
+    },
+  },
 };
 </script>
 

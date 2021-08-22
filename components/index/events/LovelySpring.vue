@@ -15,13 +15,12 @@
           <img src="/pages/index/events/tách chủ thể chương trình/Xuân yêu thương/hoa lớn.png" data-aos="zoom-in" data-aos-duration="1000">
         </div>
 
-        <h4 class="title highlight-events-lovely-spring-left-descriptions" data-aos="fade-up" data-aos-duration="1000">
-          <p>
-            Tiết trời đã trở lạnh, không khí Tết đến gần, nhà nhà người người đều dang sắm sửa chuẩn bị chào đón một năm mới tràn đầy hi vọng. Trong không khí rộng ràng ấy vẫn còn có những mảnh đời bất hạnh không có nhà để về, không người thân bên cạnh, phải lam lũ làm việc vất vả.
-          </p>
-          <p>
-            Với mong muốn mang đến niềm vui nho nhỏ cho những người có hoàn cảnh khó khăn, Đội Tình nguyện BVU đã lên kế hoạch tổ chức chương trình "Xuân yêu thương" hàng năm nhằm quyên góp và gửi tặng những phần quà ý nghĩa đến với những người còn khó khăn trong dịp Tết về.
-          </p>
+        <h4 class="title highlight-events-lovely-spring-left-descriptions">
+          <p v-html="meta.descriptions" data-aos="fade-up" data-aos-duration="1000"></p>
+          <a :href="meta.video_url" target="_blank" class="btn-event-viewmore" data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="450" data-aos-offset="20">
+            <img src="/pages/index/events/youtube.png">
+            <span>Xem video chi tiết</span>
+          </a>
         </h4>
       </div>
 
@@ -42,7 +41,11 @@
 
 <script>
 export default {
-  //
+  computed: {
+    meta() {
+      return this.$store.state.meta.events.filter((event) => event.key === 'lovely_spring')[0];
+    },
+  },
 };
 </script>
 
