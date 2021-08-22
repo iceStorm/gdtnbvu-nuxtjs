@@ -23,7 +23,7 @@
       <div class="highlight-events-children-spring-right">
         <img src="/pages/index/events/tách chủ thể chương trình/Tết thiếu nhi/typo.png" data-aos="zoom-out" data-aos-duration="1000">
         <h4 class="text highlight-events-children-spring-right-descriptions">
-          <p v-html="meta.descriptions" data-aos="fade-up" data-aos-duration="1000"></p>
+          <div v-html="meta.descriptions" data-aos="fade-up" data-aos-duration="1000"></div>
           <a :href="meta.video_url" target="_blank" class="btn-event-viewmore" data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="450" data-aos-offset="20">
             <img src="/pages/index/events/youtube.png">
             <span>Xem video chi tiết</span>
@@ -176,12 +176,6 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 25px;
-
-    text-align: justify;
-
-    h4 {
-      font-weight: 300;
-    }
   }
 }
 </style>

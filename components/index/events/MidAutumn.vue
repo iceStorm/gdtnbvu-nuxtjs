@@ -19,7 +19,7 @@
       <div class="highlight-events-mid-autumn-right">
         <img src="/pages/index/events/tách chủ thể chương trình/Trung thu cho em/typo.png" data-aos="zoom-out" data-aos-duration="1000">
         <h4 class="text highlight-events-mid-autumn-right-descriptions">
-          <p v-html="meta.descriptions" data-aos="fade-up" data-aos-duration="1000"></p>
+          <div v-html="meta.descriptions" data-aos="fade-up" data-aos-duration="1000"></div>
           <a :href="meta.video_url" target="_blank" class="btn-event-viewmore" data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="450" data-aos-offset="20">
             <img src="/pages/index/events/youtube.png">
             <span>Xem video chi tiết</span>
@@ -62,12 +62,7 @@ export default {
   }
 
   .inner-page {
-    // display: flex;
-    // align-items: center;
-    // gap: 100px;
-
     display: grid;
-    // grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
     grid-template-columns: 1fr 1fr;
     justify-items: center;
     gap: 100px;
@@ -110,7 +105,6 @@ export default {
         left: 50%;
         bottom: -30px;
         margin-left: -45%;
-        // transform: translateX(-50%) !important;
       }
 
       // lồng đèn
@@ -141,12 +135,6 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 25px;
-
-    text-align: justify;
-
-    h4 {
-      font-weight: 300;
-    }
   }
 }
 </style>

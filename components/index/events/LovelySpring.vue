@@ -16,7 +16,7 @@
         </div>
 
         <h4 class="title highlight-events-lovely-spring-left-descriptions">
-          <p v-html="meta.descriptions" data-aos="fade-up" data-aos-duration="1000"></p>
+          <div v-html="meta.descriptions" data-aos="fade-up" data-aos-duration="1000"></div>
           <a :href="meta.video_url" target="_blank" class="btn-event-viewmore" data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="450" data-aos-offset="20">
             <img src="/pages/index/events/youtube.png">
             <span>Xem video chi tiết</span>
@@ -91,11 +91,6 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 35px;
-
-    text-align: justify;
-    h4 {
-      font-weight: 300;
-    }
 
     &-images {
       position: relative;

@@ -156,8 +156,13 @@ export default {
       }
 
       > div[class^=highlight-events] {
+        // event descriptions
+        h4 {
+          font-weight: 400;
+          text-align: justify;
+        }
+        // event grid items
         > .inner-page > div[class^=highlight-events] {
-          // background: red;
           height: fit-content;
         }
       }
