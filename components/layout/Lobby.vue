@@ -99,7 +99,7 @@ export default {
   },
   methods: {
     get_banner_item_link(banner) {
-      return banner.link_to_post?.slug ? `/news/${banner.link_to_post.slug}` : '#';
+      return banner.link_to_post?.slug ? `/news/p/${banner.link_to_post.slug}` : '#';
     },
     get_banner_item_target(banner) {
       return banner.link_to_post?.open_in_new_tab ? '_blank' : '_self';
