@@ -38,6 +38,7 @@ export default {
     { src: '@/plugins/hrefConverter' },
     { src: '@/plugins/disqus' },
     { src: '@/plugins/after-each' },
+    { src: '@/plugins/vue-number-animation', mode: 'client' },
     // { src: '@/plugins/vuex-persist', ssr: false },
   ],
 

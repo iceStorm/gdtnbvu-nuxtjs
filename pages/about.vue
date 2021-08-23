@@ -28,7 +28,7 @@
 
         <div class="about-page-general-meta">
           <div class="about-page-general-meta-info">
-
+            <!-- info item -->
             <div class="about-page-general-meta-info-item animate__animated animate__fadeInUp"
               :style="{ animationDelay: `${ index*100 }ms` }"
               v-for="(item, index) in meta" :key=index>
@@ -37,9 +37,20 @@
               </h3><span class="text">:&nbsp;</span>
               <h3 class="title">{{ item.value[$i18n.locale] }}</h3>
             </div>
-
           </div>
-        </div>
+
+          <div class="about-page-general-meta-counter">
+            <!-- counter item -->
+            <div class="about-page-general-meta-counter-item" v-for="(item, index) in numbers" :key=index>
+              <img :src="item.icon" >
+              <h1 class="title about-page-general-meta-counter-item-number">
+                <number class=""
+                :from="0" :to="item.number" :duration="3" easing="Power4.easeOut"/>+
+              </h1>
+              <h3 class="title">{{ item.descriptions }}</h3>
+            </div>
+          </div>
+        </div> <!-- .meta -->
       </section>
 
       <section class="about-page-working-type">
@@ -83,6 +94,23 @@ export default {
 
   data() {
     return {
+      numbers: [
+        {
+          icon: '/pages/about/team.png',
+          number: 500,
+          descriptions: 'Thành viên',
+        },
+        {
+          icon: '/pages/about/event.png',
+          number: 60,
+          descriptions: 'Chương trình lớn nhỏ',
+        },
+        {
+          icon: '/pages/about/gift-box.png',
+          number: 1000,
+          descriptions: 'Phần quà mỗi năm',
+        },
+      ],
       meta: [
         {
           key: {
@@ -114,26 +142,26 @@ export default {
             en: '2017-10-05',
           },
         },
-        {
-          key: {
-            vi: 'Thành viên',
-            en: 'Members',
-          },
-          value: {
-            vi: '500 người',
-            en: '500 people',
-          },
-        },
-        {
-          key: {
-            vi: 'Các sự kiện',
-            en: 'Events',
-          },
-          value: {
-            vi: 'Hơn 50 chương trình lớn nhỏ/năm',
-            en: 'Over 50 events a year',
-          },
-        },
+        // {
+        //   key: {
+        //     vi: 'Thành viên',
+        //     en: 'Members',
+        //   },
+        //   value: {
+        //     vi: '500 người',
+        //     en: '500 people',
+        //   },
+        // },
+        // {
+        //   key: {
+        //     vi: 'Các sự kiện',
+        //     en: 'Events',
+        //   },
+        //   value: {
+        //     vi: 'Hơn 50 chương trình lớn nhỏ/năm',
+        //     en: 'Over 50 events a year',
+        //   },
+        // },
       ],
     };
   },
@@ -183,7 +211,7 @@ export default {
   }
 
   section {
-    h1 {
+    > h1 {
       padding-bottom: 10px;
       border-bottom: 1px solid rgba(68, 46, 46, 0.2);
     }
@@ -196,10 +224,11 @@ export default {
   &-general {
     &-meta {
       display: grid;
-      grid-template-columns: 3fr 1fr;
-      align-items: center;
-      gap: 20px;
-      width: fit-content;
+      // grid-template-columns: 1fr 1fr;
+      // align-items: stretch;
+      // justify-self: stretch;
+      gap: 35px;
+      // width: fit-content;
 
       @media (max-width: 760px) {
         grid-template-columns: 1fr;
@@ -213,6 +242,48 @@ export default {
         &-item {
           > * {
             display: inline-block;
+          }
+        }
+      }
+
+      &-counter {
+        // display: grid;
+        // grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        // justify-self: center;
+        // justify-content: center;
+        // width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        justify-content: center;
+        gap: 35px;
+
+        &-item {
+          flex: 1 1 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          // &:not(:first-child) {
+          //   h1 {
+          //     text-align: center;
+          //   }
+          //   img {
+          //     margin: auto;
+          //   }
+          // }
+
+          h1 {
+            margin-bottom: 0;
+          }
+
+          img {
+            width: 50px;
+          }
+
+          &-number {
+            font-size: 32px;
+            font-weight: 900;
           }
         }
       }
