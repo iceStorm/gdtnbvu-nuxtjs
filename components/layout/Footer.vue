@@ -45,7 +45,7 @@
   <footer id="footer" :class="{ mobile: $store.state.menu.mobile }">
     <div id="footer-mail-register">
       <div class="inner-page">
-        <div>
+        <div v-if="false">
           <h1>{{ $t('footer.mailRegister.caption') }}</h1>
           <form>
             <input
