@@ -177,6 +177,10 @@ export default {
         width: 90%;
         left: -60px;
         bottom: 0;
+
+        @media (max-width: 550px) {
+          left: 0px;
+        }
       }
       // phần quà
       &:nth-child(4) {

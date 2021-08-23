@@ -264,15 +264,6 @@ export default {
           flex-direction: column;
           align-items: center;
 
-          // &:not(:first-child) {
-          //   h1 {
-          //     text-align: center;
-          //   }
-          //   img {
-          //     margin: auto;
-          //   }
-          // }
-
           h1 {
             margin-bottom: 0;
           }

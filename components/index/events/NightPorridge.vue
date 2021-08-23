@@ -76,6 +76,7 @@ export default {
 
     @media (max-width: 768px) {
       grid-template-columns: unset;
+      gap: 50px;
     }
   }
 
@@ -114,6 +115,16 @@ export default {
           width: 120px;
           bottom: 70px;
           left: 120px;
+
+          @media (max-width: 560px) {
+            left: 70px;
+          }
+          @media (max-width: 520px) {
+            width: 60px;
+          }
+          @media (max-width: 370px) {
+            bottom: 50px;
+          }
         }
       }
     }
@@ -124,47 +135,68 @@ export default {
     justify-self: end;
     width: 100%;
 
-    div {
-      position: absolute;
-      // filter: drop-shadow(0 0 0.75rem rgba(255, 192, 97, 0.664));
+    @media (max-width: 768px) {
+      // min-height: 500px !important;
+      display: grid;
+      gap: 15px;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
 
+    div {
+      // filter: drop-shadow(0 0 0.75rem rgba(255, 192, 97, 0.664));
       border: 1px dashed rgba(233, 233, 233, 0.664);
       border-radius: 50%;
       background: rgba(224, 224, 224, 0.452);
       backdrop-filter: blur(5px);
 
-      &:not(:first-child) {
-        background: rgba(255, 251, 231, 0.781);
+      @media (max-width: 768px) {
+        margin: auto;
+        width: 200px;
+        height: 200px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
       }
 
-      // bếp
-      &:nth-child(1) {
-        width: 300px;
-        left: calc(50% / 2.5);
-        top: 20%;
-        background: rgba(0, 0, 0, 0.973);
-      }
+      @media (min-width: 769px) {
+        position: absolute;
 
-      // khuấy
-      &:nth-child(2) {
-        width: 250px;
-        right: 50px;
-        top: 130px;
-      }
+        &:not(:first-child) {
+          background: rgba(255, 251, 231, 0.781);
+        }
 
-      // múc
-      &:nth-child(3) {
-        // width: 100px;
-        left: 0px;
-        top: 180px;
-      }
+        // bếp
+        &:nth-child(1) {
+          width: 300px;
+          left: calc(50% / 2.5);
+          top: 20%;
+          background: rgba(0, 0, 0, 0.973);
+        }
 
-      // tặng
-      &:nth-child(4) {
-        width: 50%;
-        left: 30%;
-        top: 300px;
-      }
+        // khuấy
+        &:nth-child(2) {
+          width: 250px;
+          right: 50px;
+          top: 130px;
+        }
+
+        // múc
+        &:nth-child(3) {
+          // width: 100px;
+          left: 0px;
+          top: 180px;
+        }
+
+        // tặng
+        &:nth-child(4) {
+          width: 50%;
+          left: 30%;
+          top: 300px;
+        }
+      } // @media
     }
   }
 }
