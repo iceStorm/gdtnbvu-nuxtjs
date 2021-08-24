@@ -255,11 +255,10 @@ export default {
         display: flex;
         flex-wrap: wrap;
         align-items: flex-end;
-        justify-content: center;
+        justify-content: space-evenly;
         gap: 35px;
 
         &-item {
-          flex: 1 1 0;
           display: flex;
           flex-direction: column;
           align-items: center;
