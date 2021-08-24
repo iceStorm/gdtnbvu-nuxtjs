@@ -4,7 +4,7 @@
     :class="{ show: menu.alternateHeader.show }">
     <div class="inner-page">
       <color-mode-switcher />
-      <language-switcher />
+      <!-- <language-switcher /> -->
     </div>
   </div>
 </template>
