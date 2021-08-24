@@ -4,107 +4,93 @@
     "path": "/about",
     "component": "C:\\\\Users\\\\anhtu\\\\Desktop\\\\gdtnbvu-nuxtjs\\\\pages\\\\about.vue",
     "chunkName": "pages/about",
-    "url": "/about",
-    "_name": "_5ae7926a"
+    "url": "/about"
   },
   {
     "name": "contact___vi",
     "path": "/contact",
     "component": "C:\\\\Users\\\\anhtu\\\\Desktop\\\\gdtnbvu-nuxtjs\\\\pages\\\\contact.vue",
     "chunkName": "pages/contact",
-    "url": "/contact",
-    "_name": "_62d6845e"
+    "url": "/contact"
   },
   {
     "name": "index___en",
     "path": "/en",
     "component": "C:\\\\Users\\\\anhtu\\\\Desktop\\\\gdtnbvu-nuxtjs\\\\pages\\\\index.vue",
     "chunkName": "pages/index",
-    "url": "/",
-    "_name": "_1b77dce0"
+    "url": "/"
   },
   {
     "name": "gallery___vi",
     "path": "/gallery",
     "component": "C:\\\\Users\\\\anhtu\\\\Desktop\\\\gdtnbvu-nuxtjs\\\\pages\\\\gallery.vue",
     "chunkName": "pages/gallery",
-    "url": "/gallery",
-    "_name": "_3f6a22e0"
+    "url": "/gallery"
   },
   {
     "name": "members___vi",
     "path": "/members",
     "component": "C:\\\\Users\\\\anhtu\\\\Desktop\\\\gdtnbvu-nuxtjs\\\\pages\\\\members.vue",
     "chunkName": "pages/members",
-    "url": "/members",
-    "_name": "_981df652"
+    "url": "/members"
   },
   {
     "name": "about___en",
     "path": "/en/about",
     "component": "C:\\\\Users\\\\anhtu\\\\Desktop\\\\gdtnbvu-nuxtjs\\\\pages\\\\about.vue",
     "chunkName": "pages/about",
-    "url": "/about",
-    "_name": "_5ae7926a"
+    "url": "/about"
   },
   {
     "name": "contact___en",
     "path": "/en/contact",
     "component": "C:\\\\Users\\\\anhtu\\\\Desktop\\\\gdtnbvu-nuxtjs\\\\pages\\\\contact.vue",
     "chunkName": "pages/contact",
-    "url": "/contact",
-    "_name": "_62d6845e"
+    "url": "/contact"
   },
   {
     "name": "gallery___en",
     "path": "/en/gallery",
     "component": "C:\\\\Users\\\\anhtu\\\\Desktop\\\\gdtnbvu-nuxtjs\\\\pages\\\\gallery.vue",
     "chunkName": "pages/gallery",
-    "url": "/gallery",
-    "_name": "_3f6a22e0"
+    "url": "/gallery"
   },
   {
     "name": "members___en",
     "path": "/en/members",
     "component": "C:\\\\Users\\\\anhtu\\\\Desktop\\\\gdtnbvu-nuxtjs\\\\pages\\\\members.vue",
     "chunkName": "pages/members",
-    "url": "/members",
-    "_name": "_981df652"
+    "url": "/members"
   },
   {
     "name": "news-p-slug___en",
     "path": "/en/news/p/:slug?",
     "component": "C:\\\\Users\\\\anhtu\\\\Desktop\\\\gdtnbvu-nuxtjs\\\\pages\\\\news\\\\p\\\\_slug.vue",
-    "chunkName": "pages/news/p/_slug",
-    "_name": "_19e43842"
+    "chunkName": "pages/news/p/_slug"
   },
   {
     "name": "news-slug___en",
     "path": "/en/news/:slug?",
     "component": "C:\\\\Users\\\\anhtu\\\\Desktop\\\\gdtnbvu-nuxtjs\\\\pages\\\\news\\\\_slug.vue",
-    "chunkName": "pages/news/_slug",
-    "_name": "_36c538d6"
+    "chunkName": "pages/news/_slug"
   },
   {
     "name": "news-p-slug___vi",
     "path": "/news/p/:slug?",
     "component": "C:\\\\Users\\\\anhtu\\\\Desktop\\\\gdtnbvu-nuxtjs\\\\pages\\\\news\\\\p\\\\_slug.vue",
-    "chunkName": "pages/news/p/_slug",
-    "_name": "_19e43842"
+    "chunkName": "pages/news/p/_slug"
   },
   {
     "name": "news-slug___vi",
     "path": "/news/:slug?",
     "component": "C:\\\\Users\\\\anhtu\\\\Desktop\\\\gdtnbvu-nuxtjs\\\\pages\\\\news\\\\_slug.vue",
-    "chunkName": "pages/news/_slug",
-    "_name": "_36c538d6"
+    "chunkName": "pages/news/_slug"
   },
   {
     "name": "index___vi",
     "path": "/",
     "component": "C:\\\\Users\\\\anhtu\\\\Desktop\\\\gdtnbvu-nuxtjs\\\\pages\\\\index.vue",
     "chunkName": "pages/index",
-    "url": "/",
-    "_name": "_1b77dce0"
+    "url": "/"
   }
 ]

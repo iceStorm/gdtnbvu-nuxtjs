@@ -42,18 +42,18 @@ export const state = () => ({
       },
       newTab: false,
     },
-    {
-      title: {
-        vi: 'Thư viện',
-        en: 'Gallery',
-      },
-      href: '/gallery',
-      icon: {
-        outline: '/icons/ion/outline/images-outline.svg',
-        filled: '/icons/ion/filled/images.svg',
-      },
-      newTab: false,
-    },
+    // {
+    //   title: {
+    //     vi: 'Thư viện',
+    //     en: 'Gallery',
+    //   },
+    //   href: '/gallery',
+    //   icon: {
+    //     outline: '/icons/ion/outline/images-outline.svg',
+    //     filled: '/icons/ion/filled/images.svg',
+    //   },
+    //   newTab: false,
+    // },
     {
       title: {
         vi: 'Tin tức',

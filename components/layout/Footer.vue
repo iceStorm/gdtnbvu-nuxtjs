@@ -126,7 +126,7 @@
         <!-- <span>Made by WordPress & NuxtJS with 💚</span> -->
         <div id="footer-config-buttons">
           <color-mode-switcher></color-mode-switcher>
-          <language-switcher></language-switcher>
+          <!-- <language-switcher></language-switcher> -->
         </div>
       </div>
     </div>

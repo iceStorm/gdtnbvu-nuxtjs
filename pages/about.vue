@@ -21,7 +21,7 @@
   <div class="about-page">
     <div class="inner-page">
 
-      <img src="/logo.png" class="about-page-logo animate__animated animate__backInDown">
+      <img :src="$store.state.meta.logo_url" class="about-page-logo animate__animated animate__backInDown">
 
       <section class="about-page-general">
         <h1 class="title">{{ $t("about.generalTitle") }}</h1>

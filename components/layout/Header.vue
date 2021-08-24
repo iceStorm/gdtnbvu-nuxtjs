@@ -2,14 +2,12 @@
 {
   "vi": {
     "header": {
-      "clubTitle": "Gia đình Tình nguyện BVU",
-      "clubSubTitle": "Tuổi trẻ, nhiệt huyết, đam mê!"
+      "clubTitle": "Gia đình Tình nguyện BVU"
     }
   },
   "en": {
     "header": {
-      "clubTitle": "BVU Volunteer Team",
-      "clubSubTitle": "Youth, enthusiasm, passion!"
+      "clubTitle": "BVU Volunteer Team"
     }
   }
 }
@@ -22,7 +20,7 @@
 
       <!-- logo -->
       <a id="header-logo" href="/">
-        <img src="/logo.png" >
+        <img :src="$store.state.meta.logo_url" >
         <span>
           <p>
             <span
@@ -31,7 +29,7 @@
           </p>
           <p>
             <span
-                v-for="(letter, index) in $t('header.clubSubTitle').split('')"
+                v-for="(letter, index) in getSlogan()"
                 :key="index">{{ letter }}</span>
             </p>
         </span>
@@ -94,6 +92,10 @@ export default {
     window.onresize = () => this.toggleMainNav();
   },
   methods: {
+    getSlogan() {
+      const theSloganString = this.$store.state.meta.slogan.filter((slogan) => slogan.locale === this.$i18n.locale)[0].value;
+      return theSloganString.split('');
+    },
     handleWindowScrolling() {
       const currentPos = window.pageYOffset;
       const headerEl = this.$refs.header;

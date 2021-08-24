@@ -18,7 +18,7 @@
     <div class="inner-page">
 
       <div class="contact-page-logo">
-        <img src="/base-logo.png">
+        <img :src="$store.state.meta.logo_url">
         <h2 class="title">{{ $t('contact.title') }}</h2>
       </div>
 

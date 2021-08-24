@@ -20,7 +20,7 @@ export default {
     ],
     link: [
       { rel: 'image/x-icon', href: 'favicon.ico' },
-      { rel: 'shortcut icon', href: '/favicon.ico' },
+      { rel: 'shortcut icon', href: 'https://cms.gdtnbvu.club/wp-content/uploads/2021/08/logo.ico' },
     ],
   },
 

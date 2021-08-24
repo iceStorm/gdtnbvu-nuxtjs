@@ -1,20 +1,20 @@
 import { wrapFunctional } from './utils'
 
-export const ColorModeSwitcher = import('../..\\components\\ColorModeSwitcher.vue' /* webpackChunkName: "components/color-mode-switcher" */).then(c => wrapFunctional(c.default || c))
-export const LanguageSwitcher = import('../..\\components\\LanguageSwitcher.vue' /* webpackChunkName: "components/language-switcher" */).then(c => wrapFunctional(c.default || c))
-export const IndexNewsGrid = import('../..\\components\\index\\NewsGrid.vue' /* webpackChunkName: "components/index-news-grid" */).then(c => wrapFunctional(c.default || c))
-export const IndexWorkingAreas = import('../..\\components\\index\\WorkingAreas.vue' /* webpackChunkName: "components/index-working-areas" */).then(c => wrapFunctional(c.default || c))
-export const LayoutAlternateMenu = import('../..\\components\\layout\\AlternateMenu.vue' /* webpackChunkName: "components/layout-alternate-menu" */).then(c => wrapFunctional(c.default || c))
-export const LayoutFooter = import('../..\\components\\layout\\Footer.vue' /* webpackChunkName: "components/layout-footer" */).then(c => wrapFunctional(c.default || c))
-export const LayoutHeader = import('../..\\components\\layout\\Header.vue' /* webpackChunkName: "components/layout-header" */).then(c => wrapFunctional(c.default || c))
-export const LayoutLobby = import('../..\\components\\layout\\Lobby.vue' /* webpackChunkName: "components/layout-lobby" */).then(c => wrapFunctional(c.default || c))
-export const LayoutMobileMenu = import('../..\\components\\layout\\MobileMenu.vue' /* webpackChunkName: "components/layout-mobile-menu" */).then(c => wrapFunctional(c.default || c))
-export const LayoutScrollTopButton = import('../..\\components\\layout\\ScrollTopButton.vue' /* webpackChunkName: "components/layout-scroll-top-button" */).then(c => wrapFunctional(c.default || c))
-export const LayoutTopmost = import('../..\\components\\layout\\Topmost.vue' /* webpackChunkName: "components/layout-topmost" */).then(c => wrapFunctional(c.default || c))
-export const NewsCategoryPicker = import('../..\\components\\news\\CategoryPicker.vue' /* webpackChunkName: "components/news-category-picker" */).then(c => wrapFunctional(c.default || c))
-export const NewsDetailMeta = import('../..\\components\\news\\DetailMeta.vue' /* webpackChunkName: "components/news-detail-meta" */).then(c => wrapFunctional(c.default || c))
-export const NewsDetailRelated = import('../..\\components\\news\\DetailRelated.vue' /* webpackChunkName: "components/news-detail-related" */).then(c => wrapFunctional(c.default || c))
-export const IndexEventsChildrenSpring = import('../..\\components\\index\\events\\ChildrenSpring.vue' /* webpackChunkName: "components/index-events-children-spring" */).then(c => wrapFunctional(c.default || c))
-export const IndexEventsLovelySpring = import('../..\\components\\index\\events\\LovelySpring.vue' /* webpackChunkName: "components/index-events-lovely-spring" */).then(c => wrapFunctional(c.default || c))
-export const IndexEventsMidAutumn = import('../..\\components\\index\\events\\MidAutumn.vue' /* webpackChunkName: "components/index-events-mid-autumn" */).then(c => wrapFunctional(c.default || c))
-export const IndexEventsNightPorridge = import('../..\\components\\index\\events\\NightPorridge.vue' /* webpackChunkName: "components/index-events-night-porridge" */).then(c => wrapFunctional(c.default || c))
+export { default as ColorModeSwitcher } from '../..\\components\\ColorModeSwitcher.vue'
+export { default as LanguageSwitcher } from '../..\\components\\LanguageSwitcher.vue'
+export { default as IndexNewsGrid } from '../..\\components\\index\\NewsGrid.vue'
+export { default as IndexWorkingAreas } from '../..\\components\\index\\WorkingAreas.vue'
+export { default as LayoutAlternateMenu } from '../..\\components\\layout\\AlternateMenu.vue'
+export { default as LayoutFooter } from '../..\\components\\layout\\Footer.vue'
+export { default as LayoutHeader } from '../..\\components\\layout\\Header.vue'
+export { default as LayoutLobby } from '../..\\components\\layout\\Lobby.vue'
+export { default as LayoutMobileMenu } from '../..\\components\\layout\\MobileMenu.vue'
+export { default as LayoutScrollTopButton } from '../..\\components\\layout\\ScrollTopButton.vue'
+export { default as LayoutTopmost } from '../..\\components\\layout\\Topmost.vue'
+export { default as NewsCategoryPicker } from '../..\\components\\news\\CategoryPicker.vue'
+export { default as NewsDetailMeta } from '../..\\components\\news\\DetailMeta.vue'
+export { default as NewsDetailRelated } from '../..\\components\\news\\DetailRelated.vue'
+export { default as IndexEventsChildrenSpring } from '../..\\components\\index\\events\\ChildrenSpring.vue'
+export { default as IndexEventsLovelySpring } from '../..\\components\\index\\events\\LovelySpring.vue'
+export { default as IndexEventsMidAutumn } from '../..\\components\\index\\events\\MidAutumn.vue'
+export { default as IndexEventsNightPorridge } from '../..\\components\\index\\events\\NightPorridge.vue'

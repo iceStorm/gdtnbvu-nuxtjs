@@ -19,7 +19,6 @@ import nuxt_plugin_pluginrouting_d836ee3a from 'nuxt_plugin_pluginrouting_d836ee
 import nuxt_plugin_pluginmain_8b467528 from 'nuxt_plugin_pluginmain_8b467528' // Source: .\\nuxt-i18n\\plugin.main.js (mode: 'all')
 import nuxt_plugin_workbox_5df23332 from 'nuxt_plugin_workbox_5df23332' // Source: .\\workbox.js (mode: 'client')
 import nuxt_plugin_metaplugin_7057d5b2 from 'nuxt_plugin_metaplugin_7057d5b2' // Source: .\\pwa\\meta.plugin.js (mode: 'all')
-import nuxt_plugin_iconplugin_74ff7b26 from 'nuxt_plugin_iconplugin_74ff7b26' // Source: .\\pwa\\icon.plugin.js (mode: 'all')
 import nuxt_plugin_httpserver_684df803 from 'nuxt_plugin_httpserver_684df803' // Source: .\\http.server.js (mode: 'server')
 import nuxt_plugin_http_0056080c from 'nuxt_plugin_http_0056080c' // Source: .\\http.js (mode: 'all')
 import nuxt_plugin_axios_36f368d4 from 'nuxt_plugin_axios_36f368d4' // Source: .\\axios.js (mode: 'all')
@@ -98,7 +97,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"BVU Volunteer Team","htmlAttrs":{"lang":"vi"},"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"Gia Đình Tình nguyện BVU - Trường Đại học Bà Rịa - Vũng Tàu."},{"name":"theme-color","content":"#3edbf0"}],"link":[{"rel":"image\u002Fx-icon","href":"favicon.ico"},{"rel":"shortcut icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:100,300,400,500,700,900&display=swap"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002F@mdi\u002Ffont@latest\u002Fcss\u002Fmaterialdesignicons.min.css"}],"style":[],"script":[]},
+    head: {"title":"BVU Volunteer Team","htmlAttrs":{"lang":"vi"},"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"Gia Đình Tình nguyện BVU - Trường Đại học Bà Rịa - Vũng Tàu."},{"name":"theme-color","content":"#3edbf0"}],"link":[{"rel":"image\u002Fx-icon","href":"favicon.ico"},{"rel":"shortcut icon","href":"https:\u002F\u002Fcms.gdtnbvu.club\u002Fwp-content\u002Fuploads\u002F2021\u002F08\u002Flogo.ico"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:100,300,400,500,700,900&display=swap"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002F@mdi\u002Ffont@latest\u002Fcss\u002Fmaterialdesignicons.min.css"}],"style":[],"script":[]},
 
     store,
     router,
@@ -249,10 +248,6 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_metaplugin_7057d5b2 === 'function') {
     await nuxt_plugin_metaplugin_7057d5b2(app.context, inject)
-  }
-
-  if (typeof nuxt_plugin_iconplugin_74ff7b26 === 'function') {
-    await nuxt_plugin_iconplugin_74ff7b26(app.context, inject)
   }
 
   if (process.server && typeof nuxt_plugin_httpserver_684df803 === 'function') {
