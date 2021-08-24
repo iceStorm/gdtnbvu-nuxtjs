@@ -250,7 +250,7 @@ export default {
 
           &:first-child {
             font-weight: 900;
-            @for $i from 1 through 30 {
+            @for $i from 1 through 50 {
               span:nth-child(#{$i}) {
                 opacity: 0;
                 animation: fadeInLeft;
@@ -264,7 +264,7 @@ export default {
           &:last-child {
             font-size: 12px;
             text-transform: capitalize;
-            @for $i from 1 through 30 {
+            @for $i from 1 through 50 {
               span:nth-child(#{$i}) {
                 opacity: 0;
                 animation: fadeInLeft;
