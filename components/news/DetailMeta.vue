@@ -65,10 +65,8 @@ export default {
       color: var(--color-text);
     }
 
-    &:not(:first-child) {
-      img {
-        width: 20px;
-      }
+    img {
+      width: 20px;
     }
   }
 }

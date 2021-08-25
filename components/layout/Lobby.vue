@@ -113,6 +113,7 @@ export default {
         behavior: 'smooth',
       });
     },
+
     initSwiperJS() {
       const speed = this.lobby.lobby_slider_props?.transition ?? 1750;
       
@@ -133,15 +134,14 @@ export default {
         pagination: {
           el: '.swiper-pagination',
           clickable: true,
+          renderBullet: function(index, className) {
+            return `<div class="${className}"></div>`;
+          },
         },
 
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
-        },
-
-        scrollbar: {
-          el: '.swiper-scrollbar',
         },
       });
 
@@ -209,6 +209,29 @@ export default {
     width: 100%;
     height: 100%;
 
+    .swiper-pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+
+      // background: linear-gradient(to top, black, transparent);
+      background: var(--color-primary);
+      padding: 10px;
+      transition: all .45s ease-in-out;
+      transform: translateY(10px);
+
+      &-bullet {
+        height: 5px;
+        width: 50px;
+        border-radius: 0px;
+
+        &-active {
+          background: rgb(0, 47, 177);
+        }
+      }
+    }
+
     .swiper-button-prev,
     .swiper-button-next {
       width: 20px;
@@ -261,7 +284,7 @@ export default {
   &-scroll-down-btn {
     position: absolute;
     z-index: 2;
-    bottom: 30px;
+    bottom: 15px;
     right: 15px;
 
     font-weight: bold;

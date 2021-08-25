@@ -33,7 +33,7 @@
           <news-detail-meta :post="post" />
         </header>
 
-        <p v-html="post.meta.content"></p>
+        <div v-html="post.meta.content"></div>
         <!-- <Disqus class="disqus" /> -->
       </article>
     </div>
@@ -149,6 +149,7 @@ export default {
     &-content {
       display: grid;
       gap: 40px;
+      overflow: hidden;
 
       @media (max-width: 425px) {
         gap: 30px;
@@ -166,12 +167,13 @@ export default {
         }
       }
 
-      > p {
+      > div {
         text-align: justify;
         padding-bottom: 75px;
 
         img[class^=wp-image] {
           height: 100% !important;
+          max-width: 100%;
         }
       }
 
