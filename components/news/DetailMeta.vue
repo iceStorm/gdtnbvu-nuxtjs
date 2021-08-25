@@ -6,14 +6,14 @@
     </div>
 
     <div id="news-detail-content-title-meta-date">
-      <img src="/icons/ion/outline/calendar-clear-outline.svg" class="ionicon">
+      <!-- <img src="/icons/ion/outline/calendar-clear-outline.svg" class="ionicon"> -->
       <span>{{ getDateString(post.date) }}</span>
     </div>
 
     <div id="news-detail-content-title-meta-category">
-      <img src="/icons/ion/outline/folder-open-outline.svg" class="ionicon">
+      <!-- <img src="/icons/ion/outline/folder-open-outline.svg" class="ionicon"> -->
       <nuxt-link :to="'/news/'+post.category_meta[0].slug">
-        <span class="link">{{ post.category_meta[0].name }}</span>
+        <span class="link">#{{ post.category_meta[0].name }}</span>
       </nuxt-link>
     </div>
   </div>

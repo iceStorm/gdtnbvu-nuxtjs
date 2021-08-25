@@ -1,7 +1,7 @@
 export default {
   target: 'static',
   generate: {
-    fallback: true,
+    // fallback: true,
   },
 
   // If you provide a version, it will be stored inside cache.

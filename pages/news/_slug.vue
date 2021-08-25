@@ -20,29 +20,26 @@
       <NewsCategoryPicker :current_category="current_category" />
 
       <div class="news-page-list">
-
         <div class="news-page-list-item" v-for="post in posts" :key="post.slug">
-          <a target="_blank" :href=" '/news/p/'+post.slug " class="news-page-list-item-thumbnail">
-            <img :src="post.meta.wide_thumbnail">
-          </a>
+          <nuxt-link :to=" '/news/p/'+post.slug " class="news-page-list-item-thumbnail">
+            <img :src="post.meta.wide_thumbnail" />
+          </nuxt-link>
 
           <div class="news-page-list-item-meta">
-            <a target="_blank" :href=" '/news/p/'+post.slug " class="news-page-list-item-meta-title">
+            <nuxt-link :to=" '/news/p/'+post.slug " class="news-page-list-item-meta-title">
               <h3 class="title" v-html="post.title.rendered"></h3>
-            </a>
+            </nuxt-link>
 
             <div class="news-page-list-item-meta-info">
               <!-- post date -->
               <div class="news-page-list-item-meta-info-date">
-                <!-- <img src="/icons/ion/outline/calendar-clear-outline.svg" class="ionicon"> -->
                 <span class="text">{{ getDateString(post.date) }}</span>
               </div>
 
               <!-- post category -->
-              <a class="news-page-list-item-meta-info-category" target="_blank" :href="'news/'+post.category_meta[0].slug">
-                <!-- <img src="/icons/ion/outline/folder-open-outline.svg" class="ionicon"> -->
+              <nuxt-link class="news-page-list-item-meta-info-category" :to="'/news/'+post.category_meta[0].slug">
                 #{{ post.category_meta[0].name }}
-              </a>
+              </nuxt-link>
 
               <!-- post author -->
               <!-- <div class="news-page-list-item-meta-info-author">
