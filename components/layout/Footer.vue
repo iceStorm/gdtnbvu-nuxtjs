@@ -43,8 +43,11 @@
 
 <template>
   <footer id="footer" :class="{ mobile: $store.state.menu.mobile }">
+
+    <!-- register section -->
     <div id="footer-mail-register">
       <div class="inner-page">
+
         <div v-if="false">
           <h1>{{ $t('footer.mailRegister.caption') }}</h1>
           <form>
@@ -66,9 +69,11 @@
             {{ $t('footer.memberRegister.registerButtonTitle') }}
           </a>
         </div>
+
       </div>
     </div>
 
+    <!-- main section -->
     <div id="footer-main">
       <div class="inner-page">
         <section class="footer-main-section contact">
@@ -119,30 +124,21 @@
       </div>
     </div>
 
-    <div id="footer-copyright" v-if="!$store.state.menu.mobile">
+    <!-- lowest section -->
+    <div id="footer-lowest" v-if="!$store.state.menu.mobile">
       <div class="inner-page">
+        <LayoutAzdigi />
         <span>Copyright &copy; 2021 - {{ $t('title') }}</span>
         <!-- <span></span> -->
         <!-- <span>Made by WordPress & NuxtJS with 💚</span> -->
-        <div id="footer-config-buttons">
-          <color-mode-switcher></color-mode-switcher>
-          <!-- <language-switcher></language-switcher> -->
-        </div>
       </div>
     </div>
+
   </footer>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-import ColorModeSwitcher from '../ColorModeSwitcher.vue';
-import LanguageSwitcher from '../LanguageSwitcher.vue';
-
-export default Vue.extend({
-  components: {
-    LanguageSwitcher,
-    ColorModeSwitcher,
-  },
+<script>
+export default {
   data() {
     return {
       contactItems: [
@@ -194,7 +190,7 @@ export default Vue.extend({
 
     },
   },
-});
+};
 </script>
 
 <style lang="scss">
@@ -315,9 +311,15 @@ export default Vue.extend({
           }
           &:nth-child(2) {
             grid-area: second;
+            @media (min-width: 557px) {
+              justify-self: end;
+            }
           }
           &:nth-child(3) {
             grid-area: third;
+            @media (min-width: 557px) {
+              justify-self: end;
+            }
           }
 
           &-title {
@@ -361,7 +363,7 @@ export default Vue.extend({
       }
     }
 
-    &-copyright {
+    &-lowest {
       background: var(--color-primary);
       color: black;
 

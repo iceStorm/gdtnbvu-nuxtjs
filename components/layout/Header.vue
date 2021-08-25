@@ -23,37 +23,15 @@
         <img :src="$store.state.meta.logo_url" >
         <span>
           <p>
-            <span
-                v-for="(letter, index) in $t('header.clubTitle').split('')"
-                :key="index">{{ letter }}</span>
+            <!-- club name -->
+            <span v-for="(letter, index) in $t('header.clubTitle').split('')" :key="index">{{ letter }}</span>
           </p>
+          <!-- club slogan -->
           <p>
-            <span
-                v-for="(letter, index) in getSlogan()"
-                :key="index">{{ letter }}</span>
-            </p>
+            <span v-for="(letter, index) in getSlogan()" :key="index">{{ letter }}</span>
+          </p>
         </span>
       </a>
-
-      <div id="header-buttons">
-        <div class="container"
-          v-if="$store.state.menu.mobile && !menu.alternateHeader.visible">
-          <color-mode-switcher />
-          <language-switcher />
-        </div>
-
-        <div id="alternate-header-toggler"
-          v-if="menu.alternateHeader.visible"
-          @click="$store.commit('menu/toggleAlternateHeaderShowing')">
-          <img src="/icons/ion/outline/chevron-down-outline.svg"
-            :style="{
-              width: '20px',
-              transition: 'all .35s',
-              transformOrigin: '50% 50%',
-              transform: `rotate(${menu.alternateHeader.show ? '180deg' : '0deg'})`
-            }">
-        </div>
-      </div>
 
       <!-- navigation -->
       <nav id="header-navigation">
