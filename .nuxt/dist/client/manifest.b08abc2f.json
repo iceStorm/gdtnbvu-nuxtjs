@@ -1,9 +1,0 @@
-{
-  "name": "BVU Volunteer",
-  "short_name": "BVU Volunteer",
-  "icons": [],
-  "start_url": "/?standalone=true",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "lang": "vi"
-}
