@@ -17,7 +17,7 @@
     <LayoutScrollTopButton />
     <LayoutFooter />
 
-    <LayoutFacebookChat />
+    <!-- <LayoutFacebookChat /> -->
   </div>
 </template>
 
