@@ -1,7 +1,7 @@
 export default function (context, inject) {
   const { $axios, $config } = context;
 
-  console.log('\ninjecting $wp api...');
+  // console.log('\ninjecting $wp api...');
 
   // Create a custom axios instance
   const api = $axios.create({
