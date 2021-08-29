@@ -4,11 +4,11 @@
 
       <div class="highlight-events-night-porridge-left">
         <div class="highlight-events-night-porridge-left-images">
-          <img src="/pages/index/events/tách chủ thể chương trình/Cháo đêm ấm lòng/moon.svg" data-aos="zoom-in-up" data-aos-duration="1000">
-          <img src="/pages/index/events/tách chủ thể chương trình/Cháo đêm ấm lòng/stars.png" data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="450">
+          <img src="/pages/index/events/sections/night_porridge/moon.svg" data-aos="zoom-in-up" data-aos-duration="1000">
+          <img src="/pages/index/events/sections/night_porridge/stars.png" data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="450">
 
-          <img src="/pages/index/events/tách chủ thể chương trình/Cháo đêm ấm lòng/typo - cháo đêm ấm lòng.png" data-aos="zoom-in-down" data-aos-duration="1000">
-          <img src="/pages/index/events/tách chủ thể chương trình/Cháo đêm ấm lòng/sản phẩm hộp cháo 2.png" data-aos="zoom-in-up" data-aos-duration="1000">
+          <img src="/pages/index/events/sections/night_porridge/typo.png" data-aos="zoom-in-down" data-aos-duration="1000">
+          <img src="/pages/index/events/sections/night_porridge/porridge-box.png" data-aos="zoom-in-up" data-aos-duration="1000">
         </div>
 
         <h4 class="title highlight-events-night-porridge-left-descriptions">
@@ -21,10 +21,10 @@
       </div>
 
       <div class="highlight-events-night-porridge-right">
-          <div><img src="/pages/index/events/tách chủ thể chương trình/Cháo đêm ấm lòng/nồi cháo trên bếp lửa-circle.png" data-aos="zoom-in-down" data-aos-duration="1000"></div>
-          <div><img src="/pages/index/events/tách chủ thể chương trình/Cháo đêm ấm lòng/khuấy chào-circle.png" data-aos="zoom-in-right" data-aos-duration="1000"></div>
-          <div><img src="/pages/index/events/tách chủ thể chương trình/Cháo đêm ấm lòng/múc cháo-circle.png" data-aos="zoom-in-left" data-aos-duration="1000"></div>
-          <div><img src="/pages/index/events/tách chủ thể chương trình/Cháo đêm ấm lòng/tặng cháo-circle.png" data-aos="zoom-in-up" data-aos-duration="1000"></div>
+          <div><img src="/pages/index/events/sections/night_porridge/stove.png" data-aos="zoom-in-down" data-aos-duration="1000"></div>
+          <div><img src="/pages/index/events/sections/night_porridge/stirring.png" data-aos="zoom-in-right" data-aos-duration="1000"></div>
+          <div><img src="/pages/index/events/sections/night_porridge/scooping.png" data-aos="zoom-in-left" data-aos-duration="1000"></div>
+          <div><img src="/pages/index/events/sections/night_porridge/giving.png" data-aos="zoom-in-up" data-aos-duration="1000"></div>
       </div>
 
     </div>
@@ -57,7 +57,7 @@ export default {
     width: 100%;
     height: 100%;
 
-    // background: url('/pages/index/events/tách chủ thể chương trình/Trung thu cho em/vòng tròn trung thu.png');
+    // background: url('/pages/index/events/sections/Trung thu cho em/vòng tròn trung thu.png');
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0.25;

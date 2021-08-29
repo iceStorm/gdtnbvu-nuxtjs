@@ -47,6 +47,8 @@
         </div>
       </div>
 
+      <LayoutAzdigi style="margin-top: 25px; margin-bottom: -20px;" :rounded="true" />
+
     </div>
   </div>
 </template>

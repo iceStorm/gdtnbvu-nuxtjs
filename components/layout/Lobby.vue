@@ -216,7 +216,7 @@ export default {
       gap: 5px;
 
       // background: linear-gradient(to top, black, transparent);
-      background: var(--color-primary);
+      // background: var(--color-primary);
       padding: 10px;
       transition: all .45s ease-in-out;
       transform: translateY(10px);
@@ -224,10 +224,13 @@ export default {
       &-bullet {
         height: 5px;
         width: 50px;
-        border-radius: 0px;
+        border-radius: 10px;
+        background: rgb(255, 255, 255);
+        opacity: 0.75;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 
         &-active {
-          background: rgb(0, 47, 177);
+          background: rgb(77, 160, 255);
         }
       }
     }

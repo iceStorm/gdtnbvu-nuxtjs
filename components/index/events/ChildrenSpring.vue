@@ -3,25 +3,25 @@
     <div class="inner-page">
 
       <div class="highlight-events-children-spring-left">
-        <img src="/pages/index/events/tách chủ thể chương trình/Tết thiếu nhi/xe đạp-heart.png" data-aos="zoom-in-up" data-aos-duration="1000">
+        <img src="/pages/index/events/sections/children_spring/bicycle-heart.png" data-aos="zoom-in-up" data-aos-duration="1000">
 
-        <img src="/pages/index/events/tách chủ thể chương trình/Tết thiếu nhi/hai chàng trai.png" data-aos="zoom-in-up" data-aos-duration="1000">
-        <img src="/pages/index/events/tách chủ thể chương trình/Tết thiếu nhi/nhóm gói quà-circle.png" data-aos="zoom-in-up" data-aos-duration="1000">
-        <img src="/pages/index/events/tách chủ thể chương trình/Tết thiếu nhi/balo.png" data-aos="zoom-in" data-aos-duration="1000">
+        <img src="/pages/index/events/sections/children_spring/boys.png" data-aos="zoom-in-up" data-aos-duration="1000">
+        <img src="/pages/index/events/sections/children_spring/group-circle.png" data-aos="zoom-in-up" data-aos-duration="1000">
+        <img src="/pages/index/events/sections/children_spring/balo.png" data-aos="zoom-in" data-aos-duration="1000">
 
-        <img src="/pages/index/events/tách chủ thể chương trình/Tết thiếu nhi/bãi cỏ cô bé.png" data-aos="zoom-in-up" data-aos-duration="1000">
-        <img src="/pages/index/events/tách chủ thể chương trình/Tết thiếu nhi/hình cô bé.png" data-aos="zoom-in-down" data-aos-duration="1000">
+        <img src="/pages/index/events/sections/children_spring/girl-grass.png" data-aos="zoom-in-up" data-aos-duration="1000">
+        <img src="/pages/index/events/sections/children_spring/little-girl.png" data-aos="zoom-in-down" data-aos-duration="1000">
 
-        <img src="/pages/index/events/tách chủ thể chương trình/Tết thiếu nhi/bãi cỏ cậu bé.png" data-aos="zoom-in-up" data-aos-duration="1000">
-        <img src="/pages/index/events/tách chủ thể chương trình/Tết thiếu nhi/hình cậu bé.png" data-aos="zoom-in-down" data-aos-duration="1000">
+        <img src="/pages/index/events/sections/children_spring/boy-grass.png" data-aos="zoom-in-up" data-aos-duration="1000">
+        <img src="/pages/index/events/sections/children_spring/little-boy.png" data-aos="zoom-in-down" data-aos-duration="1000">
 
-        <img src="/pages/index/events/tách chủ thể chương trình/Tết thiếu nhi/mây.png" data-aos="zoom-in-right" data-aos-duration="1000">
-        <img src="/pages/index/events/tách chủ thể chương trình/Tết thiếu nhi/mây.png" data-aos="zoom-in-right" data-aos-duration="1000" data-aos-delay="350">
-        <img src="/pages/index/events/tách chủ thể chương trình/Tết thiếu nhi/mây.png" data-aos="zoom-in-left" data-aos-duration="1000">
+        <img src="/pages/index/events/sections/children_spring/cloud.png" data-aos="zoom-in-right" data-aos-duration="1000">
+        <img src="/pages/index/events/sections/children_spring/cloud.png" data-aos="zoom-in-right" data-aos-duration="1000" data-aos-delay="350">
+        <img src="/pages/index/events/sections/children_spring/cloud.png" data-aos="zoom-in-left" data-aos-duration="1000">
       </div>
 
       <div class="highlight-events-children-spring-right">
-        <img src="/pages/index/events/tách chủ thể chương trình/Tết thiếu nhi/typo.png" data-aos="zoom-out" data-aos-duration="1000">
+        <img src="/pages/index/events/sections/children_spring/typo.png" data-aos="zoom-out" data-aos-duration="1000">
         <h4 class="text highlight-events-children-spring-right-descriptions">
           <div v-html="meta.descriptions" data-aos="fade-up" data-aos-duration="1000"></div>
           <a :href="meta.video_url" target="_blank" class="btn-event-viewmore" data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="450" data-aos-offset="20">
@@ -59,7 +59,7 @@ export default {
     width: 100%;
     height: 100%;
 
-    background: url('/pages/index/events/tách chủ thể chương trình/Trung thu cho em/vòng tròn trung thu.png');
+    background: url('/pages/index/events/sections/mid_autumn/bg-pattern.png');
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0.25;

@@ -3,21 +3,21 @@
     <div class="inner-page">
 
       <div class="highlight-events-mid-autumn-left">
-        <img src="/pages/index/events/tách chủ thể chương trình/Trung thu cho em/chùa-quy-sơn.png" data-aos="zoom-in-up" data-aos-duration="1000">
+        <img src="/pages/index/events/sections/mid_autumn/quy-son-temple.png" data-aos="zoom-in-up" data-aos-duration="1000">
 
-        <img src="/pages/index/events/tách chủ thể chương trình/Trung thu cho em/lân vàng.png" data-aos="zoom-in-left" data-aos-duration="1000">
-        <img src="/pages/index/events/tách chủ thể chương trình/Trung thu cho em/lân hồng.png" data-aos="zoom-in-right" data-aos-duration="1000">
-        <img src="/pages/index/events/tách chủ thể chương trình/Trung thu cho em/bánh trung thu.png" data-aos="zoom-in-up" data-aos-duration="1000">
+        <img src="/pages/index/events/sections/mid_autumn/yellow-unicorn.png" data-aos="zoom-in-left" data-aos-duration="1000">
+        <img src="/pages/index/events/sections/mid_autumn/pink-unicorn.png" data-aos="zoom-in-right" data-aos-duration="1000">
+        <img src="/pages/index/events/sections/mid_autumn/moon-cake.png" data-aos="zoom-in-up" data-aos-duration="1000">
 
-        <img src="/pages/index/events/tách chủ thể chương trình/Trung thu cho em/lồng đèn.png" data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="350">
-        <img src="/pages/index/events/tách chủ thể chương trình/Trung thu cho em/mây2.png" data-aos="zoom-in-right" data-aos-duration="1000">
+        <img src="/pages/index/events/sections/mid_autumn/lanterns.png" data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="350">
+        <img src="/pages/index/events/sections/mid_autumn/left-to-right-cloud.png" data-aos="zoom-in-right" data-aos-duration="1000">
 
-        <img src="/pages/index/events/tách chủ thể chương trình/Trung thu cho em/moonstars.png" data-aos="zoom-in-up" data-aos-duration="1000">
-        <img src="/pages/index/events/tách chủ thể chương trình/Trung thu cho em/moonglow.png" data-aos="fade-in" data-aos-duration="3000">
+        <img src="/pages/index/events/sections/mid_autumn/moonstars.png" data-aos="zoom-in-up" data-aos-duration="1000">
+        <img src="/pages/index/events/sections/mid_autumn/moonglow.png" data-aos="fade-in" data-aos-duration="3000">
       </div>
 
       <div class="highlight-events-mid-autumn-right">
-        <img src="/pages/index/events/tách chủ thể chương trình/Trung thu cho em/typo.png" data-aos="zoom-out" data-aos-duration="1000">
+        <img src="/pages/index/events/sections/mid_autumn/typo.png" data-aos="zoom-out" data-aos-duration="1000">
         <h4 class="text highlight-events-mid-autumn-right-descriptions">
           <div v-html="meta.descriptions" data-aos="fade-up" data-aos-duration="1000"></div>
           <a :href="meta.video_url" target="_blank" class="btn-event-viewmore" data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="450" data-aos-offset="20">
@@ -55,7 +55,7 @@ export default {
     width: 100%;
     height: 100%;
 
-    background: url('/pages/index/events/tách chủ thể chương trình/Trung thu cho em/vòng tròn trung thu.png');
+    background: url('/pages/index/events/sections/mid_autumn/bg-pattern.png');
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0.25;

@@ -4,15 +4,15 @@
 
       <div class="highlight-events-lovely-spring-left">
         <div class="highlight-events-lovely-spring-left-images">
-          <img src="/pages/index/events/tách chủ thể chương trình/Xuân yêu thương/lồng đèn lớn.png" data-aos="zoom-in-down" data-aos-duration="1000">
-          <img src="/pages/index/events/tách chủ thể chương trình/Xuân yêu thương/lồng đèn nhỏ.png" data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="350">
+          <img src="/pages/index/events/sections/lovely_spring/big-lantern.png" data-aos="zoom-in-down" data-aos-duration="1000">
+          <img src="/pages/index/events/sections/lovely_spring/small-lantern.png" data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="350">
 
-          <img src="/pages/index/events/tách chủ thể chương trình/Xuân yêu thương/hoa và phụ kiện.png">
-          <img src="/pages/index/events/tách chủ thể chương trình/Xuân yêu thương/swift-bird.png" data-aos="zoom-in-right" data-aos-duration="1000">
-          <img src="/pages/index/events/tách chủ thể chương trình/Xuân yêu thương/typo xuân yêu thương.png" data-aos="zoom-in-right" data-aos-duration="1000">
+          <img src="/pages/index/events/sections/lovely_spring/flower-and-accessories.png">
+          <img src="/pages/index/events/sections/lovely_spring/swift-bird.png" data-aos="zoom-in-right" data-aos-duration="1000">
+          <img src="/pages/index/events/sections/lovely_spring/typo.png" data-aos="zoom-in-right" data-aos-duration="1000">
 
-          <img src="/pages/index/events/tách chủ thể chương trình/Xuân yêu thương/hoa lớn.png" data-aos="zoom-in" data-aos-duration="1000">
-          <img src="/pages/index/events/tách chủ thể chương trình/Xuân yêu thương/hoa lớn.png" data-aos="zoom-in" data-aos-duration="1000">
+          <img src="/pages/index/events/sections/lovely_spring/big-flower.png" data-aos="zoom-in" data-aos-duration="1000">
+          <img src="/pages/index/events/sections/lovely_spring/big-flower.png" data-aos="zoom-in" data-aos-duration="1000">
         </div>
 
         <h4 class="title highlight-events-lovely-spring-left-descriptions">
@@ -25,14 +25,14 @@
       </div>
 
       <div class="highlight-events-lovely-spring-right">
-        <img src="/pages/index/events/tách chủ thể chương trình/Xuân yêu thương/hoa và phụ kiện 4.png">
-        <img src="/pages/index/events/tách chủ thể chương trình/Xuân yêu thương/hoi-truong.png" data-aos="zoom-in-up" data-aos-duration="1000">
+        <img src="/pages/index/events/sections/lovely_spring/flower-and-accessories-4.png">
+        <img src="/pages/index/events/sections/lovely_spring/hoi-truong.png" data-aos="zoom-in-up" data-aos-duration="1000">
 
-        <img src="/pages/index/events/tách chủ thể chương trình/Xuân yêu thương/cu-gia.png" data-aos="zoom-in-down" data-aos-duration="1000">
-        <img src="/pages/index/events/tách chủ thể chương trình/Xuân yêu thương/phần quà.png" data-aos="zoom-in-up" data-aos-duration="1000">
+        <img src="/pages/index/events/sections/lovely_spring/cu-gia.png" data-aos="zoom-in-down" data-aos-duration="1000">
+        <img src="/pages/index/events/sections/lovely_spring/gift-bags.png" data-aos="zoom-in-up" data-aos-duration="1000">
 
-        <img src="/pages/index/events/tách chủ thể chương trình/Xuân yêu thương/lồng đèn lớn.png" data-aos="zoom-in-down" data-aos-duration="1000">
-        <img src="/pages/index/events/tách chủ thể chương trình/Xuân yêu thương/lồng đèn nhỏ.png" data-aos="zoom-in-up" data-aos-duration="1000">
+        <img src="/pages/index/events/sections/lovely_spring/big-lantern.png" data-aos="zoom-in-down" data-aos-duration="1000">
+        <img src="/pages/index/events/sections/lovely_spring/small-lantern.png" data-aos="zoom-in-up" data-aos-duration="1000">
       </div>
 
     </div>
@@ -65,7 +65,7 @@ export default {
     width: 100%;
     height: 100%;
 
-    // background: url('/pages/index/events/tách chủ thể chương trình/Trung thu cho em/vòng tròn trung thu.png');
+    // background: url('/pages/index/events/sections/Trung thu cho em/vòng tròn trung thu.png');
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0.25;

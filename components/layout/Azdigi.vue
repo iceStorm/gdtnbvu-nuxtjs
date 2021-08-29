@@ -1,5 +1,7 @@
 <template>
-  <a href="https://azdigi.com" data-tippy-content="Web Hosting tốc độ cao" target="_blank" rel="dofollow" id="azdigi-link">
+  <a href="https://azdigi.com" target="_blank" rel="dofollow"
+    data-tippy-content="Web Hosting tốc độ cao"
+    :class="['azdigi-link', { rounded: rounded }]">
     <img src="https://azdigi.com/wp-content/uploads/2019/11/logo-ngang.png" />
      hân hạnh đồng hành cùng Gia Đình Tình Nguyện BVU.
   </a>
@@ -11,6 +13,9 @@ import 'tippy.js/dist/tippy.css';
 import 'tippy.js/themes/light.css';
 
 export default {
+  props: [
+    'rounded',
+  ],
   mounted() {
     tippy('[data-tippy-content]', {
       theme: 'light',
@@ -22,7 +27,7 @@ export default {
 </script>
 
 <style lang="scss">
-#azdigi-link {
+.azdigi-link {
   img {
     // width: 90px;
     max-height: 15px;
@@ -32,6 +37,13 @@ export default {
 
   &:hover {
     color: red !important;
+  }
+
+  &.rounded {
+    background: rgb(221, 234, 252);
+    border-radius: 998px;
+    padding: 5px 10px;
+    font-weight: 600;
   }
 }
 </style>
