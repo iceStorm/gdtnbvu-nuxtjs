@@ -21,9 +21,17 @@ export default {
 
 <style lang="scss">
 #colormode-switcher {
+  padding: 8px;
+  background: rgb(238, 238, 238);
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   img {
     cursor: pointer;
-    width: 20px;
+    width: 15px;
     filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.15));
   }
 }

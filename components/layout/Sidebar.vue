@@ -14,8 +14,8 @@
     </ul>
 
     <div class="sidebar-footer">
-      <ColorModeSwitcher />
       <LanguageSwitcher />
+      <ColorModeSwitcher />
     </div>
   </a-drawer>
 </template>
@@ -47,10 +47,10 @@ export default {
 <style lang="scss">
 .sidebar {
   .ant-drawer-content-wrapper {
-    // background: var(--color-body);
+    background: var(--color-body);
   }
   .ant-drawer-content {
-    background: var(--color-body);
+    background: transparent;
   }
   .ant-drawer-title {
     font-weight: 600;
