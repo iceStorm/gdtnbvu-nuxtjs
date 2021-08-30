@@ -33,17 +33,28 @@ export default {
     max-height: 15px;
   }
 
-  color: black !important;
+  color: black;
 
   &:hover {
-    color: red !important;
+    color: red;
   }
 
   &.rounded {
-    background: rgb(221, 234, 252);
+    background: rgb(241, 247, 255);
     border-radius: 998px;
     padding: 5px 10px;
     font-weight: 600;
+    text-align: center;
+    display: inline-block;
+
+    color: dodgerblue;
+
+    @media (max-width: 500px) {
+      border-radius: 0;
+      margin-bottom: 25px;
+      font-size: 12px;
+      font-weight: 700;
+    }
   }
 }
 </style>

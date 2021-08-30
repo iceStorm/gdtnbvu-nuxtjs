@@ -33,21 +33,24 @@
       <div class="contact-page-info">
         <div class="contact-page-info-address">
           <ion-icon name="location"></ion-icon>
+          <span>Address</span>
           <a href="https://goo.gl/maps/3UhndXsNeJo5mzqE6" target="_blank" class="text">{{ $store.state.meta.contact.address }}</a>
         </div>
 
         <div class="contact-page-info-phone">
           <ion-icon name="call"></ion-icon>
+          <span>Phone</span>
           <a :href="'tel:'+$store.state.meta.contact.phone" class="text">{{ $store.state.meta.contact.phone }}</a>
         </div>
 
         <div class="contact-page-info-email">
           <ion-icon name="mail"></ion-icon>
+          <span>Email</span>
           <a :href="'mailto:'+$store.state.meta.contact.email" class="text">{{ $store.state.meta.contact.email }}</a>
         </div>
       </div>
 
-      <LayoutAzdigi style="margin-top: 25px; margin-bottom: -20px;" :rounded="true" />
+      <LayoutAzdigi style="margin-top: 25px; margin-bottom: -10px;" :rounded="true" />
 
     </div>
   </div>
@@ -86,6 +89,10 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    // @media (max-width: 440px) {
+    //   align-items: flex-start;
+    // }
   }
 
   &-logo {
@@ -140,6 +147,8 @@ export default {
       "address"
       "mail"
       "phone";
+
+      justify-self: flex-start;
     }
 
     > * {
@@ -149,13 +158,27 @@ export default {
       gap: 5px;
       // text-align: center;
 
-      @media (max-width: 440px) {
-        justify-content: flex-start;
+      span {
+        display: none;
       }
 
-      // ion-icon {
-      //   font-size: 14px;
-      // }
+      @media (max-width: 440px) {
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        span {
+          display: inline-block;
+          &::after {
+            content: ':';
+          }
+          font-weight: 600;
+        }
+
+        ion-icon {
+          // font-size: 14px;
+          display: none;
+        }
+      }
 
       // address
       &:nth-child(1) {

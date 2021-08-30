@@ -124,10 +124,16 @@
       </div>
     </div>
 
-    <!-- lowest section -->
-    <div id="footer-lowest" v-if="!$store.state.menu.mobile">
+    <div id="footer-advertise">
       <div class="inner-page">
-        <LayoutAzdigi />
+        <LayoutAzdigi :rounded="true" v-if="$store.state.menu.mobile"/>
+      </div>
+    </div>
+
+    <!-- lowest section -->
+    <div id="footer-lowest">
+      <div class="inner-page">
+        <LayoutAzdigi v-if="!$store.state.menu.mobile" />
         <span>Copyright &copy; 2021 - {{ $t('title') }}</span>
         <!-- <span></span> -->
         <!-- <span>Made by WordPress & NuxtJS with 💚</span> -->
@@ -359,15 +365,25 @@ export default {
       }
     }
 
+    &-advertise {
+      // width: 100%;
+      .inner-page {
+        @media (max-width: 500px) {
+          padding-bottom: 0 !important;
+        }
+      }
+    }
+
     &-lowest {
       background: var(--color-primary);
       color: black;
 
       .inner-page {
-        padding: 6px 0;
+        padding-top: 6px !important;
+        padding-bottom: 6px !important;
         @media (max-width: 1192px) {
-          padding-left: 25px;
-          padding-right: 25px;
+          padding-left: 25px !important;
+          padding-right: 25px !important;
         }
 
         display: flex;
