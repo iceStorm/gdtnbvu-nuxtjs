@@ -198,10 +198,6 @@ export default {
     position: relative;
     z-index: 1;
 
-    &.mobile {
-      padding-bottom: 70px;
-    }
-
     &-mail-register {
       position: relative;
       overflow: hidden;

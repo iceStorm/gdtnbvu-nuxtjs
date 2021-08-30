@@ -103,7 +103,10 @@ body.mobile {
 
   #content {
     flex: auto;
-    overflow: hidden;
+
+    @media (max-width: 1023px) {
+      overflow: hidden;
+    }
 
     .inner-page {
       padding: 35px 0;
