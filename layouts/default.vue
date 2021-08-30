@@ -2,17 +2,15 @@
   <div id="root" :class="[{ mobile: classes.mobile }, classes.colorMode]">
     <LayoutHeader />
 
-    <LayoutAlternateMenu />
-
-    <!-- lobby -->
     <LayoutLobby />
+    <LayoutSidebar />
 
     <main id="content">
       <Nuxt />
     </main>
 
     <!-- mobile menu -->
-    <LayoutMobileMenu v-if="$store.state.menu.mobile" />
+    <!-- <LayoutMobileMenu v-if="$store.state.menu.mobile" /> -->
 
     <LayoutScrollTopButton />
     <LayoutFooter />
@@ -43,6 +41,8 @@ export default {
   },
   mounted() {
     this.$router.afterEach((to, from) => {
+      this.$store.commit('menu/toggleSidebarVisibility', false);
+
       if (to.path !== '/') {
         // console.log('scrolling to #above-content..');
         this.scrollToContent();
@@ -98,7 +98,7 @@ body.mobile {
   align-items: stretch;
 
   &.mobile {
-    overflow-y: hidden;
+    // overflow-y: hidden;
   }
 
   #content {

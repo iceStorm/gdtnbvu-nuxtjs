@@ -15,7 +15,6 @@
 
 <template>
   <header id="header" ref="header" :class="{ away: $store.state.menu.mobile }">
-
     <div class="inner-page">
 
       <!-- logo -->
@@ -34,7 +33,7 @@
       </a>
 
       <!-- navigation -->
-      <nav id="header-navigation">
+      <nav id="header-navigation" v-if="!$store.state.menu.mobile">
         <ul>
           <li
             v-for="(item) in menuItems" :key="item.href"
@@ -44,10 +43,14 @@
             </nuxt-link>
           </li>
         </ul>
-        <a-icon type="search" v-show="false"></a-icon>
       </nav>
-    </div>
 
+      <!-- <a-icon type="align-right" /> -->
+      <v-btn elevation="2" icon @click="$store.commit('menu/toggleSidebarVisibility', true)">
+        <v-icon>mdi-menu</v-icon>
+      </v-btn>
+
+    </div>
   </header>
 </template>
 
@@ -66,8 +69,8 @@ export default {
     window.addEventListener('scroll', this.handleWindowScrolling);
 
     // handling resize event
-    window.onload = () => this.toggleMainNav();
-    window.onresize = () => this.toggleMainNav();
+    window.onload = () => this.toggleMainNavigatorMenu();
+    window.onresize = () => this.toggleMainNavigatorMenu();
   },
   methods: {
     getSlogan() {
@@ -86,27 +89,15 @@ export default {
         headerEl.classList.remove('away');
       }
     },
-    toggleMainNav() {
+    toggleMainNavigatorMenu() {
       // hide the horizontal nav menu
       if (window.innerWidth >= 1024) {
         if (this.menu.mobile) {
           this.$store.commit('menu/toggleMobileMode', false);
         }
-      }
-      else {
-        // innerWidth < 1024 ==> toggle mobile menu
-        if (!this.menu.mobile) {
-          this.$store.commit('menu/toggleMobileMode', true);
-        }
-
-        // header alternate buttons container
-        if (window.innerWidth > 480) {
-          if (this.menu.alternateHeader.visible) {
-            this.$store.commit('menu/toggleAlternateHeaderVisible', false);
-          }
-        } else if (!this.menu.alternateHeader.visible) {
-          this.$store.commit('menu/toggleAlternateHeaderVisible', true);
-        }
+      // innerWidth < 1024 ==> toggle mobile menu
+      } else if (!this.menu.mobile) {
+        this.$store.commit('menu/toggleMobileMode', true);
       } // < 1024px
     },
   },
@@ -178,11 +169,6 @@ export default {
         display: none;
       }
 
-      .anticon {
-        color: white;
-        cursor: pointer;
-      }
-
       ul {
         @for $i from 1 through 10 {
           li:nth-child(#{$i}) {
@@ -191,13 +177,6 @@ export default {
           }
         }
       }
-    }
-
-    #header-buttons .container {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 20px;
     }
 
     #header-logo {
@@ -267,9 +246,9 @@ export default {
     // background: rgba(255, 255, 255, 0.904);
     // backdrop-filter: blur(20px);
 
-    @media (max-width: var(--mobile-threshold)) {
-      position: fixed;
-    }
+    // @media (max-width: var(--mobile-threshold)) {
+    //   position: fixed;
+    // }
 
     a {
       color: black;

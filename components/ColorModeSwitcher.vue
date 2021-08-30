@@ -1,5 +1,5 @@
 <template>
-  <div id="colormode-switcher">
+  <div id="colormode-switcher" title="Color mode">
     <img :src="currentColorMode.icon" @click="toggleColorMode">
   </div>
 </template>
