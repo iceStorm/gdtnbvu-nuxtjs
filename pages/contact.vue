@@ -50,7 +50,7 @@
         </div>
       </div>
 
-      <LayoutAzdigi style="margin-top: 25px; margin-bottom: -10px;" :rounded="true" />
+      <LayoutAzdigi style="margin-top: 25px; margin-bottom: -10px;" :rounded="true" v-if="!$store.state.menu.mobile" />
 
     </div>
   </div>
