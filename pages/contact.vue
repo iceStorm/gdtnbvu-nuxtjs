@@ -149,6 +149,7 @@ export default {
       "phone";
 
       justify-self: flex-start;
+      display: none;
     }
 
     > * {
