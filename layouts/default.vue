@@ -96,6 +96,7 @@ body.mobile {
   flex-direction: column;
   justify-content: stretch;
   align-items: stretch;
+  overflow: hidden;
 
   &.mobile {
     // overflow-y: hidden;
