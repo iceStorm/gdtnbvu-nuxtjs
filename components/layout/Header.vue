@@ -38,7 +38,7 @@
           <li
             v-for="(item) in menuItems" :key="item.href"
             :class="{ active: item.href == menu.activeHref }">
-            <nuxt-link :to="{ path: item.href }">
+            <nuxt-link :to="{ path: ($i18n.locale === 'en' ? ('/' + $i18n.locale) : '') + item.href }">
               {{ item.title[$i18n.locale] }}
             </nuxt-link>
           </li>

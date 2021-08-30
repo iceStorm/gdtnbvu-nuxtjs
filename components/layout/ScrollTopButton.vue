@@ -7,18 +7,18 @@
 <script>
 export default {
   mounted() {
-    window.addEventListener('scroll', () => {
-      const ypos = window.pageYOffset;
-      const hasVisible = document.getElementById('scrollTopBtn').classList.contains('visible');
+    // window.addEventListener('scroll', () => {
+    //   const ypos = window.pageYOffset;
+    //   const hasVisible = document.getElementById('scrollTopBtn').classList.contains('visible');
 
-      if (ypos >= 500) {
-        if (!hasVisible) {
-          document.getElementById('scrollTopBtn').classList.add('visible');
-        }
-      } else if (hasVisible) {
-        document.getElementById('scrollTopBtn').classList.remove('visible');
-      }
-    });
+    //   if (ypos >= 500) {
+    //     if (!hasVisible) {
+    //       document.getElementById('scrollTopBtn').classList.add('visible');
+    //     }
+    //   } else if (hasVisible) {
+    //     document.getElementById('scrollTopBtn').classList.remove('visible');
+    //   }
+    // });
   },
   methods: {
     scrollToTop() {
@@ -34,20 +34,20 @@ export default {
 
 <style lang="scss">
 #scrollTopBtn {
-  position: fixed;
-  z-index: 9;
+  // position: fixed;
+  // z-index: 9;
 
-  right: 20px;
-  bottom: 20px;
+  // left: 20px;
+  // bottom: 20px;
 
   @media (max-width: 360px) {
     right: 10px;
     bottom: 10px;
   }
 
-  &.mobile {
-    bottom: 90px;
-  }
+  // &.mobile {
+  //   bottom: 90px;
+  // }
 
   width: 35px;
   height: 35px;
@@ -62,13 +62,13 @@ export default {
   background: var(--color-primary);
   box-shadow: 0 0 20px 0 rgba(139, 139, 139, 0.178);
 
-  opacity: 0;
-  visibility: hidden;
-  transition: all .35s ease-in-out;
+  // opacity: 0;
+  // visibility: hidden;
+  // transition: all .35s ease-in-out;
 
-  &.visible {
-    opacity: 0.85;
-    visibility: visible;
-  }
+  // &.visible {
+  //   opacity: 0.85;
+  //   visibility: visible;
+  // }
 }
 </style>

@@ -1,11 +1,14 @@
 <template>
-  <div id="colormode-switcher" title="Color mode">
-    <img :src="currentColorMode.icon" @click="toggleColorMode">
+  <div id="colormode-switcher" title="Color mode" :class="{ rounded: rounded }" @click="toggleColorMode">
+    <img :src="currentColorMode.icon">
   </div>
 </template>
 
 <script>
 export default {
+  props: [
+    'rounded',
+  ],
   computed: {
     currentColorMode() {
       return this.$store.getters.currentColorMode;
@@ -21,16 +24,19 @@ export default {
 
 <style lang="scss">
 #colormode-switcher {
+  cursor: pointer;
   padding: 8px;
-  background: rgb(238, 238, 238);
-  border-radius: 50%;
+  background: #eeeeee;
+
+  &.rounded {
+    border-radius: 50%;
+  }
 
   display: flex;
   justify-content: center;
   align-items: center;
 
   img {
-    cursor: pointer;
     width: 15px;
     filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.15));
   }

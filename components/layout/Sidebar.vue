@@ -14,8 +14,8 @@
     </ul>
 
     <div class="sidebar-footer">
-      <LanguageSwitcher />
-      <ColorModeSwitcher />
+      <LanguageSwitcher :rounded="true" :showLocaleName="true" />
+      <ColorModeSwitcher :rounded="true" />
     </div>
   </a-drawer>
 </template>

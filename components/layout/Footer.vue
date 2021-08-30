@@ -106,7 +106,9 @@
           <h4 class="footer-main-section-title">{{ $t('footer.mainTitles[2]') }}</h4>
           <ul class="footer-main-section-content">
             <li v-for="item in $store.state.menu.items" :key="item.href">
-              <nuxt-link :to="item.href">{{ item.title[$i18n.locale] }}</nuxt-link>
+              <nuxt-link :to="{ path: ($i18n.locale === 'en' ? ('/' + $i18n.locale) : '') + item.href }">
+                {{ item.title[$i18n.locale] }}
+              </nuxt-link>
             </li>
           </ul>
         </section>
@@ -189,7 +191,7 @@ export default {
     },
   },
   methods: {
-    registerNeletter() {
+    registerNewsLetters() {
       console.log('clicked');
     },
     openMemberRegisterForm() {

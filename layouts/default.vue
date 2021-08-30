@@ -12,7 +12,7 @@
     <!-- mobile menu -->
     <!-- <LayoutMobileMenu v-if="$store.state.menu.mobile" /> -->
 
-    <LayoutScrollTopButton />
+    <LayoutSideFloatingButtons />
     <LayoutFooter />
 
     <LayoutFacebookChat />
