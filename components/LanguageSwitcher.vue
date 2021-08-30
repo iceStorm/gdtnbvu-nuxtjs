@@ -39,7 +39,7 @@ export default {
     width: fit-content;
 
     padding: 3px 10px 3px 8px;
-    border-radius: 6px;
+    border-radius: 4px;
     border: none;
     background: rgb(238, 238, 238);
     color: black;

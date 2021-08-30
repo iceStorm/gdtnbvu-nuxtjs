@@ -48,7 +48,7 @@
       <!-- <a-icon type="align-right" /> -->
       <v-btn elevation="2" icon
         v-if="$store.state.menu.mobile"
-        @click="$store.commit('menu/toggleSidebarVisibility', true)">
+        @click.stop="$store.commit('menu/toggleSidebarVisibility', true)">
         <v-icon>mdi-menu</v-icon>
       </v-btn>
 

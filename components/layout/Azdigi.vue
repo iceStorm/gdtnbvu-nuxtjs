@@ -50,7 +50,7 @@ export default {
     color: dodgerblue;
 
     @media (max-width: 500px) {
-      border-radius: 0;
+      border-radius: 3px;
       margin-bottom: 25px;
       font-size: 12px;
       font-weight: 700;

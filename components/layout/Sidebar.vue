@@ -3,7 +3,7 @@
     <h1>Sidebar</h1>
   </aside> -->
 
-  <a-drawer class="sidebar" title="Menu" placement="right" :visible="$store.state.menu.sidebar" @close="onDrawerClose">
+  <a-drawer class="sidebar" title="Menu" placement="left" :visible="$store.state.menu.sidebar" @close="onDrawerClose">
     <ul class="sidebar-menu">
       <li v-for="(item) in menuItems" :key="item.href" :class="['sidebar-menu-item', { active: item.href == menu.activeHref }]">
         <nuxt-link :to="item.href">
@@ -46,9 +46,17 @@ export default {
 
 <style lang="scss">
 .sidebar {
-  // position: relative;
+  .ant-drawer-content-wrapper {
+    // background: var(--color-body);
+  }
+  .ant-drawer-content {
+    background: var(--color-body);
+  }
   .ant-drawer-title {
     font-weight: 600;
+  }
+  .ant-drawer-body {
+    padding: 10px;
   }
 
   &-menu {
@@ -62,7 +70,7 @@ export default {
 
       a {
         display: block;
-        padding: 5px 0;
+        padding: 5px 14px;
         font-weight: 600;
 
         &:hover {

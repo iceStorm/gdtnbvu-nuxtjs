@@ -402,6 +402,7 @@ export default {
 
           @media (max-width: 376px) {
             font-size: 11px;
+            font-weight: 600;
           }
         }
       }

@@ -224,13 +224,20 @@ export default {
       &-bullet {
         height: 5px;
         width: 50px;
-        border-radius: 10px;
-        background: rgb(255, 255, 255);
+
+        transform: skew(40deg);
+        border-radius: 0;
+        
         opacity: 0.75;
+        background: rgb(255, 255, 255);
         box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 
         &-active {
           background: rgb(77, 160, 255);
+        }
+
+        @media (max-width: 768px) {
+          width: 30px;
         }
       }
     }
