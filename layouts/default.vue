@@ -15,7 +15,7 @@
     <LayoutScrollTopButton />
     <LayoutFooter />
 
-    <!-- <LayoutFacebookChat /> -->
+    <LayoutFacebookChat />
   </div>
 </template>
 
@@ -96,7 +96,6 @@ body.mobile {
   flex-direction: column;
   justify-content: stretch;
   align-items: stretch;
-  overflow: hidden;
 
   &.mobile {
     // overflow-y: hidden;
@@ -104,6 +103,7 @@ body.mobile {
 
   #content {
     flex: auto;
+    overflow: hidden;
 
     .inner-page {
       padding: 35px 0;

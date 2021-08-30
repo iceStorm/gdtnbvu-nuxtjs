@@ -392,17 +392,6 @@ export default {
             font-size: 11px;
           }
         }
-
-        #footer-config-buttons {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          gap: 20px;
-
-          @media (max-width: 576px) {
-            display: none;
-          }
-        }
       }
     }
   }
