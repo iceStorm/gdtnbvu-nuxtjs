@@ -33,7 +33,7 @@
           <news-detail-meta :post="post" />
         </header>
 
-        <div v-html="post.meta.content"></div>
+        <div v-html="post.content.rendered"></div>
         <!-- <Disqus class="disqus" /> -->
       </article>
     </div>
