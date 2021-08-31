@@ -2,7 +2,7 @@
 {
   "vi": {
     "sidebar": {
-      "newestTitle": "Bài đăng mới nhất",
+      "newestTitle": "Mới nhất",
       "relatedTitle": "Tin liên quan"
     }
   },
@@ -36,22 +36,21 @@
         <div v-html="post.content.rendered"></div>
         <!-- <Disqus class="disqus" /> -->
       </article>
-    </div>
 
-    <!-- sidebar -->
-    <aside id="news-detail-sidebar">
-      <div id="news-detail-sidebar-newest">
-        <h1 class="title" style="font-weight: 700;">
-          <ion-icon name="sparkles"></ion-icon>
-          {{ $t("sidebar.newestTitle") }}
-        </h1>
-        <news-detail-related />
-      </div>
-      <!-- <div id="news-detail-page-content-sidebar-related">
-        <h1 class="title">{{ $t("sidebar.relatedTitle") }}</h1>
-        <ul></ul>
-      </div> -->
-    </aside>
+      <!-- sidebar -->
+      <aside id="news-detail-head-sidebar">
+        <div id="news-detail-head-sidebar-newest">
+          <h1 class="title" style="font-weight: 700;">
+            {{ $t("sidebar.newestTitle") }}
+          </h1>
+          <news-detail-newest />
+        </div>
+        <!-- <div id="news-detail-page-content-sidebar-related">
+          <h1 class="title">{{ $t("sidebar.relatedTitle") }}</h1>
+          <ul></ul>
+        </div> -->
+      </aside>
+    </div>
 
   </div>
 </template>
@@ -101,7 +100,7 @@ export default {
 #news-detail {
   &-head {
     display: grid;
-    grid-template-columns: 35px auto;
+    grid-template-columns: 35px 1.618fr 1fr;
     gap: 35px;
 
     @media (max-width: 1024px) {
@@ -148,7 +147,7 @@ export default {
 
     &-content {
       display: grid;
-      gap: 40px;
+      gap: 25px;
       overflow: hidden;
 
       @media (max-width: 425px) {
@@ -158,7 +157,7 @@ export default {
       > header {
         h1 {
           line-height: 1.5;
-          padding-bottom: 5px;
+          // padding-bottom: 5px;
           font-size: 22px;
 
           @media (max-width: 768px) {
@@ -169,7 +168,7 @@ export default {
 
       > div {
         text-align: justify;
-        padding-bottom: 75px;
+        // padding-bottom: 75px;
 
         img[class^=wp-image] {
           height: 100% !important;
@@ -180,37 +179,40 @@ export default {
       > .disqus {
       }
     }
-  }
 
-  &-sidebar {
-    margin-top: 25px;
-    padding-top: 15px;
-    // border-top: 1px solid rgba(156, 156, 156,.5);
+    &-sidebar {
+      position: sticky;
+      top: 100px;
 
-    > * {
-      h1 {
-        padding-bottom: 5px;
-        position: relative;
-        text-transform: uppercase;
+      @media (min-width: 1025px) {
+        padding-left: 15px;
+      }
 
-        display: flex;
-        align-items: center;
-        gap: 10px;
+      > * {
+        h1 {
+          position: relative;
+          text-transform: uppercase;
+          margin-bottom: 15px;
 
-        font-size: 18px;
+          display: flex;
+          gap: 10px;
 
-        &::before {
-          content: '';
-          position: absolute;
+          font-size: 18px;
+          border-bottom: 1px solid #eee;
+
+          &::before {
+            content: '';
+            position: absolute;
+          }
         }
       }
-    }
 
-    &-related {
-      h1 {
-        padding-top: 50px;
+      &-related {
+        h1 {
+          padding-top: 50px;
+        }
       }
-    }
+    } // SIDEBAR
   }
 
 }
