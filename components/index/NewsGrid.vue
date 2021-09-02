@@ -51,7 +51,7 @@
             class="posts-grid-item">
             <img :src="index === 0 ? post.meta.wide_thumbnail : post.meta.thumbnail" class="posts-grid-item-thumbnail" loading="lazy">
             <div class="posts-grid-item-title">
-              <p v-html="post.meta.title"></p>
+              <p v-html="post.title.rendered"></p>
             </div>
           </nuxt-link>
         </div>
