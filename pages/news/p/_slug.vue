@@ -187,14 +187,14 @@ export default {
     }
 
     &-sidebar {
-      position: sticky;
-      top: 100px;
 
       @media (min-width: 1025px) {
         padding-left: 15px;
       }
 
       > * {
+        position: sticky;
+        top: 80px;
         h1 {
           position: relative;
           text-transform: uppercase;
@@ -204,7 +204,7 @@ export default {
           gap: 10px;
 
           font-size: 18px;
-          border-bottom: 1px solid #eee;
+          // border-bottom: 1px solid #eee;
 
           &::before {
             content: '';
