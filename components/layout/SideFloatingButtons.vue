@@ -42,7 +42,7 @@ export default {
 
   position: fixed;
   z-index: 9;
-  left: 20px;
+  left: 25px;
   bottom: 20px;
 
   display: flex;
