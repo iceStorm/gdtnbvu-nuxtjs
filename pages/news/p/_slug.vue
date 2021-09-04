@@ -36,7 +36,7 @@
         </header>
 
         <div v-html="post.content.rendered"></div>
-        <Disqus class="disqus" />
+        <!-- <Disqus class="disqus" /> -->
       </article>
 
       <!-- sidebar -->
