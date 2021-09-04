@@ -1,6 +1,6 @@
 <template>
   <div class="side-floating-buttons" id="side-floating-buttons">
-    <LanguageSwitcher style="border-radius: 6px;" />
+    <!-- <LanguageSwitcher style="border-radius: 6px;" /> -->
     <ColorModeSwitcher style="border-radius: 6px;" />
     <LayoutScrollTopButton />
   </div>

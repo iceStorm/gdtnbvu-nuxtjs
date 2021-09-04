@@ -53,11 +53,11 @@ export default {
     gap: 7px;
 
     &:first-child {
-      @media (max-width: 425px) {
-        flex-basis: 100%;
-        order: 3;
-        justify-content: flex-start;
-      }
+      // @media (max-width: 425px) {
+      //   // flex-basis: 100%;
+      //   // order: 3;
+      //   justify-content: flex-start;
+      // }
     }
 
     span:not([class^=link]) {

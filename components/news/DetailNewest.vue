@@ -3,7 +3,7 @@
 
     <li class="related-news-item" v-for="post in posts" :key="post.id">
       <nuxt-link :to="'/news/p/' + post.slug" class="related-news-item-thumbnail">
-        <img :src="post.meta.thumbnail">
+        <img :src="post.meta.thumbnail" lazy="true" />
       </nuxt-link>
 
       <div class="related-news-item-meta">
@@ -11,7 +11,7 @@
           <h3 class="text" v-html="post.title.rendered"></h3>
         </nuxt-link>
         <h4 class="text related-news-item-meta-date">{{ getDateString(post.date) }}</h4>
-        <div class="related-news-item-meta-excerpt text" v-html="post.excerpt.rendered"></div>
+        <div class="related-news-item-meta-excerpt text" v-html="post.excerpt.rendered.slice(0, 75).trim()"></div>
       </div>
     </li>
 
@@ -39,7 +39,8 @@ export default {
 
 <style lang="scss">
 .related-news {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 30px;
 
   &-item {
@@ -85,7 +86,7 @@ export default {
           @media (max-width: 425px) {
             line-height: 17px;     /* fallback */
             max-height: 32px;      /* fallback */
-            font-size: 10px;
+            // font-size: 10px;
           }
         }
       }
@@ -96,6 +97,12 @@ export default {
 
       &-excerpt {
         // display: none;
+        overflow: auto;
+
+        .more-link {
+          display: none;
+        }
+
         p {
           // padding-bottom: 0;
           // margin-bottom: 0;
