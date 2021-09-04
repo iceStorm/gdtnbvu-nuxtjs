@@ -1,7 +1,7 @@
 <template>
   <ul class="related-news">
 
-    <li class="related-news-item" v-for="post in posts" :key="post.id">
+    <li class="related-news-item" v-for="post in getNewestPosts" :key="post.id">
       <nuxt-link :to="'/news/p/' + post.slug" class="related-news-item-thumbnail">
         <img :src="post.meta.thumbnail" lazy="true" />
       </nuxt-link>
@@ -20,13 +20,22 @@
 
 <script>
 export default {
+  props: [
+    'current_post',
+  ],
   data() {
     return {
       posts: [],
     };
   },
+  computed: {
+    getNewestPosts() {
+      const distincPosts = this.posts.filter((post) => post.id !== this.current_post.id);
+      return distincPosts.splice(0, 5);
+    },
+  },
   async fetch() {
-    this.posts = await this.$wp.$get('/articles?per_page=5');
+    this.posts = await this.$wp.$get('/articles?per_page=6');
     // console.log(this.posts);
   },
   methods: {

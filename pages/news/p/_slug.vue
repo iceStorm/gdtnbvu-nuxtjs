@@ -3,47 +3,53 @@
   "vi": {
     "sidebar": {
       "newestTitle": "Mới nhất",
-      "relatedTitle": "Tin liên quan"
+      "relatedTitle": "Tin liên quan",
+      "viewMoreTitle": "Xem thêm"
     }
   },
   "en": {
     "sidebar": {
       "newestTitle": "Newest",
-      "relatedTitle": "Related"
+      "relatedTitle": "Related",
+      "viewMoreTitle": "View more"
     }
   }
 }
 </i18n>
 
 <template>
-  <div id="news-detail" class="inner-page">
+  <div class="news-detail inner-page">
 
-    <div id="news-detail-head">
+    <div class="news-detail-head">
       <!-- navigation -->
-      <div id="news-detail-head-navigation" ref="backButton">
+      <div class="news-detail-head-navigation" ref="backButton">
         <div @click="$router.go(-1)">
           <img class="ionicon" src="/icons/ion/outline/arrow-back-outline.svg">
         </div>
       </div>
 
       <!-- content -->
-      <article id="news-detail-head-content">
+      <article class="news-detail-head-content">
         <header>
           <h1 class="title" v-html="post.title.rendered"></h1>
           <news-detail-meta :post="post" />
         </header>
 
         <div v-html="post.content.rendered"></div>
-        <!-- <Disqus class="disqus" /> -->
+        <Disqus class="disqus" />
       </article>
 
       <!-- sidebar -->
-      <aside id="news-detail-head-sidebar">
-        <div id="news-detail-head-sidebar-newest">
+      <aside class="news-detail-head-sidebar">
+        <div class="news-detail-head-sidebar-newest">
           <h1 class="title" style="font-weight: 700;">
             {{ $t("sidebar.newestTitle") }}
           </h1>
-          <news-detail-newest />
+          <news-detail-newest :current_post="post" />
+          <nuxt-link to="/news" class="news-detail-head-sidebar-viewmore-button">
+            {{ $t('sidebar.viewMoreTitle') }}
+            <ion-icon name="arrow-forward-outline"></ion-icon>
+          </nuxt-link>
         </div>
         <!-- <div id="news-detail-page-content-sidebar-related">
           <h1 class="title">{{ $t("sidebar.relatedTitle") }}</h1>
@@ -97,7 +103,7 @@ export default {
 </script>
 
 <style lang="scss">
-#news-detail {
+.news-detail {
   &-head {
     display: grid;
     grid-template-columns: 35px 1.618fr 1fr;
@@ -210,6 +216,30 @@ export default {
       &-related {
         h1 {
           padding-top: 50px;
+        }
+      }
+
+      &-viewmore-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        margin-top: 25px;
+        padding: 10px;
+        text-align: center;
+        // background: rgb(247, 247, 247);
+        // border: 1px solid #eee;
+
+        background: var(--color-primary);
+        color: black;
+        border-radius: 4px;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+        font-weight: 600;
+
+        &:hover {
+          opacity: 0.8;
+          color: black;
         }
       }
     } // SIDEBAR
