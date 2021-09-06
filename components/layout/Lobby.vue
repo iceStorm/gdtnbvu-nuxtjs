@@ -107,7 +107,7 @@ export default {
     },
 
     scrollToContent() {
-      const yCoordinate = document.getElementById('content').offsetTop - 50;
+      const yCoordinate = document.getElementById('content').offsetTop - 70;
       window.scrollTo({
         top: yCoordinate,
         left: 0,

@@ -41,23 +41,25 @@ export default {
   },
   mounted() {
     this.$router.afterEach((to, from) => {
-      console.log(this.$route);
+      // console.log(this.$route);
       this.$store.commit('menu/toggleSidebarVisibility', false);
 
       if (to.path !== '/') {
-        // console.log('scrolling to #above-content..');
+      // console.log('scrolling to #above-content..');
         this.scrollToContent();
       }
     });
   },
   methods: {
     scrollToContent() {
-      const yCoordinate = document.getElementById('content').offsetTop - 50;
-      window.scrollTo({
-        top: yCoordinate,
-        left: 0,
-        // behavior: 'smooth',
-      });
+      setTimeout(() => {
+        const yCoordinate = document.getElementById('content').offsetTop - 50;
+        window.scrollTo({
+          top: yCoordinate,
+          left: 0,
+          // behavior: 'smooth',
+        });
+      }, 0);
     },
   },
 };

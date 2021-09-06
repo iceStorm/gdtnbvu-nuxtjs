@@ -1,12 +1,24 @@
 <template>
   <div class="index-call-to-actions">
-    <a class="index-call-to-actions-button" v-for="button in buttons" :key="button.title" :href="button.url" target="_blank">
-      <div v-html="button.icon" class="index-call-to-actions-button-icon"></div>
-      <div class="index-call-to-actions-button-titles">
-        <h3>{{ button[$i18n.locale].title }} </h3>
-        <h4>{{ button[$i18n.locale].subTitle }} </h4>
-      </div>
-    </a>
+    <div v-for="button in buttons" :key="button.title">
+
+      <a class="index-call-to-actions-button"  :href="button.url" target="_blank" v-if="button.external">
+        <div v-html="button.icon" class="index-call-to-actions-button-icon"></div>
+        <div class="index-call-to-actions-button-titles">
+          <h3>{{ button[$i18n.locale].title }} </h3>
+          <h4>{{ button[$i18n.locale].subTitle }} </h4>
+        </div>
+      </a>
+
+      <nuxt-link class="index-call-to-actions-button"  :to="button.url" v-if="!button.external">
+        <div v-html="button.icon" class="index-call-to-actions-button-icon"></div>
+        <div class="index-call-to-actions-button-titles">
+          <h3>{{ button[$i18n.locale].title }} </h3>
+          <h4>{{ button[$i18n.locale].subTitle }} </h4>
+        </div>
+      </nuxt-link>
+
+    </div>
   </div>
 </template>
 
