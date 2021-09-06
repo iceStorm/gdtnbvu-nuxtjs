@@ -18,6 +18,7 @@
 <template>
   <div id="news-grid">
     <div class="inner-page">
+      <IndexCallToActions />
 
       <h1 class="title"><strong>{{ $t('newsGrid.title') }}</strong></h1>
       <div id="posts-grids">

@@ -41,6 +41,7 @@ export default {
   },
   mounted() {
     this.$router.afterEach((to, from) => {
+      console.log(this.$route);
       this.$store.commit('menu/toggleSidebarVisibility', false);
 
       if (to.path !== '/') {

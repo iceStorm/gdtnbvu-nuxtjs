@@ -14,7 +14,7 @@
 </i18n>
 
 <template>
-  <div id="lobby" :class="{ intersected: !$store.state.menu.mobile }">
+  <div id="lobby" :class="{ intersected: !$store.state.menu.mobile }" :style="{ height: $route.path === '/' ? '100vh' : '80vh' }">
 
     <!-- single image -->
     <img id="lobby-image"
@@ -44,10 +44,11 @@
     <video :src="lobby.lobby_single_video" autoplay v-if="lobby.lobby_type=='Single Video'"></video>
 
     <!-- virtual element as anchor -->
-    <div id="above-content" style="position: absolute; bottom: 50px;"></div>
+    <!-- <div id="above-content" style="position: absolute; bottom: 50px;"></div> -->
 
     <!-- scroll down button -->
     <a @click.prevent="scrollToContent"
+      v-if="$route.path === '/'"
       id="lobby-scroll-down-btn"
       class="animate__animated animate__fadeInUp">
       <span>
@@ -106,7 +107,7 @@ export default {
     },
 
     scrollToContent() {
-      const yCoordinate = document.getElementById('above-content').offsetTop - 20;
+      const yCoordinate = document.getElementById('content').offsetTop - 50;
       window.scrollTo({
         top: yCoordinate,
         left: 0,
@@ -168,7 +169,7 @@ export default {
   transition: all .75s;
 
   @media (min-width: 1024px) {
-    margin-top: -90px;
+    margin-top: -85px;
   }
 
   @media (max-width: var(--mobile-threshold)) {
