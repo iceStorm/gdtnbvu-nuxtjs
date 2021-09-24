@@ -1,5 +1,5 @@
 export default {
-  target: 'static',
+  target: 'ssr',
   generate: {
     // fallback: true,
   },

@@ -38,6 +38,11 @@ export default {
 #language-switcher {
   overflow: hidden;
 
+  &.rounded {
+    // padding: 3px 10px 3px 8px;
+    border-radius: 6px;
+  }
+
   .language-switcher-item {
     display: flex;
     justify-content: space-between;
@@ -45,12 +50,7 @@ export default {
     gap: 10px;
     width: fit-content;
 
-    padding: 10px;
-
-    &.rounded {
-      padding: 3px 10px 3px 8px;
-      border-radius: 4px;
-    }
+    padding: 5px 10px;
 
     border: none;
     background: rgb(238, 238, 238);

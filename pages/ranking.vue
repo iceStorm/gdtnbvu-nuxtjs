@@ -20,6 +20,7 @@
       <h1 class="title">{{ $t('ranking.title') }}</h1>
 
       <ul class="ranking-users">
+        <!-- the 1st user -->
         <li class="ranking-users-item"></li>
         <li class="ranking-users-item head" v-for="user in users.slice(0, 1)">
           <span>{{ user.scores }}</span>
@@ -28,15 +29,17 @@
         </li>
         <li class="ranking-users-item"></li>
 
-        <li class="ranking-users-item" v-for="user in users.slice(1, 4)">
+        <!-- next 3 users -->
+        <li class="ranking-users-item secondary" v-for="user in users.slice(1, 4)">
           <span>{{ user.scores }}</span>
           <ion-icon name="medal-outline"></ion-icon>
           <h3 class="text">{{ user.name }}</h3>
         </li>
       </ul>
 
+      <!-- remaining users -->
       <ul class="ranking-users">
-        <li class="ranking-users-item" v-for="user in users.slice(3)">
+        <li class="ranking-users-item" v-for="user in users.slice(4)">
           <span>{{ user.scores }}</span>
           <h3 class="text">{{ user.name }}</h3>
         </li>
@@ -50,14 +53,14 @@
 export default {
   computed: {
     users() {
-      const columns = this.table.cols;
       const { rows } = this.table;
+      // console.log(rows);
 
       return rows
-        .filter((row) => row.c[21].v > 0)
+        // .filter((row) => row.c[4].v > 0)
         .map((row) => ({
           name: row.c[1].v,
-          scores: row.c[21].v,
+          scores: row.c[4].v,
         }));
     },
   },
@@ -137,7 +140,7 @@ export default {
 
       @media (max-width: 460px) {
         align-items: center;
-        padding-left: 5px;
+        // padding-left: 5px;
       }
 
       &:nth-child(3n) {
@@ -174,6 +177,7 @@ export default {
         background: var(--color-primary-dark);
         color: white;
         font-weight: 700;
+        font-size: 12px;
         border-radius: 4px;
       }
 
@@ -184,6 +188,20 @@ export default {
         font-size: 20px;
         color: var(--color-text);
         padding: 7px;
+      }
+
+      &.head {
+        span, ion-icon {
+          background: rgb(255, 187, 0);
+          color: black;
+        }
+      }
+
+      &.secondary {
+        span, ion-icon {
+          background: var(--color-primary);
+          color: black;
+        }
       }
     }
   }

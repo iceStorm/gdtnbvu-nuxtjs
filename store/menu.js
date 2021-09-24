@@ -39,6 +39,18 @@ export const state = () => ({
       },
       newTab: false,
     },
+    {
+      title: {
+        vi: 'Điểm tích lũy',
+        en: 'Ranking',
+      },
+      href: '/ranking',
+      icon: {
+        outline: '/icons/ion/outline/trending-up-outline.svg',
+        filled: '/icons/ion/filled/trending-up.svg',
+      },
+      newTab: false,
+    },
     // {
     //   title: {
     //     vi: 'Thư viện',

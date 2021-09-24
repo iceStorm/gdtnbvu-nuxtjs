@@ -1,5 +1,7 @@
 <template>
-  <div class="gallery-page inner-page"></div>
+  <div class="gallery-page inner-page">
+    <h3>Chưa có nội dung.</h3>
+  </div>
 </template>
 
 <script>

@@ -42,7 +42,7 @@ export default {
         },
         {
           url: '/ranking',
-          icon: '<ion-icon name="bar-chart-outline"></ion-icon>',
+          icon: '<ion-icon name="trending-up-outline"></ion-icon>',
           vi: {
             title: 'Điểm tích luỹ',
             subTitle: 'tra cứu BXH hoạt động',
@@ -101,6 +101,12 @@ export default {
     align-items: center;
     gap: 15px;
 
+    @media (max-width: 576px) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
     &:hover {
       opacity: 0.8;
     }
@@ -114,10 +120,15 @@ export default {
       h3, h4 {
         color: white;
         margin-bottom: 0;
+        line-height: 1.3;
       }
 
       h3 {
         font-weight: 800;
+
+        @media (max-width: 576px) {
+          padding-bottom: 10px;
+        }
       }
     }
   }
