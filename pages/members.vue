@@ -26,8 +26,8 @@
         <div class="members-page-boards-members">
           <div class="members-page-boards-members-head">
             <!-- Đội Trưởng/Đội Phó -->
-            <div class="members-page-boards-members-item" v-for="member in getBoardHeadMembers" :key="member.id">
-              <img :src="member.meta.avatar">
+            <div class="members-page-boards-members-item" v-for="(member, index) in getBoardHeadMembers" :key="member.id">
+              <img :src="member.meta.avatar" @click="currentSlideshowIndex = index">
               <h3 class="text">{{ member.meta.role }}</h3>
               <h3 class="text">{{ member.title.rendered }}</h3>
             </div>
@@ -35,8 +35,10 @@
 
           <div class="members-page-boards-members-others">
             <!-- Không phải Đội Trưởng/Đội Phó -->
-            <div class="members-page-boards-members-item" v-for="(member, index) in getBoardOtherMembers" :key="member.id" :data-aos="index < 3 ?'':'zoom-out'">
-              <img :src="member.meta.avatar">
+            <div class="members-page-boards-members-item"
+              v-for="(member, index) in getBoardOtherMembers" :key="member.id"
+              :data-aos="index < 3 ?'':'zoom-out'">
+              <img :src="member.meta.avatar" @click="currentSlideshowIndex = getBoardHeadMembers.length + index">
               <h3 class="text">{{ member.meta.role }}</h3>
               <h3 class="text">{{ member.title.rendered }}</h3>
             </div>
@@ -44,19 +46,23 @@
         </div>
       </div>
 
-      <!-- thành viên nổi bật -->
-      <div class="members-page-stars" v-if="false">
-        <h1 class="title">{{ $t('members.starsTitle') }}</h1>
-        <!--  -->
-      </div>
+      <!-- images slideshow -->
+      <client-only>
+        <vue-gallery-slideshow :images="slideImages" :index="currentSlideshowIndex" @close="currentSlideshowIndex = null"></vue-gallery-slideshow>
+      </client-only>
 
     </div>
   </div>
 </template>
 
 <script>
+import VueGallerySlideshow from 'vue-gallery-slideshow';
+
 export default {
   scrollToTop: false,
+  components: {
+    VueGallerySlideshow,
+  },
   head() {
     return {
       title: 'Các thành viên Ban Quản Trị',
@@ -80,7 +86,7 @@ export default {
 
   data() {
     return {
-      boardMembers: [],
+      currentSlideshowIndex: null,
     };
   },
 
@@ -102,6 +108,10 @@ export default {
 
       boardOtherMembers = [].concat.apply([], boardOtherMembers);
       return boardOtherMembers;
+    },
+    slideImages() {
+      const members = [...this.getBoardHeadMembers, ...this.getBoardOtherMembers];
+      return members.map((member) => member.meta.avatar);
     },
   },
 
@@ -245,6 +255,7 @@ export default {
         }
 
         img {
+          cursor: pointer;
           width: 150px;
           height: 150px;
 
@@ -379,8 +390,5 @@ export default {
     }
   }
 
-  &-stars {
-
-  }
 }
 </style>

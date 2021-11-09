@@ -32,11 +32,13 @@
     "vue-disqus": "^4.0.1",
     "vue-fb-customer-chat": "^0.2.0",
     "vue-fullpage.js": "^0.1.7",
+    "vue-gallery-slideshow": "^1.5.2",
     "vue-number-animation": "^1.1.1",
     "vuescroll": "^4.17.3",
     "vuex-persist": "^3.1.3"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.14.5",
     "@nuxt/image": "^0.4.17",
     "@nuxt/types": "^2.15.3",
     "@nuxt/typescript-build": "^2.1.0",
@@ -45,7 +47,6 @@
     "@nuxtjs/vuetify": "^1.12.1",
     "@vue/cli-service": "^4.5.13",
     "@vue/eslint-config-airbnb": "^5.3.0",
-    "@babel/plugin-proposal-optional-chaining": "^7.14.5",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.22.0",
     "eslint-import-resolver-alias": "^1.1.2",
