@@ -63,7 +63,7 @@
         </div>
 
         <div>
-          <h1 class="title">{{ $t('footer.memberRegister.caption') }}</h1>
+          <h1 class="" style="font-weight: 900;">{{ $t('footer.memberRegister.caption') }}</h1>
           <a class="btn" target="_blank"
             :href="$store.state.meta.contact.register_form">
             {{ $t('footer.memberRegister.registerButtonTitle') }}
@@ -77,7 +77,7 @@
     <!-- <footer-main /> -->
     <div id="footer-main">
       <div class="inner-page">
-        <h1 class="title" style="margin-bottom: 0px;">Gia đình Tình nguyện BVU</h1>
+        <h1 class="title" style="margin-bottom: 0px; font-weight: 800;">Gia đình Tình nguyện BVU</h1>
         <h3 class="text" style="margin-bottom: 20px;">{{ slogan }}</h3>
         <h3 class="title" style="margin-bottom: 15px;">Kết nối những sinh viên đam mê hoạt động Tình nguyện - Thiện nguyện - Trải nghiệm</h3>
 
@@ -186,7 +186,7 @@ export default {
 <style lang="scss">
   #footer {
     position: relative;
-    z-index: 1;
+    z-index: 0;
 
     &-mail-register {
       position: relative;
