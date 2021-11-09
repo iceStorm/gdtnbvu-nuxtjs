@@ -21,13 +21,13 @@
 
       <ul class="ranking-users">
         <!-- the 1st user -->
-        <li class="ranking-users-item"></li>
+        <li class="ranking-users-item virtual"></li>
         <li class="ranking-users-item head" v-for="user in users.slice(0, 1)">
           <span>{{ user.scores }}</span>
           <ion-icon name="trophy-outline"></ion-icon>
           <h3 class="text">{{ user.name }}</h3>
         </li>
-        <li class="ranking-users-item"></li>
+        <li class="ranking-users-item virtual"></li>
 
         <!-- next 3 users -->
         <li class="ranking-users-item secondary" v-for="user in users.slice(1, 4)">
@@ -81,17 +81,18 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 30px;
+    // gap: 30px;
   }
 
   h1 {
     text-align: center;
     position: relative;
     font-weight: bolder;
+    margin-bottom: 35px;
 
-    @media (min-width: 768px) {
-      margin-bottom: 30px;
-    }
+    // @media (min-width: 768px) {
+    //   margin-bottom: 30px;
+    // }
 
     &::after {
       content: "";
@@ -114,8 +115,12 @@ export default {
     gap: 35px;
 
     &:not(:last-child) {
-      padding-bottom: 30px;
+      padding-bottom: 25px;
       border-bottom: 1px solid #ddd;
+    }
+
+    &:last-child {
+      padding-top: 20px;
     }
 
     @media (max-width: 1024px) {
@@ -133,7 +138,7 @@ export default {
         align-items: flex-start;
         padding-left: 0px;
 
-        &:nth-child(1), &:nth-child(3) {
+        &.virtual {
           display: none;
         }
       }

@@ -87,7 +87,7 @@ export default {
   computed: {
     getBoardHeadMembers() {
       let boardHeadMembers = Object.values(this.getBoardMembers())
-        .filter((role) => role.roleId === 32 || role.roleId === 35 || role.roleId === 36 || role.roleId === 37)
+        .filter((role) => role.roleId === 32 || role.roleId === 34 || role.roleId === 37 || role.roleId === 88 || role.roleId === 89)
         .map((role) => role.members);
 
       boardHeadMembers = [].concat.apply([], boardHeadMembers);
@@ -97,7 +97,7 @@ export default {
     },
     getBoardOtherMembers() {
       let boardOtherMembers = Object.values(this.getBoardMembers())
-        .filter((role) => role.roleId !== 32 && role.roleId !== 35 && role.roleId !== 36 && role.roleId !== 37)
+        .filter((role) => role.roleId !== 32 && role.roleId !== 34 && role.roleId !== 36 && role.roleId !== 37 && role.roleId !== 88 && role.roleId !== 89)
         .map((role) => role.members);
 
       boardOtherMembers = [].concat.apply([], boardOtherMembers);
@@ -148,7 +148,7 @@ export default {
         }
       });
 
-      // console.log('roles:', roles);
+      // console.log('member roles:', roles);
       return roles;
     },
   },
@@ -187,21 +187,21 @@ export default {
 
   &-boards {
     .title {
-      padding-bottom: 20px;
+      padding-bottom: 5px;
       margin-bottom: 30px;
 
       text-align: center;
       position: relative;
       z-index: 2;
 
-      &::before {
-        content: "*";
+      // &::before {
+      //   content: "*";
 
-        position: absolute;
-        z-index: 1;
-        top: 70%;
-        left: calc(50% - 10px);
-      }
+      //   position: absolute;
+      //   z-index: 1;
+      //   top: 70%;
+      //   left: calc(50% - 10px);
+      // }
 
       &::after {
         content: "";
@@ -240,9 +240,18 @@ export default {
         flex-direction: column;
         width: 200px;
 
+        @media (max-width: 430px) {
+          width: 150px;
+        }
+
         img {
           width: 150px;
           height: 150px;
+
+          @media (max-width: 430px) {
+            width: 120px;
+            height: 120px;
+          }
 
           margin: auto;
           margin-bottom: 10px;
@@ -269,12 +278,14 @@ export default {
 
       &-head {
         display: grid;
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(12, 1fr);
         gap: 30px;
         justify-items: center;
         grid-template-areas:
-        "ngocmai ngocmai ngoctai ngoctai duydat duydat"
-        "thutrinh thutrinh congdi congdi quoccuong quoccuong";
+        "ngoctai ngoctai ngoctai ngoctai ngoctai ngoctai ngoctai ngoctai ngoctai ngoctai ngoctai ngoctai"
+        "ngocmai ngocmai ngocmai duydat duydat duydat hoanglong hoanglong hoanglong dinhthuy dinhthuy dinhthuy"
+        "thutrinh thutrinh thutrinh thutrinh congdi congdi congdi congdi quoccuong quoccuong quoccuong quoccuong"
+        "quangchuong quangchuong quangchuong quangchuong tanhien tanhien tanhien tanhien nhatphuoc nhatphuoc nhatphuoc nhatphuoc";
 
         > div[class$=item] {
           // Đội Trưởng
@@ -282,37 +293,73 @@ export default {
             grid-area: ngoctai;
           }
           &:nth-child(2) {
-            grid-area: ngocmai;
+            grid-area: dinhthuy;
           }
           &:nth-child(3) {
+            grid-area: hoanglong;
+          }
+          &:nth-child(4) {
             grid-area: duydat;
           }
-
-          &:nth-last-child(1) {
-            grid-area: quoccuong;
+          &:nth-child(5) {
+            grid-area: ngocmai;
           }
-          &:nth-last-child(2) {
+
+          // doi pho danh du
+          &:nth-last-child(4) {
+            grid-area: quoccuong;
+            @media (min-width: 900px) {
+              grid-column: 8 / span 4;
+            }
+          }
+          &:nth-last-child(5) {
             grid-area: congdi;
           }
-          &:nth-last-child(3) {
+          &:nth-last-child(6) {
             grid-area: thutrinh;
+
+            @media (min-width: 900px) {
+              grid-column: 2 / span 4;
+            }
+          }
+
+          // co van
+          &:nth-last-child(1) {
+            grid-area: quangchuong;
+            @media (min-width: 900px) {
+              grid-column: 8 / span 4;
+            }
+          }
+          &:nth-last-child(2) {
+            grid-area: tanhien;
+          }
+          &:nth-last-child(3) {
+            grid-area: nhatphuoc;
+
+            @media (min-width: 900px) {
+              grid-column: 2 / span 4;
+            }
           }
         }
 
-        @media (max-width: 650px) {
+        @media (max-width: 900px) {
           grid-template-areas:
-          "ngoctai ngoctai ngoctai ngocmai ngocmai ngocmai"
-          "duydat duydat duydat thutrinh thutrinh thutrinh"
-          "congdi congdi congdi quoccuong quoccuong quoccuong";
+          "ngoctai ngoctai ngoctai ngoctai ngoctai ngoctai ngoctai ngoctai ngoctai ngoctai ngoctai ngoctai"
+          "ngocmai ngocmai ngocmai ngocmai duydat duydat duydat duydat hoanglong hoanglong hoanglong hoanglong"
+          "dinhthuy dinhthuy dinhthuy dinhthuy thutrinh thutrinh thutrinh thutrinh congdi congdi congdi congdi"
+          "quoccuong quoccuong quoccuong quoccuong quangchuong quangchuong quangchuong quangchuong tanhien tanhien tanhien tanhien"
+          "nhatphuoc nhatphuoc nhatphuoc nhatphuoc nhatphuoc nhatphuoc nhatphuoc nhatphuoc nhatphuoc nhatphuoc nhatphuoc nhatphuoc";
         }
-        @media (max-width: 430px) {
+        @media (max-width: 768px) {
+          grid-template-columns: repeat(2, 1fr);
+          column-gap: 5px;
           grid-template-areas:
-          "ngoctai ngoctai ngoctai ngoctai ngoctai ngoctai"
-          "ngocmai ngocmai ngocmai ngocmai ngocmai ngocmai"
-          "duydat duydat duydat duydat duydat duydat"
-          "thutrinh thutrinh thutrinh thutrinh thutrinh thutrinh"
-          "congdi congdi congdi congdi congdi congdi"
-          "quoccuong quoccuong quoccuong quoccuong quoccuong quoccuong";
+          "ngoctai ngoctai"
+          "ngocmai duydat"
+          "hoanglong dinhthuy"
+          "thutrinh congdi"
+          "quoccuong quangchuong"
+          "tanhien nhatphuoc";
         }
       }
 
@@ -324,6 +371,10 @@ export default {
 
         padding-top: 35px;
         border-top: 1px solid rgba(154, 154, 154, 0.35);
+
+        @media (max-width: 768px) {
+          column-gap: 5px;
+        }
       }
     }
   }

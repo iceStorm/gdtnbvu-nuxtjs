@@ -63,7 +63,7 @@
         </div>
 
         <div>
-          <h1>{{ $t('footer.memberRegister.caption') }}</h1>
+          <h1 class="title">{{ $t('footer.memberRegister.caption') }}</h1>
           <a class="btn" target="_blank"
             :href="$store.state.meta.contact.register_form">
             {{ $t('footer.memberRegister.registerButtonTitle') }}
@@ -74,55 +74,34 @@
     </div>
 
     <!-- main section -->
+    <!-- <footer-main /> -->
     <div id="footer-main">
       <div class="inner-page">
-        <section class="footer-main-section contact">
-          <h4 class="footer-main-section-title">{{ $t('footer.mainTitles[0]') }}</h4>
-          <div class="footer-main-section-content">
-            <div class="contact-default">
-              <div class="contact-item" v-for="item in contactItems" :key="item.href">
-                <span class="text">{{ item.caption[$i18n.locale] }}:</span>
-                <a target="_blank" :href="hrefConvert(item.href)">
-                  {{ item.title }}
-                </a>
-              </div>
-            </div>
+        <h1 class="title" style="margin-bottom: 0px;">Gia đình Tình nguyện BVU</h1>
+        <h3 class="text" style="margin-bottom: 20px;">{{ slogan }}</h3>
+        <h3 class="title" style="margin-bottom: 15px;">Kết nối những sinh viên đam mê hoạt động Tình nguyện - Thiện nguyện - Trải nghiệm</h3>
 
-            <div class="contact-social" style="padding-top: 35px;">
-              <h4 class="footer-main-section-title">{{ $t('footer.mainTitles[1]') }}</h4>
-              <div class="contact-social-content">
-                <a v-for="item in $store.state.meta.social_media_links"
-                  :key="item.social_link"
-                  :href="hrefConvert(item.social_link)"
-                  target="_blank">
-                  {{ item.social_name }}
-                </a>
-              </div>
-            </div>
+        <div id="footer-main-contact">
+          <div class="contact-item" v-for="item in contactItems" :key="item.href">
+            <span class="text">{{ item.caption[$i18n.locale] }}:</span>
+            <a target="_blank" :href="hrefConvert(item.href)">
+              {{ item.title }}
+            </a>
           </div>
-        </section>
+        </div>
 
-        <section class="footer-main-section links">
-          <h4 class="footer-main-section-title">{{ $t('footer.mainTitles[2]') }}</h4>
-          <ul class="footer-main-section-content">
-            <li v-for="item in $store.state.menu.items" :key="item.href">
-              <nuxt-link :to="{ path: ($i18n.locale === 'en' ? ('/' + $i18n.locale) : '') + item.href }">
-                {{ item.title[$i18n.locale] }}
-              </nuxt-link>
-            </li>
-          </ul>
-        </section>
+        <div class="contact-social" style="margin-top: 10px;">
+          <span class="text">{{ $t('footer.mainTitles[1]') }}: &nbsp;</span>
+          <span class="contact-social-content">
+            <a v-for="item in $store.state.meta.social_media_links"
+              :key="item.social_link"
+              :href="hrefConvert(item.social_link)"
+              target="_blank">
+              {{ item.social_name }}
+            </a>
+          </span>
+        </div>
 
-        <section class="footer-main-section legals">
-          <h4 class="footer-main-section-title">{{ $t('footer.mainTitles[3]') }}</h4>
-          <ul class="footer-main-section-content">
-            <li v-for="item in otherLinks" :key="item.href">
-              <a :href="item.href" target="_blank">
-                {{ item.title[$i18n.locale] }}
-              </a>
-            </li>
-          </ul>
-        </section>
       </div>
     </div>
 
@@ -189,6 +168,9 @@ export default {
         },
       ];
     },
+    slogan() {
+      return this.$store.state.meta.slogan.filter((slogan) => slogan.locale === this.$i18n.locale)[0].value;
+    },
   },
   methods: {
     registerNewsLetters() {
@@ -245,8 +227,9 @@ export default {
       .inner-page {
         padding: 50px 0;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
+        text-align: center;
 
         @media (max-width: 800px) {
           flex-direction: column;
@@ -293,20 +276,22 @@ export default {
 
     &-main {
       .inner-page {
-        padding: 40px 0;
-        display: grid;
-        grid-template-areas:
-        "first second third";
-        justify-items: center;
-        gap: 35px;
+        text-align: center;
+        padding: 20px 0;
 
-        @media (max-width: 556px) {
-          justify-items: normal;
+        // display: grid;
+        // grid-template-areas:
+        // "first second third";
+        // justify-items: center;
+        // gap: 35px;
 
-          grid-template-areas:
-          "first first"
-          "second third";
-        }
+        // @media (max-width: 556px) {
+        //   justify-items: normal;
+
+        //   grid-template-areas:
+        //   "first first"
+        //   "second third";
+        // }
 
         .footer-main-section {
           &:nth-child(1) {
@@ -363,6 +348,38 @@ export default {
               gap: 10px;
             }
           }
+        }
+      }
+
+      &-contact {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20;
+        flex: 1 0 auto;
+
+        text-align: left;
+        @media (max-width: 480px) {
+          justify-content: flex-start;
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .contact-item {
+          &:not(:last-child) {
+            margin-right: 20px;
+          }
+        }
+      }
+
+      .contact-social {
+        display: flex;
+        justify-content:center;
+        text-align: left;
+        @media (max-width: 480px) {
+          justify-content: flex-start;
+          align-items: flex-start;
         }
       }
     }

@@ -31,7 +31,7 @@
 
         <a v-for="(banner, index) in lobby.lobby_slider" :key="index" class="swiper-slide"
           :href="get_banner_item_link(banner)" :target="get_banner_item_target(banner)">
-            <img class="" :src="banner.image">
+            <img class="" :src="banner.image" loading=lazy>
         </a>
       </div>
 

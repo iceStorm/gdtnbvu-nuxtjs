@@ -97,7 +97,7 @@ export default {
       numbers: [
         {
           icon: '/pages/about/team.png',
-          number: 500,
+          number: 900,
           descriptions: 'Thành viên',
         },
         {
